@@ -3,16 +3,18 @@ import pandas as pd
 import numpy as np
 import warnings
 import requests
-import setup
+# import setup
+from selenium import webdriver
 from bs4 import BeautifulSoup
 
 warnings.simplefilter("ignore", UserWarning)
 
 
 
-class FinancailStatement(setup.Setup):
+class FinancailStatement():
     def __init__(self):
-        super().__init__('Selenium',source="VS")
+        # super().__init__('Selenium',source="VS")
+        self.driver = webdriver.Chrome()
     
     def get_data(self, link):
         self.driver.get(link)
