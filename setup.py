@@ -65,6 +65,7 @@ class Setup():
             chrome_options.add_argument('--disable-browser-side-navigation')
             chrome_options.add_argument('--disable-gpu')
         self.driver = webdriver.Chrome(executable_path=path,chrome_options=chrome_options)
+        # self.driver = webdriver.Edge()
 
     def request_link(self,link,time=5):
         try:

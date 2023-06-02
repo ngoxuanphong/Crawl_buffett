@@ -63,33 +63,33 @@ def create_link_df(table):
 
 def make_folder(id_company):
     try:
-        os.mkdir(f'{id_company}')
-        os.mkdir(f'{id_company}/PDF')
-        os.mkdir(f'{id_company}/docs')
-        os.mkdir(f'{id_company}/docx')
-        os.mkdir(f'{id_company}/volume')
+        os.mkdir(f'Data/{id_company}')
+        os.mkdir(f'Data/{id_company}/PDF')
+        os.mkdir(f'Data/{id_company}/docs')
+        os.mkdir(f'Data/{id_company}/docx')
+        os.mkdir(f'Data/{id_company}/volume')
     except:
         pass
 
 
 def save_check_point(F, id_company):
-    if not os.path.exists(f'{id_company}/docs/link.csv'):
+    if not os.path.exists(f'Data/{id_company}/docs/link.csv'):
         table = F.get_table(id_company=id_company)
         df = create_link_df(table)
-        df.to_csv(f'{id_company}/docs/link.csv', index=False)
+        df.to_csv(f'Data/{id_company}/docs/link.csv', index=False)
         df_check = df.copy()
         for quy in ['Q1', 'Q2', 'Q3', 'Q4']:
             df_check[f'download_{quy}'] = np.nan
-        df_check.to_csv(f'{id_company}/docs/check.csv', index=False)
+        df_check.to_csv(f'Data/{id_company}/docs/check.csv', index=False)
     else:
-        df = pd.read_csv(f'{id_company}/docs/link.csv')
+        df = pd.read_csv(f'Data/{id_company}/docs/link.csv')
         for quy in ['Q1', 'Q2', 'Q3', 'Q4']:
             df[f'Time_{quy}'] = df[f'Time_{quy}'].apply(lambda x: eval(x))
             df[f'Link_{quy}'] = df[f'Link_{quy}'].apply(lambda x: eval(x))
     return df
 
 def get_download_pdf(F, id_company, df):
-    df_check = pd.read_csv(f'{id_company}/docs/check.csv')
+    df_check = pd.read_csv(f'Data/{id_company}/docs/check.csv')
 
     for quy in ['Q1', 'Q2', 'Q3', 'Q4']:
         for id in df.index:
@@ -104,14 +104,14 @@ def get_download_pdf(F, id_company, df):
                             link_pdf = F.get_pdf_link(link_preview)
                             name = df[f'Time_{quy}'][id][id_link].replace(' ', '').replace('/', '_')
                             response = requests.get(link_pdf)
-                            with open(f'{id_company}/PDF/{year_}_{quy}_{name}.pdf', 'wb') as f:
+                            with open(f'Data/{id_company}/PDF/{year_}_{quy}_{name}.pdf', 'wb') as f:
                                 f.write(response.content)
                             msg = 'OK'
                         except:
                             msg = None
-                    print(f'{id_company} - {year_} - {quy} - {id_link} - {msg} - {link_preview}')
+                    print(f'Data/{id_company} - {year_} - {quy} - {id_link} - {msg} - {link_preview}')
                     df_check[f'download_{quy}'][id] = msg
-                    df_check.to_csv(f'{id_company}/docs/check.csv', index=False)
+                    df_check.to_csv(f'Data/{id_company}/docs/check.csv', index=False)
                     time.sleep(30)
 
 

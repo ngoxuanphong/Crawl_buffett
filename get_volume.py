@@ -44,10 +44,10 @@ def find_row(text):
 
 
 def get_data_from_pdf(id_company, year, quy):
-    for file in os.listdir(f'{id_company}/PDF'):
+    for file in os.listdir(f'Data/{id_company}/PDF'):
         if file.startswith(f'{year}_{quy}'):
             file_name = file
-            text = convert_pdf_to_text(f'{id_company}/PDF/{file_name}')
+            text = convert_pdf_to_text(f'Data/{id_company}/PDF/{file_name}')
             try:
                 lst_data_of_time = find_row(text)
             except:
@@ -58,9 +58,9 @@ def get_data_from_pdf(id_company, year, quy):
 
 def get_volume(id_company):
     df_volume = pd.DataFrame(columns=['time', 'vol1', 'vol2'])
-    df = pd.read_csv(f'{id_company}/docs/link.csv')
+    df = pd.read_csv(f'Data/{id_company}/docs/link.csv')
     for quy in ['Q1', 'Q2', 'Q3', 'Q4']:
         for id in df.index:
             year = df[f'Year'][id]
             df_volume.loc[(len(df_volume))] = [f'{year}_{quy}'] + get_data_from_pdf(id_company, year, quy)
-    df_volume.to_csv(f'{id_company}/docs/volume.csv', index=False)
+    df_volume.to_csv(f'Data/{id_company}/docs/volume.csv', index=False)
