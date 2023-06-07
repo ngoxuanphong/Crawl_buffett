@@ -10,21 +10,15 @@ import re
 import requests
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import Select
-# from Crawl.base.URL import URL_VIETSTOCK, USER,PASSWORD
-# from requests.packages.urllib3.exceptions import InsecureRequestWarning
-# requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 pd.set_option('mode.chained_assignment', None)
 
 class Setup():
     def __init__(self,type_tech = "Selenium",source="CF") -> None:
-        # self.user = USER
-        # self.password = PASSWORD
         self.year = 0
         self.quater = 0
         self.day = 0
         self.symbol = ""
         self.form_data = {}
-        # self.VS = URL_VIETSTOCK["LOGIN"]
         self.HEADERS = {'content-type': 'application/x-www-form-urlencoded', 'User-Agent': 'Mozilla'}
         if type_tech == "Selenium":
             self.reset_driver(source = source)
@@ -65,7 +59,6 @@ class Setup():
             chrome_options.add_argument('--disable-browser-side-navigation')
             chrome_options.add_argument('--disable-gpu')
         self.driver = webdriver.Chrome(executable_path=path,chrome_options=chrome_options)
-        # self.driver = webdriver.Edge()
 
     def request_link(self,link,time=5):
         try:
@@ -182,25 +175,3 @@ class Setup():
         table = soup.find_all('table',dict_)
         stock_slice_batch = pd.read_html(str(table))[0]
         return stock_slice_batch
-    
-    def login_VS(self):
-        self.driver.get(self.VS)
-        self.driver.maximize_window() 
-        try:       
-            self.click_something_by_id('btn-request-call-login')
-            self.send_something_by_id('txtEmailLogin',self.user)
-            self.send_something_by_id('txtPassword',self.password)
-            self.click_something_by_id('btnLoginAccount')
-        finally:
-            time.sleep(10)
-            pass
-    
-    def checkstatus_TVSI(self,link):
-        rs = requests.get(link)
-        soup = BeautifulSoup(rs.content, 'html.parser')
-        list_ = soup.find_all("div",{"class":"container"})
-        if len(list_) == 0:
-            return True
-        else:
-            return False
-

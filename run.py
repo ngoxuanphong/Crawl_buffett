@@ -15,8 +15,8 @@ def get_company(id_company = 5486):
     print('Save pdf done')
     # get_volume(id_company)
     # print('Get volume done')
-    # b = time.process_time()
-    # print(int(b-a))
+    b = time.process_time()
+    print(int(b-a))
 
 
 def get_all_com(csv_file = 'docs/List_company_23052023 - Listing.csv'):
@@ -38,6 +38,7 @@ def get_all_com(csv_file = 'docs/List_company_23052023 - Listing.csv'):
                 log_message(f'Failed: ID {id_company}')
             lst_com['check'][i] = msg
             lst_com.to_csv(csv_file, index=False)
+        time.sleep(40)
         
 
 def log_message(message):
