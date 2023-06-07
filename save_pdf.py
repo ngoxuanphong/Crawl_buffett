@@ -20,7 +20,13 @@ warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
 class FinancailStatement():
     def __init__(self):
-        # super().__init__('Selenium',source="VS")
+        self.setup_driver()
+
+    def reset_driver(self):
+        self.driver.quit()
+        self.setup_driver()
+
+    def setup_driver(self):
         chrome_options = Options()
 
         # chrome_options.add_argument('--headless')
@@ -44,7 +50,6 @@ class FinancailStatement():
         webgl_vendor="Intel Inc.",
         renderer="Intel Iris OpenGL Engine")
 
-    
     def get_data(self, link):
         self.driver.get(link)
         time.sleep(1)
@@ -165,6 +170,7 @@ def get_download_pdf(F, id_company, df):
                     time.sleep(np.random.randint(1, 5))
         if check_done_quater != True:
             print(f'Finish {quy}')
+            F.reset_driver()
             time.sleep(100)
 
 
