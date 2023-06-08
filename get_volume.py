@@ -43,11 +43,12 @@ def find_row(text):
     return find_by_re(text2)
 
 
-def get_data_from_pdf(id_company, year, quy):
-    for file in os.listdir(f'Data/{id_company}/PDF'):
+def get_data_from_pdf(id_company, year, quy, 
+                      path_save = None):
+    for file in os.listdir(f'{path_save}Data/{id_company}/PDF'):
         if file.startswith(f'{year}_{quy}'):
             file_name = file
-            text = convert_pdf_to_text(f'Data/{id_company}/PDF/{file_name}')
+            text = convert_pdf_to_text(f'{path_save}Data/{id_company}/PDF/{file_name}')
             date_volume = file_name[file_name.find('(')+1:file_name.find(')')]
             try:
                 lst_data_of_time = find_row(text)
@@ -66,7 +67,7 @@ def get_volume(id_company,
     for quy in ['Q1', 'Q2', 'Q3', 'Q4']:
         for id in df.index:
             year = df[f'Year'][id]
-            df_volume.loc[(len(df_volume))] = [f'{year}_{quy}'] + get_data_from_pdf(id_company, year, quy)
+            df_volume.loc[(len(df_volume))] = [f'{year}_{quy}'] + get_data_from_pdf(id_company, year, quy, path_save)
     if save_file:
         df_volume.to_csv(f'{path_save}Data/{id_company}/docs/volume.csv', index=False)
     if return_df:
