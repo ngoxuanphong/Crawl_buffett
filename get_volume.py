@@ -57,11 +57,17 @@ def get_data_from_pdf(id_company, year, quy):
     return ['N/A', 'N/A','N/A']
 
 
-def get_volume(id_company, path_save = None):
+def get_volume(id_company, 
+               path_save = None, 
+               return_df = False, 
+               save_file = True):
     df_volume = pd.DataFrame(columns=['time', 'time2', 'vol1', 'vol2'])
-    df = pd.read_csv(f'Data/{id_company}/docs/link.csv')
+    df = pd.read_csv(f'{path_save}Data/{id_company}/docs/link.csv')
     for quy in ['Q1', 'Q2', 'Q3', 'Q4']:
         for id in df.index:
             year = df[f'Year'][id]
             df_volume.loc[(len(df_volume))] = [f'{year}_{quy}'] + get_data_from_pdf(id_company, year, quy)
-    df_volume.to_csv(f'{path_save}Data/{id_company}/docs/volume.csv', index=False)
+    if save_file:
+        df_volume.to_csv(f'{path_save}Data/{id_company}/docs/volume.csv', index=False)
+    if return_df:
+        return df_volume
