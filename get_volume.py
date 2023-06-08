@@ -48,19 +48,20 @@ def get_data_from_pdf(id_company, year, quy):
         if file.startswith(f'{year}_{quy}'):
             file_name = file
             text = convert_pdf_to_text(f'Data/{id_company}/PDF/{file_name}')
+            date_volume = file_name[file_name.find('(')+1:file_name.find(')')]
             try:
                 lst_data_of_time = find_row(text)
             except:
-                lst_data_of_time = ['Bug',"Bug"]
-            return lst_data_of_time
-    return ['Không có file','Không có file']
+                lst_data_of_time = ['B',"B"]
+            return [date_volume] + lst_data_of_time
+    return ['N/A', 'N/A','N/A']
 
 
-def get_volume(id_company):
-    df_volume = pd.DataFrame(columns=['time', 'vol1', 'vol2'])
+def get_volume(id_company, path_save = None):
+    df_volume = pd.DataFrame(columns=['time', 'time2', 'vol1', 'vol2'])
     df = pd.read_csv(f'Data/{id_company}/docs/link.csv')
     for quy in ['Q1', 'Q2', 'Q3', 'Q4']:
         for id in df.index:
             year = df[f'Year'][id]
             df_volume.loc[(len(df_volume))] = [f'{year}_{quy}'] + get_data_from_pdf(id_company, year, quy)
-    df_volume.to_csv(f'Data/{id_company}/docs/volume.csv', index=False)
+    df_volume.to_csv(f'{path_save}Data/{id_company}/docs/volume.csv', index=False)
