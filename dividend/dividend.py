@@ -1,10 +1,11 @@
-import tabula, camelot, os, time
+import tabula, camelot, os, time, re
 import os, time
 import pandas as pd
 import numpy as np
 import warnings
 import requests
-from ocr_volume import ocr_pdf
+from volume.ocr_volume import ocr_pdf
+from dividend.get_dividend import get_data_from_pdf
 
 def get_dividend_table(tables, 
                        year = 'Any', 
@@ -66,7 +67,18 @@ def get_dividend(id_company,
             df_dividend_year = get_dividend_table_from_pdf(id_company, year, quy, path_save)
             print(df_dividend_year)
             df_dividend.loc[(len(df_dividend))] = list(df_dividend_year.iloc[0])
-    return df_dividend
-
-df_dividend = get_dividend(1301, path_save='tests/')
-df_dividend.to_csv('tests/Data/1301/docs/dividend.csv', index=False)
+    for quy in ['Q1', 'Q2', 'Q3', 'Q4']:
+        list_date = []
+        for id in df_dividend.index:
+            year = df_dividend['Year'][id]
+            if len(re.findall(r'\d+', df_dividend[quy][id])) > 0:
+                date = get_data_from_pdf(id_company, year, quy, path_save)
+                print(year, quy, date)
+            else:
+                date = np.nan
+            list_date.append(date)
+        df_dividend[f'time_split_{quy}'] = list_date
+    if save_file:
+        df_dividend.to_csv(path_save + f'Data/{id_company}/docs/dividend.csv', index=False)
+    if return_df:
+        return df_dividend

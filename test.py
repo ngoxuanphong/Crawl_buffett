@@ -10,8 +10,8 @@
 # df = get_volume(id, path_save = 'tests/', return_df = True, save_file = False)
 # print(df)
 
-from volume.ocr_volume import ocr_pdf
-ocr_pdf('tests/Data/1301/PDF/2013_Q4_決算短信(2014_5_9).pdf')
+# from volume.ocr_volume import ocr_pdf
+# ocr_pdf('tests/Data/1301/PDF/2013_Q4_決算短信(2014_5_9).pdf')
 # from volume.get_volume import convert_pdf_to_text, find_row 
 # ocr_pdf('tests/Data/1301/PDF/2017_Q4_決算短信(2018_5_10).pdf')
 # text = convert_pdf_to_text('tests/ocr.pdf').replace(' ', '').replace('.', ',')
@@ -20,3 +20,7 @@ ocr_pdf('tests/Data/1301/PDF/2013_Q4_決算短信(2014_5_9).pdf')
 # lst_data_of_time = find_row(text)
 # print(lst_data_of_time)
 
+from dividend.dividend import get_dividend
+
+df = get_dividend(id_company=1301, path_save = 'tests/', return_df = True, save_file = False)
+print(df)
