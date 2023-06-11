@@ -57,17 +57,20 @@ def get_data_from_pdf(id_company, year, quy,
     for file in os.listdir(path_save + f'Data/{id_company}/PDF'):
         if file.startswith(f'{year}_{quy}') and '(訂正)' not in file:
             file_name = file
-            text = convert_pdf_to_text(path_save + f'Data/{id_company}/PDF/{file_name}')
+            input_path = path_save + f'Data/{id_company}/PDF/{file_name}'
+            text = convert_pdf_to_text(input_path)
             date_volume = file_name[file_name.find('(')+1:file_name.find(')')]
             try:
                 lst_data_of_time = find_row(text)
             except:
                 try:
-                    lst_data_of_time = get_vol_table(path_save + f'Data/{id_company}/PDF/{file_name}')
+                    lst_data_of_time = get_vol_table(input_path)
                 except:
                     try:
-                        ocr_pdf(path_save + f'Data/{id_company}/PDF/{file_name}')
-                        text = convert_pdf_to_text('tests/ocr.pdf')
+                        path_pdf = input_path.replace('.pdf', '_ocr.pdf')
+                        if not os.path.exists(path_pdf):
+                            ocr_pdf(input_path)
+                        text = convert_pdf_to_text(path_pdf)
                         lst_data_of_time = find_row(text.replace(' ', '').replace('.', ','))
                     except:
                         lst_data_of_time = ['B',"B"]
