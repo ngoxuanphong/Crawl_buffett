@@ -22,5 +22,5 @@
 
 from dividend.dividend import get_dividend
 
-df = get_dividend(id_company=1301, path_save = 'tests/', return_df = True)
+df = get_dividend(id_company=1301, path_save = 'tests/', return_df = True, save_file= False)
 print(df)

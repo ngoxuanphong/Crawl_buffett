@@ -1,4 +1,4 @@
-import tabula, camelot, os, time, re
+import tabula, os, time, re
 import os, time
 import pandas as pd
 import numpy as np
