@@ -13,12 +13,14 @@ warnings.simplefilter("ignore", UserWarning)
 class GetPDF():
     def __init__(self,
                 path_all_com = 'Crawl/buffett/docs/List_company_23052023 - Listing.csv',
-                path_save = 'SAVE/Buffett/Data'):
+                path_save = 'SAVE/Buffett/Data',
+                time_sleep: int = 30):
         self.driver = webdriver.Edge()
         self.path_company = 'https://www.buffett-code.com/company'
         self.path_save = path_save
         self.path_all_com = path_all_com
         self.log_path = self.path_all_com.replace('.csv', '.log').replace('docs/', 'logs/')
+        self.time_sleep = time_sleep
     
     def get_data(self, link):
         '''
@@ -157,7 +159,7 @@ class GetPDF():
                         print(f'{self.path_save}/{id_company} - {year_} - {quy} - {id_link} - {msg} - {link_preview}')
                         df_check[f'download_{quy}'][id] = msg
                         df_check.to_csv(f'{self.path_save}/{id_company}/docs/check.csv', index=False)
-                        time.sleep(30)
+                        time.sleep(self.time_sleep)
 
 
     def save_pdf(self, 
