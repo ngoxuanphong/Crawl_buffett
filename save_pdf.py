@@ -6,7 +6,10 @@ import requests
 from selenium import webdriver
 from bs4 import BeautifulSoup
 from logs.log_setup import *
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver import Firefox
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.firefox.options import Options
+from webdriver_manager.firefox import GeckoDriverManager
 warnings.simplefilter("ignore", UserWarning)
 
 from pandas.errors import SettingWithCopyWarning
@@ -42,13 +45,13 @@ class GetPDF:
         Setup driver
         """
         if self.browser_name == 'Chrome':
-            tor_proxy = "127.0.0.1:9150"
+            tor_proxy = "127.0.0.1:9050"
             chrome_options = Options()
             chrome_options.add_argument("--ignore-certificate-errors")
             chrome_options.add_argument("disable-infobars")
-            chrome_options.add_argument(
-                "--user-data=C:\\Users\\user\\AppData\\Local\\Google\\Chrome\\User Data\\Default"
-            )
+            # chrome_options.add_argument(
+            #     "--user-data=C:\\Users\\user\\AppData\\Local\\Google\\Chrome\\User Data\\Default"
+            # )
             # chrome_options.add_argument("--proxy-server=socks5://%s" % tor_proxy)
             self.driver = webdriver.Chrome(options=chrome_options)
 
@@ -61,6 +64,28 @@ class GetPDF:
             self.driver.find_element('id', 'connectButton').click()
             time.sleep(10)
             self.driver.get("https://www.buffett-code.com/")
+
+        if self.browser_name == 'PC':
+            profile_path = os.path.expandvars(
+                r"A:\Tor Browser\Browser\TorBrowser\Data\Browser\profile.default"
+            )
+
+            options=Options()
+            options.set_preference('profile', profile_path)
+            service = Service(
+                executable_path=GeckoDriverManager().install()
+            )
+            options.binary_location = r"A:\Tor Browser\Browser\firefox.exe"
+            options.set_preference('network.proxy.type', 1)
+            options.set_preference('network.proxy.socks', '127.0.0.1')
+            options.set_preference('network.proxy.socks_port', 9050)
+
+            # torexe = subprocess.Popen(r"A:\Tor Browser\Browser\firefox.exe")
+            self.driver = Firefox(service=service, options=options)
+            self.driver.get("https://check.torproject.org")
+            self.driver.get("https://www.buffett-code.com/")
+            time.sleep(3)
+
 
     def get_data(self, link):
         """

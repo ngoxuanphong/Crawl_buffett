@@ -1,23 +1,33 @@
-from selenium import webdriver
+from selenium.webdriver import Firefox
 from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.firefox.options import Options
+from webdriver_manager.firefox import GeckoDriverManager
 import time
 import os
+import subprocess
 
-browser = None
-def get_browser():
-    global browser  
-    # only one instance of a browser opens, remove global for multiple instances
-    if not browser: 
-        option = webdriver.FirefoxOptions()
-        option.binary_location = r'/Applications/Tor Browser.app/Contents/MacOS/firefox'
-        browser = webdriver.Firefox(options=option)
-    return browser
+profile_path = os.path.expandvars(
+    r"A:\Tor Browser\Browser\TorBrowser\Data\Browser\profile.default"
+)
 
-driver = get_browser()
+options=Options()
+options.set_preference('profile', profile_path)
+service = Service(
+    executable_path=GeckoDriverManager().install()
+)
+options.binary_location = r"A:\Tor Browser\Browser\firefox.exe"
+options.set_preference('network.proxy.type', 1)
+options.set_preference('network.proxy.socks', '127.0.0.1')
+options.set_preference('network.proxy.socks_port', 9050)
+
+# torexe = subprocess.Popen(r"A:\Tor Browser\Browser\firefox.exe")
+driver = Firefox(service=service, options=options)
+driver.implicitly_wait(5)
 
 time.sleep(3)
 element = driver.find_element('id', 'connectButton').click()
 time.sleep(10)
+driver.get("https://check.torproject.org")
 driver.get("https://www.buffett-code.com/")
 time.sleep(3)
-driver.quit()
+# driver.quit()
