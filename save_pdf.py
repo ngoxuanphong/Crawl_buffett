@@ -1,4 +1,4 @@
-import os, time
+import os, time, subprocess
 import pandas as pd
 import numpy as np
 import warnings
@@ -22,8 +22,13 @@ class GetPDF:
         path_save="SAVE/Buffett/Data",
         time_sleep: int = 30,
         browser_name: str = "Chrome",
+        headless: bool = False,
+        tor_path = r"A:\Tor Browser"
     ):
+        self.tor_path = tor_path
+        self.first_tor_setup()
         self.browser_name = browser_name
+        self.headless = headless
         self.setup_driver()
         self.path_company = "https://www.buffett-code.com/company"
         self.path_save = path_save
@@ -32,6 +37,31 @@ class GetPDF:
             "docs/", "logs/"
         )
         self.time_sleep = time_sleep
+
+    def first_tor_setup(self):
+        profile_path = os.path.expandvars(
+            self.tor_path + r"\Browser\TorBrowser\Data\Browser\profile.default"
+        )
+        options = Options()
+        options.set_preference("profile", profile_path)
+        service = Service(
+            executable_path=GeckoDriverManager().install()
+        )
+
+        options.set_preference("network.proxy.type", 1)
+        options.set_preference("network.proxy.socks", "127.0.0.1")
+        options.set_preference("network.proxy.socks_port", 9050)
+        options.set_preference("network.proxy.socks_remote_dns", False)
+
+        tor_exe = subprocess.Popen(
+            os.path.expandvars(
+                self.tor_path + r"\Browser\TorBrowser\Tor\tor.exe"
+            )
+        )
+        driver = Firefox(service=service, options=options)
+        driver.get("https://check.torproject.org")
+        time.sleep(1)
+
 
     def reset_driver(self):
         """
@@ -44,18 +74,18 @@ class GetPDF:
         """
         Setup driver
         """
-        if self.browser_name == 'Chrome':
+        if self.browser_name == 'Chrome': # Chrome
             tor_proxy = "127.0.0.1:9050"
             chrome_options = Options()
             chrome_options.add_argument("--ignore-certificate-errors")
             chrome_options.add_argument("disable-infobars")
-            # chrome_options.add_argument(
-            #     "--user-data=C:\\Users\\user\\AppData\\Local\\Google\\Chrome\\User Data\\Default"
-            # )
-            # chrome_options.add_argument("--proxy-server=socks5://%s" % tor_proxy)
+            chrome_options.add_argument(
+                "--user-data=C:\\Users\\user\\AppData\\Local\\Google\\Chrome\\User Data\\Default"
+            )
+            chrome_options.add_argument("--proxy-server=socks5://%s" % tor_proxy)
             self.driver = webdriver.Chrome(options=chrome_options)
 
-        if self.browser_name == 'Firefox':
+        if self.browser_name == 'Firefox': # Firefox
             option = webdriver.FirefoxOptions()
             option.binary_location = r'/Applications/Tor Browser.app/Contents/MacOS/firefox'
             browser = webdriver.Firefox(options=option)
@@ -63,29 +93,34 @@ class GetPDF:
             time.sleep(3)
             self.driver.find_element('id', 'connectButton').click()
             time.sleep(10)
-            self.driver.get("https://www.buffett-code.com/")
+            self.driver.get("https://check.torproject.org")
 
-        if self.browser_name == 'PC':
+        if self.browser_name == 'PC': # Use tor in windows
             profile_path = os.path.expandvars(
-                r"A:\Tor Browser\Browser\TorBrowser\Data\Browser\profile.default"
+                self.tor_path + r"\Browser\TorBrowser\Data\Browser\profile.default"
             )
 
             options=Options()
+            options.headless = self.headless
             options.set_preference('profile', profile_path)
             service = Service(
                 executable_path=GeckoDriverManager().install()
             )
-            options.binary_location = r"A:\Tor Browser\Browser\firefox.exe"
+            options.binary_location = self.tor_path + r"\Browser\firefox.exe"
             options.set_preference('network.proxy.type', 1)
             options.set_preference('network.proxy.socks', '127.0.0.1')
             options.set_preference('network.proxy.socks_port', 9050)
+            # options.set_preference("network.proxy.socks_remote_dns", False)
 
-            # torexe = subprocess.Popen(r"A:\Tor Browser\Browser\firefox.exe")
             self.driver = Firefox(service=service, options=options)
             self.driver.get("https://check.torproject.org")
-            self.driver.get("https://www.buffett-code.com/")
-            time.sleep(3)
 
+        self.driver.get("https://www.buffett-code.com/")
+        soup = BeautifulSoup(
+            self.driver.page_source, "html.parser", from_encoding="utf-8"
+        )
+        if self.check_error(soup):
+            return self.setup_driver()
 
     def get_data(self, link):
         """
@@ -99,7 +134,19 @@ class GetPDF:
             self.driver.page_source, "html.parser", from_encoding="utf-8"
         )
         return soup
-
+    
+    def check_error(self, soup):
+        """
+        Check error
+        Input: BeautifulSoup of https://www.buffett-code.com/
+        Output: True if error else False
+        """
+        if '403 Forbidden' in soup.text or 'アクセスを一時的に制限しています。' in soup.text:
+            print('Lỗi rồi reset lại đi')
+            self.reset_driver()
+            return True
+        return False
+        
     def get_table(self, id_company=5486):
         """
         Get table have link pdf in web
@@ -109,9 +156,7 @@ class GetPDF:
         print(f"{self.path_company}/{id_company}/library")
         soup = self.get_data(f"{self.path_company}/{id_company}/library")
         table = soup.find_all("table")
-        if '403 Forbidden' in soup.text or 'アクセスを一時的に制限しています。' in soup.text:
-            print('Lỗi rồi reset lại đi')
-            self.reset_driver()
+        if self.check_error(soup):
             return self.get_table(id_company)
         return table
 
@@ -129,9 +174,7 @@ class GetPDF:
         for i in arr:
             if i["href"].find("pdf") != -1:
                 return i["href"]
-        if '403 Forbidden' in soup.text or 'アクセスを一時的に制限しています。' in soup.text:
-            print('Lỗi rồi reset lại đi')
-            self.reset_driver()
+        if self.check_error(soup):
             return self.get_pdf_link(link_)
         return ""
 

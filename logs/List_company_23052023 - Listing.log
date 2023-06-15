@@ -1413,3 +1413,1210 @@ INFO:root:2023-06-14 20:43:40 - Successfully: ID 9984
 INFO:root:2023-06-14 21:25:37 - Successfully: ID 9983
 INFO:root:2023-06-14 23:48:17 - Failed: ID 9982
 INFO:root:2023-06-14 23:48:19 - Failed: ID 9980
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 01:11:51 - Successfully: ID 9982
+INFO:root:2023-06-15 01:11:51 - Successfully: ID 9980
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 01:20:00 - Successfully: ID 9979
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 01:32:26 - Successfully: ID 9978
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 01:40:38 - Successfully: ID 9977
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 01:48:26 - Successfully: ID 9976
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 01:55:54 - Successfully: ID 9974
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 02:04:35 - Successfully: ID 9973
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 02:12:17 - Successfully: ID 9972
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 02:21:09 - Successfully: ID 9969
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 02:28:37 - Successfully: ID 9967
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 02:39:09 - Successfully: ID 9962
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 02:47:33 - Successfully: ID 9960
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 02:54:33 - Successfully: ID 9959
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 03:01:40 - Successfully: ID 9956
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 03:10:41 - Successfully: ID 9955
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 03:20:17 - Successfully: ID 9950
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 03:31:04 - Successfully: ID 9948
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 03:40:50 - Successfully: ID 9946
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 03:48:30 - Successfully: ID 9941
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 03:55:54 - Successfully: ID 9936
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 04:04:40 - Successfully: ID 9934
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 04:11:37 - Successfully: ID 9932
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 04:25:28 - Successfully: ID 9930
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 04:33:59 - Successfully: ID 9929
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 04:41:26 - Successfully: ID 9928
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 04:53:35 - Successfully: ID 9927
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 05:01:35 - Successfully: ID 9919
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 05:12:48 - Successfully: ID 9914
+INFO:root:2023-06-15 05:13:51 - Failed: ID 9913
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 05:23:25 - Successfully: ID 9908
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 05:33:32 - Successfully: ID 9906
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 05:42:50 - Successfully: ID 9904
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 05:49:34 - Successfully: ID 9903
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 05:55:47 - Successfully: ID 9902
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 06:02:22 - Successfully: ID 9900
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 06:12:43 - Successfully: ID 9896
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 06:23:17 - Successfully: ID 9895
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 06:32:51 - Successfully: ID 9890
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 06:41:49 - Successfully: ID 9889
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 06:57:50 - Successfully: ID 9888
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 07:05:52 - Successfully: ID 9887
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 07:16:31 - Successfully: ID 9885
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 07:28:08 - Successfully: ID 9882
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 07:37:38 - Successfully: ID 9880
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 07:52:59 - Successfully: ID 9878
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 07:59:40 - Successfully: ID 9876
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 08:12:51 - Successfully: ID 9873
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 08:22:17 - Successfully: ID 9872
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 08:31:11 - Successfully: ID 9869
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 08:44:43 - Successfully: ID 9867
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 08:53:33 - Successfully: ID 9861
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 08:57:51 - Failed: ID 9857
+INFO:root:2023-06-15 08:57:53 - Failed: ID 9856
+INFO:root:2023-06-15 08:57:55 - Failed: ID 9854
+INFO:root:2023-06-15 08:57:57 - Failed: ID 9853
+INFO:root:2023-06-15 08:57:59 - Failed: ID 9852
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000177423C2500>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/ac3a5e10-18fc-495a-b17c-ce4fd36376e8/url
+WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000177423C1060>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/ac3a5e10-18fc-495a-b17c-ce4fd36376e8/url
+WARNING:urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000177423C2DD0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/ac3a5e10-18fc-495a-b17c-ce4fd36376e8/url
+INFO:root:2023-06-15 08:58:16 - Failed: ID 9850
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 12:18:08 - Successfully: ID 9913
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:root:2023-06-15 12:52:34 - Successfully: ID 9857
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Driver [C:\Users\ADMIN\.wdm\drivers\geckodriver\win64\v0.33.0\geckodriver.exe] found in cache
