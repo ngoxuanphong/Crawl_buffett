@@ -6,4 +6,4 @@ bf = GetPDF(
     time_sleep=1,
     browser_name="PC",
 )
-bf.get_all_com(reverse=True)
+bf.get_all_com(reverse=False)

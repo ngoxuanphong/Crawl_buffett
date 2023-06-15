@@ -6,3 +6,5 @@ tabula-py
 camelot-py[cv]
 pandas
 numpy
+selenium == 4.10.0
+webdriver_manager
