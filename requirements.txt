@@ -1,4 +1,8 @@
 PyPDF2
 bs4
 requests
-selenium_stealth
+ocrmypdf
+tabula-py
+camelot-py[cv]
+pandas
+numpy

@@ -1,38 +1,33 @@
-from selenium import webdriver
+from selenium.webdriver import Firefox
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.firefox.options import Options
+from webdriver_manager.firefox import GeckoDriverManager
 import time
+import os
+import subprocess
 
-# Initialize the WebDriver
-driver = webdriver.Chrome()
+profile_path = os.path.expandvars(
+    r"A:\Tor Browser\Browser\TorBrowser\Data\Browser\profile.default"
+)
 
-# Open the first tab
-driver.get("https://www.google.com")
+options=Options()
+options.set_preference('profile', profile_path)
+service = Service(
+    executable_path=GeckoDriverManager().install()
+)
+options.binary_location = r"A:\Tor Browser\Browser\firefox.exe"
+options.set_preference('network.proxy.type', 1)
+options.set_preference('network.proxy.socks', '127.0.0.1')
+options.set_preference('network.proxy.socks_port', 9050)
 
-# Open additional tabs
-driver.execute_script("window.open('https://www.facebook.com')")
+# torexe = subprocess.Popen(r"A:\Tor Browser\Browser\firefox.exe")
+driver = Firefox(service=service, options=options)
+driver.implicitly_wait(5)
 
-# Switch to the first tab
-driver.switch_to.window(driver.window_handles[0])
-time.sleep(2)
-driver.execute_script("window.open('https://www.twitter.com')")
-driver.execute_script("window.open('https://www.instagram.com')")
-
-# Wait for a few seconds (optional)
-time.sleep(2)
-
-# Close the first tab
-driver.close()
-
-# Switch to the next tab
-driver.switch_to.window(driver.window_handles[0])
-time.sleep(2)
-# Close the second tab
-driver.close()
-
-# Switch to the last tab
-driver.switch_to.window(driver.window_handles[0])
-time.sleep(2)
-# Close the third tab
-driver.close()
-time.sleep(2)
-# Close the WebDriver
-driver.quit()
+time.sleep(3)
+element = driver.find_element('id', 'connectButton').click()
+time.sleep(10)
+driver.get("https://check.torproject.org")
+driver.get("https://www.buffett-code.com/")
+time.sleep(3)
+# driver.quit()

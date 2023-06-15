@@ -1,6 +1,8 @@
-from run import get_company
+from save_pdf import GetPDF
 
-get_company(id_company=1893)
-# get_company(id_company=1333)
-# get_company(id_company=1301)
-# get_company(id_company=3333)
+get_pdf = GetPDF(
+                path_all_com="docs/List_company_23052023 - Listing.csv",
+                path_save="Data",
+                time_sleep=1, 
+                browser_name='PC')
+get_pdf.save_pdf(id_company=9980)
