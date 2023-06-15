@@ -8,14 +8,14 @@ import numpy as np
 
 logging.getLogger("selenium.webdriver.common.selenium_manager").setLevel(logging.WARNING)
 def get_company(id_company = 5486):
-    a = time.process_time()
+    a = time.time()
 
     print('Start', id_company)
     save_pdf(id_company)
     print('Save pdf done')
     # get_volume(id_company)
     # print('Get volume done')
-    b = time.process_time()
+    b = time.time()
     print(int(b-a))
 
 
@@ -33,12 +33,12 @@ def get_all_com(csv_file = 'docs/List_company_23052023 - Listing.csv'):
                 get_company(id_company=id_company)
                 msg = 'Done'
                 log_message(f'Successfully: ID {id_company}')
+                time.sleep(40)
             except:
                 msg = 'False'
                 log_message(f'Failed: ID {id_company}')
             lst_com['check'][i] = msg
             lst_com.to_csv(csv_file, index=False)
-        time.sleep(40)
         
 
 def log_message(message):
