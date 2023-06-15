@@ -1,3 +1,5 @@
-from run import get_all_com
+from save_pdf import GetPDF
 
-get_all_com(csv_file = 'docs/List_company_23052023 - Listing.csv')
+bf = GetPDF(path_all_com = 'docs/List_company_23052023 - Listing.csv',
+            path_save = 'Data')
+bf.get_all_com(reverse = True)

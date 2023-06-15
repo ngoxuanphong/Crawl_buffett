@@ -77,7 +77,8 @@ def get_vol_table(file_path = 'tests/Data/1301/PDF/2022_Q1_決算短信(2022_8_5
     return [int(df[2][0].replace(' 株', '').replace(',', '')), int(df[2][1].replace(' 株', '').replace(',', ''))]
 
 
-def ocr_pdf(input_file, output_file = 'tests/ocr.pdf'):
+def ocr_pdf(input_file):
+    output_file = input_file.replace('.pdf', '_ocr.pdf')
     ocrmypdf.ocr(input_file, output_file,
                     language= 'eng+jpn',
                     force_ocr = True,
@@ -87,3 +88,4 @@ def ocr_pdf(input_file, output_file = 'tests/ocr.pdf'):
                     # skip_big = True,
                     max_image_mpixels = 500,
                     )
+    return output_file

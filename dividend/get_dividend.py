@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 import warnings
 from volume.ocr_volume import ocr_pdf
+
 warnings.simplefilter("ignore", UserWarning)
 
 
@@ -36,7 +37,8 @@ def get_data_from_pdf(id_company, year, quy, path_save = ''):
         for file in os.listdir(path_save + f'Data/{id_company}/PDF'):
             if file.startswith(f'{year}_{quy}') and '(訂正)' not in file:
                 file_name = file
-                text = convert_pdf_to_text(path_save + f'Data/{id_company}/PDF/{file_name}')
+                path_of_file = path_save + f'Data/{id_company}/PDF/{file_name}'
+                text = convert_pdf_to_text(path_of_file)
                 text = text.replace(" ", "")
                 idx = text.find('配当支払開始予定日')
                 if idx != -1:
@@ -46,8 +48,10 @@ def get_data_from_pdf(id_company, year, quy, path_save = ''):
                         # print(0)
                         return temp
                 else:
-                    ocr_pdf(path_save + f'Data/{id_company}/PDF/{file_name}')
-                    text_ = convert_pdf_to_text('tests/ocr.pdf')
+                    ocr_file = path_of_file.replace('.pdf', '_ocr.pdf')
+                    if os.path.exists(ocr_file) == False:
+                        ocr_pdf(path_of_file)
+                    text_ = convert_pdf_to_text(ocr_file)
                     text_ = text_.replace(" ", "")
 
                     idx = text_.find('配当支払開始予定日')
