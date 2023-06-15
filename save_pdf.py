@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import warnings
 import requests
-# import setup
 from selenium import webdriver
 from bs4 import BeautifulSoup
 from logs.log_setup import *
@@ -59,6 +58,7 @@ class GetPDF:
                 self.tor_path + r"\Browser\TorBrowser\Tor\tor.exe"
             )
         )
+        # tor_exe.kill()
         driver = Firefox(service=service, options=options)
         driver.get("https://check.torproject.org")
         time.sleep(1)
@@ -111,17 +111,20 @@ class GetPDF:
             options.set_preference('network.proxy.type', 1)
             options.set_preference('network.proxy.socks', '127.0.0.1')
             options.set_preference('network.proxy.socks_port', 9050)
-            # options.set_preference("network.proxy.socks_remote_dns", False)
 
             self.driver = Firefox(service=service, options=options)
             self.driver.get("https://check.torproject.org")
 
-        self.driver.get("https://www.buffett-code.com/")
-        soup = BeautifulSoup(
-            self.driver.page_source, "html.parser", from_encoding="utf-8"
-        )
-        if self.check_error(soup):
-            return self.setup_driver()
+        # self.driver.get("https://www.buffett-code.com/")
+        # soup = BeautifulSoup(
+        #     self.driver.page_source, "html.parser", from_encoding="utf-8"
+        # )
+        # if self.check_error(soup):
+        #     self.driver.quit()
+        #     print('-----------------------')
+        #     return self.setup_driver()
+        return ''
+
 
     def get_data(self, link):
         """
@@ -142,6 +145,7 @@ class GetPDF:
         Input: BeautifulSoup of https://www.buffett-code.com/
         Output: True if error else False
         """
+        time.sleep(1)
         if '403 Forbidden' in soup.text or 'アクセスを一時的に制限しています。' in soup.text:
             print('Lỗi rồi reset lại đi')
             self.reset_driver()
