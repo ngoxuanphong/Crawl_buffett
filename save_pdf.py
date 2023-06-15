@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import warnings
 import requests
+# import setup
 from selenium import webdriver
 from bs4 import BeautifulSoup
 from logs.log_setup import *

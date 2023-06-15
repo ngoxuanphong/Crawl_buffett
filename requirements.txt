@@ -6,4 +6,3 @@ tabula-py
 camelot-py[cv]
 pandas
 numpy
-webdriver-manager
