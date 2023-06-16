@@ -26,7 +26,8 @@ class GetPDF:
         tor_path = r"A:\Tor Browser"
     ):
         self.tor_path = tor_path
-        self.first_tor_setup()
+        if browser_name == 'PC':
+            self.first_tor_setup()
         self.browser_name = browser_name
         self.headless = headless
         self.setup_driver()
@@ -76,14 +77,14 @@ class GetPDF:
         Setup driver
         """
         if self.browser_name == 'Chrome': # Chrome
-            tor_proxy = "127.0.0.1:9050"
+            # tor_proxy = "127.0.0.1:9050"
             chrome_options = Options()
             chrome_options.add_argument("--ignore-certificate-errors")
             chrome_options.add_argument("disable-infobars")
             chrome_options.add_argument(
-                "--user-data=C:\\Users\\user\\AppData\\Local\\Google\\Chrome\\User Data\\Default"
+                "--user-data=C:\\Users\\ADMIN\\AppData\\Local\\Google\\Chrome\\User Data\\Default"
             )
-            chrome_options.add_argument("--proxy-server=socks5://%s" % tor_proxy)
+            # chrome_options.add_argument("--proxy-server=socks5://%s" % tor_proxy)
             self.driver = webdriver.Chrome(options=chrome_options)
 
         if self.browser_name == 'Firefox': # Firefox

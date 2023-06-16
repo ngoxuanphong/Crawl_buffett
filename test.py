@@ -5,7 +5,7 @@ bf = GetPDF(
             path_save="Data",
             time_sleep=2,
             browser_name="PC",
-            tor_path=r"A:\Tor Browser",
+            # tor_path=r"A:\Tor Browser",
             # headless=True
         )
 bf.save_pdf(id_company=7162)
