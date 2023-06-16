@@ -1,4 +1,4 @@
-from save_pdf import GetPDF
+from src.save_pdf import GetPDF
 
 bf = GetPDF(
             path_all_com="docs/List_company_23052023 - Listing.csv",

@@ -64,7 +64,6 @@ class GetPDF:
         driver.get("https://check.torproject.org")
         time.sleep(1)
 
-
     def reset_driver(self):
         """
         Reset driver
@@ -126,7 +125,6 @@ class GetPDF:
         #     return self.setup_driver()
         return ''
 
-
     def get_data(self, link):
         """
         Get data from link of company
@@ -143,8 +141,14 @@ class GetPDF:
     def check_error(self, soup):
         """
         Check error
-        Input: BeautifulSoup of https://www.buffett-code.com/
-        Output: True if error else False
+        Parameters
+        ----------
+        soup : BeautifulSoup
+            BeautifulSoup of company
+        Returns
+        -------
+        bool
+            True if error
         """
         time.sleep(1)
         if '403 Forbidden' in soup.text or 'アクセスを一時的に制限しています。' in soup.text:
@@ -153,11 +157,17 @@ class GetPDF:
             return True
         return False
         
-    def get_table(self, id_company=5486):
+    def get_table(self, id_company: int=5486):
         """
         Get table have link pdf in web
-        Input: BeautifulSoup of company
-        Output: table have link pdf in web
+        Parameters
+        ----------
+        id_company : int, optional
+            id of company, by default 5486
+        Returns
+        -------
+        table
+            table have link pdf
         """
         print(f"{self.path_company}/{id_company}/library")
         soup = self.get_data(f"{self.path_company}/{id_company}/library")
@@ -169,8 +179,13 @@ class GetPDF:
     def get_pdf_link(self, link_):
         """
         Get download link pdf in web
-        Input: link preview pdf file
-        Output: link download pdf file
+        Parameters
+        ----------
+        link_ : str
+            link of company
+        Returns
+        -------
+            link of download pdf
         """
         self.driver.get(link_)
         soup = BeautifulSoup(
@@ -187,29 +202,34 @@ class GetPDF:
     def create_link_df(self, table):
         """
         Create DataFrame have link pdf
-        Input: table have information of link pdf
-        Output: DataFrame have link pdf
+        Parameters
+        ----------
+        table : table
+            table have link pdf
+        Returns
+        -------
+        DataFrame of link pdf
         """
         json_company = {}
         for id_year, tr_year in enumerate(table[0].find_all("tr")):
-            json_company_quy = {}
+            json_company_quarter = {}
             year = ""
-            for id_quy, td_quy in enumerate(tr_year.find_all("td")):
+            for id_quarter, td_quarter in enumerate(tr_year.find_all("td")):
                 lst_text, lst_link = [], []
-                for li in td_quy.find_all("li"):
+                for li in td_quarter.find_all("li"):
                     if "決算短信" in li.text:
                         lst_text.append(li.text)
                         lst_link.append(
                             f"https://www.buffett-code.com{li.find('a')['href']}"
                         )
-                if id_quy != 0 and id_quy != 5:
-                    json_company_quy[f"Time_Q{id_quy}"] = lst_text
-                    json_company_quy[f"Link_Q{id_quy}"] = lst_link
-                    json_company_quy[f"Link_pdf_Q{id_quy}"] = np.nan
-                if td_quy["class"][0] == "center":
-                    year = td_quy.text
+                if id_quarter != 0 and id_quarter != 5:
+                    json_company_quarter[f"Time_Q{id_quarter}"] = lst_text
+                    json_company_quarter[f"Link_Q{id_quarter}"] = lst_link
+                    json_company_quarter[f"Link_pdf_Q{id_quarter}"] = np.nan
+                if td_quarter["class"][0] == "center":
+                    year = td_quarter.text
             if year != "":
-                json_company[year] = json_company_quy.copy()
+                json_company[year] = json_company_quarter.copy()
 
         df = pd.DataFrame(json_company).T.reset_index(drop=False)
         return df.rename(columns={"index": "Year"})
@@ -217,8 +237,13 @@ class GetPDF:
     def make_folder(self, id_company: int):
         """
         Make folder to save pdf
-        Input: id company
-        Output: None
+        parameters
+        ----------
+        id_company : int
+            id of company
+        Returns
+        -------
+        None
         """
         try:
             os.makedirs(f"{self.path_save}/{id_company}")
@@ -230,32 +255,44 @@ class GetPDF:
     def save_check_point(self, id_company: int):
         """
         Save check point to checklist file
-        Input: id company
-        Output: None
+        Parameters
+        ----------
+        id_company : int
+            id of company
+        Returns
+        -------
+        None
         """
-        if not os.path.exists(f"{self.path_save}/{id_company}/docs/link.csv"):
+        if not os.path.exists(f"{self.path_save}/{id_company}/docs/link.csv"): # check if file not exist
             table = self.get_table(id_company=id_company)
             df = self.create_link_df(table)
             df.to_csv(f"{self.path_save}/{id_company}/docs/link.csv", index=False)
             df_check = df.copy()
-            for quy in ["Q1", "Q2", "Q3", "Q4"]:
-                df_check[f"download_{quy}"] = np.nan
+            for quarter in ["Q1", "Q2", "Q3", "Q4"]:
+                df_check[f"download_{quarter}"] = np.nan
             df_check.to_csv(
                 f"{self.path_save}/{id_company}/docs/check.csv", index=False
             )
-        else:
-            df = pd.read_csv(f"{self.path_save}/{id_company}/docs/link.csv")
-            for quy in ["Q1", "Q2", "Q3", "Q4"]:
-                df[f"Time_{quy}"] = df[f"Time_{quy}"].apply(lambda x: eval(x))
-                df[f"Link_{quy}"] = df[f"Link_{quy}"].apply(lambda x: eval(x))
+        else: # if file exist
+            df = pd.read_csv(f"{self.path_save}/{id_company}/docs/link.csv") # read file
+            for quarter in ["Q1", "Q2", "Q3", "Q4"]:
+                df[f"Time_{quarter}"] = df[f"Time_{quarter}"].apply(lambda x: eval(x)) # convert string to list
+                df[f"Link_{quarter}"] = df[f"Link_{quarter}"].apply(lambda x: eval(x)) # convert string to list
         self.df_company = df
         return df
 
     def save_pdf_by_requests(self, path_save_pdf, link_pdf):
         """
         Download pdf file from link pdf
-        Input: path to save pdf file, link pdf file
-        Output: None
+        Parameters
+        ----------
+        path_save_pdf : str
+            path to save pdf
+        link_pdf : str
+            link of pdf
+        Returns
+        -------
+        None
         """
 
         response = requests.get(link_pdf)
@@ -265,33 +302,38 @@ class GetPDF:
     def get_download_pdf(self, id_company: int):
         """
         Download pdf file from link pdf
-        Input: id company
-        Output: None
+        Parameters
+        ----------
+        id_company : int
+            id of company
+        Returns
+        -------
+        None
         """
         df = self.df_company
         df_check = pd.read_csv(f"{self.path_save}/{id_company}/docs/check.csv")
 
-        for quy in ["Q1", "Q2", "Q3", "Q4"]:
+        for quarter in ["Q1", "Q2", "Q3", "Q4"]: # loop through quarter
             for id in df.index:
-                if pd.isna(df_check[f"download_{quy}"][id]):
-                    for id_link in range(len(df[f"Time_{quy}"][id])):
+                if pd.isna(df_check[f"download_{quarter}"][id]):
+                    for id_link in range(len(df[f"Time_{quarter}"][id])):
                         year_ = df[f"Year"][id]
-                        link_preview = df[f"Link_{quy}"][id][id_link]
+                        link_preview = df[f"Link_{quarter}"][id][id_link]
                         if not f"{self.path_company}" in link_preview:
                             msg = "Nan"
                         else:
                             try:
                                 link_pdf = self.get_pdf_link(link_preview)
-                                name = df[f"Time_{quy}"][id][id_link].replace(" ", "").replace("/", "_")
-                                path_save_pdf = f"{self.path_save}/{id_company}/PDF/{year_}_{quy}_{name}.pdf"
+                                name = df[f"Time_{quarter}"][id][id_link].replace(" ", "").replace("/", "_")
+                                path_save_pdf = f"{self.path_save}/{id_company}/PDF/{year_}_{quarter}_{name}.pdf"
                                 self.save_pdf_by_requests(path_save_pdf, link_pdf)
                                 msg = "OK"
                             except:
                                 msg = None
                         print(
-                            f"{self.path_save}/{id_company} - {year_} - {quy} - {id_link} - {msg} - {link_preview}"
+                            f"{self.path_save}/{id_company} - {year_} - {quarter} - {id_link} - {msg} - {link_preview}"
                         )
-                        df_check[f"download_{quy}"][id] = msg
+                        df_check[f"download_{quarter}"][id] = msg
                         df_check.to_csv(
                             f"{self.path_save}/{id_company}/docs/check.csv", index=False
                         )
@@ -300,8 +342,13 @@ class GetPDF:
     def save_pdf(self, id_company: int):
         """
         Save pdf
-        Input: id company
-        Output: None
+        Parameters
+        ----------
+        id_company : int
+            id of company
+        Returns
+        -------
+        None
         """
         start = time.time()
         self.make_folder(id_company)
@@ -312,7 +359,14 @@ class GetPDF:
 
     def get_all_com(self, reverse: bool = False):
         """
-        Get all company
+        Get all company in japan stock
+        Parameters
+        ----------
+        reverse : bool
+            reverse list company
+        Returns
+        -------
+        None
         """
         logging.basicConfig(filename=self.log_path, level=logging.INFO)
         lst_com = pd.read_csv(self.path_all_com)
@@ -333,4 +387,37 @@ class GetPDF:
                     log_message(f"Failed: ID {id_company}")
                 lst_com["check"][i] = msg
                 lst_com.sort_index(inplace=True)
+                lst_com.to_csv(self.path_all_com, index=False)
+
+    def re_download_company(self, id_company: int):
+        """
+        Re download company
+        Parameters
+        ----------
+        id_company : int
+            id of company
+        Returns
+        -------
+        None
+        """
+        self.save_pdf(id_company=id_company)
+    
+    def re_download_all_company(self):
+        """
+        Re download all company
+        Parameters
+        ----------
+        None
+        Returns
+        -------
+        None
+        """
+        lst_com = pd.read_csv(self.path_all_com)
+        for i in lst_com.index: # loop through company
+            id_company = lst_com["Symbol"][i]
+            self.save_pdf(id_company=id_company)
+            check = lst_com["check"][i]
+            if check == "Done": # if company is done
+                lst_com["check"][i] = "Done"
+                self.re_download_company(id_company=id_company)
                 lst_com.to_csv(self.path_all_com, index=False)
