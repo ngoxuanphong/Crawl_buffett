@@ -25,6 +25,22 @@ class GetPDF:
         headless: bool = False,
         tor_path = r"A:\Tor Browser"
     ):
+        """
+        Parameters
+        ----------
+        path_all_com : str, optional
+            Path to file list all company, by default "Crawl/buffett/docs/List_company_23052023 - Listing.csv"
+        path_save : str, optional
+            Path to save data, by default "SAVE/Buffett/Data"
+        time_sleep : int, optional
+            Time sleep to download pdf, by default 30
+        browser_name : str, optional
+            Browser name ['Chorme', 'Firefox', 'PC'], by default "Chrome"
+        headless : bool, optional
+            Bool open browser, by default False
+        tor_path : str, optional
+            Path to tor if use brower_name = 'PC', by default r"A:\Tor Browser"
+        """
         self.tor_path = tor_path
         if browser_name == 'PC':
             self.first_tor_setup()
