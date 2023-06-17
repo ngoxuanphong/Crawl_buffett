@@ -301,6 +301,6 @@ def get_table(id_company, path_save, save_file = False, return_check = True):
                 checklist += [[f'{year}_{quy}', 'N/A', 'N/A']]
 
     df_checklist = pd.DataFrame(checklist, columns=['Time', 'get_bs', 'get_pl'])
+    df_checklist.to_csv(path_save + f'Data/{id_company}/docs/checklist_get_table.csv', index = False)
     if return_check:
-        df_checklist.to_csv(path_save + f'Data/{id_company}/docs/checklist_get_table.csv', index = False)
         return df_checklist
