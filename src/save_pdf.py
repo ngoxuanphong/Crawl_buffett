@@ -57,7 +57,7 @@ class GetPDF:
 
     def first_tor_setup(self):
         profile_path = os.path.expandvars(
-            self.tor_path + r"\Browser\TorBrowser\Data\Browser\profile.default"
+            self.tor_path + r"\Browser\TorBrowser\Data\Blorowser\profile.default"
         )
         options = Options()
         options.set_preference("profile", profile_path)
@@ -373,7 +373,9 @@ class GetPDF:
         end = time.time()
         print(f"Time run {id_company}: {end - start}")
 
-    def get_all_com(self, reverse: bool = False):
+    def get_all_com(self, 
+                    reverse: bool = False,
+                    save_log: bool = True):
         """
         Get all company in japan stock
         Parameters
@@ -397,10 +399,10 @@ class GetPDF:
                 try:
                     self.save_pdf(id_company=id_company)
                     msg = "Done"
-                    log_message(f"Successfully: ID {id_company}")
+                    log_message(save_log, f"Successfully: ID {id_company}")
                 except:
                     msg = "False"
-                    log_message(f"Failed: ID {id_company}")
+                    log_message(save_log, f"Failed: ID {id_company}")
                 lst_com["check"][i] = msg
                 lst_com.sort_index(inplace=True)
                 lst_com.to_csv(self.path_all_com, index=False)
