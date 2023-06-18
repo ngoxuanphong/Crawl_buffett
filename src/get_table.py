@@ -239,27 +239,68 @@ def extract_pdf(path_file, type_):
         # df[df[df.columns[0]] != '―']
         return df.replace('', None)
 
-def get_table(id_company, type_ = 'bs',
-               path_save = '',
-               return_df = True,
-               save_file = False):
+# def get_table(id_company, type_ = 'bs',
+#                path_save = '',
+#                return_df = True,
+#                save_file = False):
     
-    for file in os.listdir(path_save + f'Data/{id_company}/PDF'):
-        if 'ocr' not in file and '(訂正)' not in file:
-            try:
-                numbers = re.findall(r'\d+', file)
-                year = numbers[0]
-                quy = f'Q{numbers[1]}'
-                path_file = path_save + f'Data/{id_company}/PDF/{file}'
-                df_ = extract_pdf(path_file, type_)
-                if save_file:
-                    df_.to_csv(path_save + f'Data/{id_company}/docs/{type_}/{year}_{quy}.csv', index=False)
-                if return_df:
-                    print(f'Data/{id_company}/{type_}/{year}_{quy}')
-                    n_row, n_col = df_.shape
-                    if n_row < 30: 
-                        print(f'           ---------lỗi--------{file}')
-                        print(df_.to_string())
-                    print(' ')
-            except:
-                print(f'----------BUG---------{file}')
+#     for file in os.listdir(path_save + f'Data/{id_company}/PDF'):
+#         if 'ocr' not in file and '(訂正)' not in file:
+#             try:
+#                 numbers = re.findall(r'\d+', file)
+#                 year = numbers[0]
+#                 quy = f'Q{numbers[1]}'
+#                 path_file = path_save + f'Data/{id_company}/PDF/{file}'
+#                 df_ = extract_pdf(path_file, type_)
+#                 if save_file:
+#                     df_.to_csv(path_save + f'Data/{id_company}/{type_}/{year}_{quy}.csv', index=False)
+#                 if return_df:
+#                     # print(f'Data/{id_company}/{type_}/{year}_{quy}')
+#                     # n_row, n_col = df_.shape
+#                     # if n_row < 30: 
+#                     #     print(f'           ---------lỗi--------{file}')
+#                     print(df_)
+#                     # print(' ')
+#             except:
+#                 print(f'----------BUG---------{file}')
+
+def get_table_from_pdf(id_company, path_save, file, type_ = 'bs'):
+    path_file = path_save + f'Data/{id_company}/PDF/{file}'
+    df_table = extract_pdf(path_file, type_)
+    return df_table 
+
+def get_table(id_company, path_save, save_file = False, return_check = True):
+    df_time = pd.read_csv(path_save + f'Data/{id_company}/docs/link.csv')
+    checklist = []
+    for quy in ['Q1', 'Q2', 'Q3', 'Q4']:
+        for id in df_time.index:
+            year = df_time[f'Year'][id]
+            check_file = False
+
+            for file in os.listdir(path_save + f'Data/{id_company}/PDF'):
+                if file.startswith(f'{year}_{quy}') and '(訂正)' not in file and 'ocr' not in file:
+                    check_file = True
+                    check_bs = 'Done'
+                    try:
+                        df_bs = get_table_from_pdf(id_company, path_save, file, type_= 'bs')
+                        if save_file:
+                            df_bs.to_csv(path_save + f'Data/{id_company}/table_bs/{year}_{quy}.csv', index=False)
+                    except:
+                        check_bs = 'B'
+
+                    check_pl = 'Done'
+                    try:
+                        df_pl = get_table_from_pdf(id_company, path_save, file, type_= 'pl')
+                        if save_file:
+                            df_pl.to_csv(path_save + f'Data/{id_company}/table_pl/{year}_{quy}.csv', index=False)
+                    except:
+                        check_pl = 'B'
+                    checklist += [[f'{year}_{quy}', check_bs, check_pl]]
+
+            if check_file == False:
+                checklist += [[f'{year}_{quy}', 'N/A', 'N/A']]
+
+    df_checklist = pd.DataFrame(checklist, columns=['Time', 'get_bs', 'get_pl'])
+    df_checklist.to_csv(path_save + f'Data/{id_company}/docs/checklist_get_table.csv', index = False)
+    if return_check:
+        return df_checklist
