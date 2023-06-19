@@ -10,22 +10,20 @@ profile_path = os.path.expandvars(
     r"A:\Tor Browser\Browser\TorBrowser\Data\Browser\profile.default"
 )
 
-options=Options()
-options.set_preference('profile', profile_path)
-service = Service(
-    executable_path=GeckoDriverManager().install()
-)
+options = Options()
+options.set_preference("profile", profile_path)
+service = Service(executable_path=GeckoDriverManager().install())
 options.binary_location = r"A:\Tor Browser\Browser\firefox.exe"
-options.set_preference('network.proxy.type', 1)
-options.set_preference('network.proxy.socks', '127.0.0.1')
-options.set_preference('network.proxy.socks_port', 9050)
+options.set_preference("network.proxy.type", 1)
+options.set_preference("network.proxy.socks", "127.0.0.1")
+options.set_preference("network.proxy.socks_port", 9050)
 
 # tor_exe = subprocess.Popen(r"A:\Tor Browser\Browser\firefox.exe")
 driver = Firefox(service=service, options=options)
 driver.implicitly_wait(5)
 
 time.sleep(3)
-element = driver.find_element('id', 'connectButton').click()
+element = driver.find_element("id", "connectButton").click()
 time.sleep(3)
 driver.get("https://check.torproject.org")
 driver.get("https://www.buffett-code.com/")
