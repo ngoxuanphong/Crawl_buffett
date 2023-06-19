@@ -8,4 +8,4 @@ bf = GetPDF(
     # tor_path=r"A:\Tor Browser",
     headless=True
 )
-bf.get_all_com(save_log=False, reverse=True)
+bf.re_download_all_company(reverse=True)
