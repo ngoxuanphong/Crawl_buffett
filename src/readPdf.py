@@ -13,7 +13,7 @@ class ReadPdf():
         self.path_all_com = path_all_com
         self.path_save = path_save
 
-    def get_all_com(self, reverse: bool = False, save_log: bool = True):
+    def get_all_com(self, reverse: bool = False):
         """
         Get all company in japan stock
         Parameters
