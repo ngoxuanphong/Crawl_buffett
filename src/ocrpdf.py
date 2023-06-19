@@ -1,17 +1,20 @@
 import PyPDF2
 import ocrmypdf
 
+
 def ocr_pdf(input_file):
-    output_file = input_file.replace('.pdf', '_ocr.pdf')
-    ocrmypdf.ocr(input_file, output_file,
-                    language= 'eng+jpn',
-                    force_ocr = True,
-                    output_type='pdf',
-                    optimize=0,
-                    progress_bar = False,
-                    # skip_big = True,
-                    max_image_mpixels = 500,
-                    )
+    output_file = input_file.replace(".pdf", "_ocr.pdf")
+    ocrmypdf.ocr(
+        input_file,
+        output_file,
+        language="eng+jpn",
+        force_ocr=True,
+        output_type="pdf",
+        optimize=0,
+        progress_bar=False,
+        # skip_big = True,
+        max_image_mpixels=500,
+    )
     return output_file
 
 
@@ -24,5 +27,5 @@ def convert_pdf_to_text(pdf_path):
             page = pdf_reader.pages[page_number]
             t = page.extract_text()
             text += t
-    
+
     return text

@@ -10,10 +10,13 @@ from selenium.webdriver import Firefox
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.firefox.options import Options
 from webdriver_manager.firefox import GeckoDriverManager
+
 warnings.simplefilter("ignore", UserWarning)
 
 from pandas.errors import SettingWithCopyWarning
+
 warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
+
 
 class GetPDF:
     def __init__(
@@ -23,7 +26,7 @@ class GetPDF:
         time_sleep: int = 30,
         browser_name: str = "Chrome",
         headless: bool = False,
-        tor_path = r"A:\Tor Browser"
+        tor_path=r"A:\Tor Browser",
     ):
         """
         Parameters
@@ -35,14 +38,14 @@ class GetPDF:
         time_sleep : int, optional
             Time sleep to download pdf, by default 30
         browser_name : str, optional
-            Browser name ['Chorme', 'Firefox', 'PC'], by default "Chrome"
+            Browser name ['Chrome', 'Firefox', 'PC'], by default "Chrome"
         headless : bool, optional
             Bool open browser, by default False
         tor_path : str, optional
-            Path to tor if use brower_name = 'PC', by default r"A:\Tor Browser"
+            Path to tor if use browser_name = 'PC', by default r"A:\Tor Browser"
         """
         self.tor_path = tor_path
-        if browser_name == 'PC':
+        if browser_name == "PC":
             self.first_tor_setup()
         self.browser_name = browser_name
         self.headless = headless
@@ -57,13 +60,11 @@ class GetPDF:
 
     def first_tor_setup(self):
         profile_path = os.path.expandvars(
-            self.tor_path + r"\Browser\TorBrowser\Data\Blorowser\profile.default"
+            self.tor_path + r"\Browser\TorBrowser\Data\Browser\profile.default"
         )
         options = Options()
         options.set_preference("profile", profile_path)
-        service = Service(
-            executable_path=GeckoDriverManager().install()
-        )
+        service = Service(executable_path=GeckoDriverManager().install())
 
         options.set_preference("network.proxy.type", 1)
         options.set_preference("network.proxy.socks", "127.0.0.1")
@@ -71,9 +72,7 @@ class GetPDF:
         options.set_preference("network.proxy.socks_remote_dns", False)
 
         tor_exe = subprocess.Popen(
-            os.path.expandvars(
-                self.tor_path + r"\Browser\TorBrowser\Tor\tor.exe"
-            )
+            os.path.expandvars(self.tor_path + r"\Browser\TorBrowser\Tor\tor.exe")
         )
         # tor_exe.kill()
         driver = Firefox(service=service, options=options)
@@ -91,7 +90,7 @@ class GetPDF:
         """
         Setup driver
         """
-        if self.browser_name == 'Chrome': # Chrome
+        if self.browser_name == "Chrome":  # Chrome
             # tor_proxy = "127.0.0.1:9050"
             chrome_options = Options()
             chrome_options.add_argument("--ignore-certificate-errors")
@@ -102,31 +101,31 @@ class GetPDF:
             # chrome_options.add_argument("--proxy-server=socks5://%s" % tor_proxy)
             self.driver = webdriver.Chrome(options=chrome_options)
 
-        if self.browser_name == 'Firefox': # Firefox
+        if self.browser_name == "Firefox":  # Firefox
             option = webdriver.FirefoxOptions()
-            option.binary_location = r'/Applications/Tor Browser.app/Contents/MacOS/firefox'
+            option.binary_location = (
+                r"/Applications/Tor Browser.app/Contents/MacOS/firefox"
+            )
             browser = webdriver.Firefox(options=option)
             self.driver = browser
             time.sleep(3)
-            self.driver.find_element('id', 'connectButton').click()
+            self.driver.find_element("id", "connectButton").click()
             time.sleep(10)
             self.driver.get("https://check.torproject.org")
 
-        if self.browser_name == 'PC': # Use tor in windows
+        if self.browser_name == "PC":  # Use tor in windows
             profile_path = os.path.expandvars(
                 self.tor_path + r"\Browser\TorBrowser\Data\Browser\profile.default"
             )
 
-            options=Options()
+            options = Options()
             options.headless = self.headless
-            options.set_preference('profile', profile_path)
-            service = Service(
-                executable_path=GeckoDriverManager().install()
-            )
+            options.set_preference("profile", profile_path)
+            service = Service(executable_path=GeckoDriverManager().install())
             options.binary_location = self.tor_path + r"\Browser\firefox.exe"
-            options.set_preference('network.proxy.type', 1)
-            options.set_preference('network.proxy.socks', '127.0.0.1')
-            options.set_preference('network.proxy.socks_port', 9050)
+            options.set_preference("network.proxy.type", 1)
+            options.set_preference("network.proxy.socks", "127.0.0.1")
+            options.set_preference("network.proxy.socks_port", 9050)
 
             self.driver = Firefox(service=service, options=options)
             self.driver.get("https://check.torproject.org")
@@ -139,7 +138,7 @@ class GetPDF:
         #     self.driver.quit()
         #     print('-----------------------')
         #     return self.setup_driver()
-        return ''
+        return ""
 
     def get_data(self, link):
         """
@@ -153,7 +152,7 @@ class GetPDF:
             self.driver.page_source, "html.parser", from_encoding="utf-8"
         )
         return soup
-    
+
     def check_error(self, soup):
         """
         Check error
@@ -167,13 +166,13 @@ class GetPDF:
             True if error
         """
         time.sleep(1)
-        if '403 Forbidden' in soup.text or 'アクセスを一時的に制限しています。' in soup.text:
-            print('Lỗi rồi reset lại đi')
+        if "403 Forbidden" in soup.text or "アクセスを一時的に制限しています。" in soup.text:
+            print("Lỗi rồi reset lại đi")
             self.reset_driver()
             return True
         return False
-        
-    def get_table(self, id_company: int=5486):
+
+    def get_table(self, id_company: int = 5486):
         """
         Get table have link pdf in web
         Parameters
@@ -279,7 +278,9 @@ class GetPDF:
         -------
         None
         """
-        if not os.path.exists(f"{self.path_save}/{id_company}/docs/link.csv"): # check if file not exist
+        if not os.path.exists(
+            f"{self.path_save}/{id_company}/docs/link.csv"
+        ):  # check if file not exist
             table = self.get_table(id_company=id_company)
             df = self.create_link_df(table)
             df.to_csv(f"{self.path_save}/{id_company}/docs/link.csv", index=False)
@@ -289,11 +290,17 @@ class GetPDF:
             df_check.to_csv(
                 f"{self.path_save}/{id_company}/docs/check.csv", index=False
             )
-        else: # if file exist
-            df = pd.read_csv(f"{self.path_save}/{id_company}/docs/link.csv") # read file
+        else:  # if file exist
+            df = pd.read_csv(
+                f"{self.path_save}/{id_company}/docs/link.csv"
+            )  # read file
             for quarter in ["Q1", "Q2", "Q3", "Q4"]:
-                df[f"Time_{quarter}"] = df[f"Time_{quarter}"].apply(lambda x: eval(x)) # convert string to list
-                df[f"Link_{quarter}"] = df[f"Link_{quarter}"].apply(lambda x: eval(x)) # convert string to list
+                df[f"Time_{quarter}"] = df[f"Time_{quarter}"].apply(
+                    lambda x: eval(x)
+                )  # convert string to list
+                df[f"Link_{quarter}"] = df[f"Link_{quarter}"].apply(
+                    lambda x: eval(x)
+                )  # convert string to list
         self.df_company = df
         return df
 
@@ -312,9 +319,9 @@ class GetPDF:
         """
 
         response = requests.get(link_pdf)
-        with open(path_save_pdf,"wb") as f:
+        with open(path_save_pdf, "wb") as f:
             f.write(response.content)
-        
+
     def get_download_pdf(self, id_company: int):
         """
         Download pdf file from link pdf
@@ -329,7 +336,7 @@ class GetPDF:
         df = self.df_company
         df_check = pd.read_csv(f"{self.path_save}/{id_company}/docs/check.csv")
 
-        for quarter in ["Q1", "Q2", "Q3", "Q4"]: # loop through quarter
+        for quarter in ["Q1", "Q2", "Q3", "Q4"]:  # loop through quarter
             for id in df.index:
                 if pd.isna(df_check[f"download_{quarter}"][id]):
                     for id_link in range(len(df[f"Time_{quarter}"][id])):
@@ -340,7 +347,11 @@ class GetPDF:
                         else:
                             try:
                                 link_pdf = self.get_pdf_link(link_preview)
-                                name = df[f"Time_{quarter}"][id][id_link].replace(" ", "").replace("/", "_")
+                                name = (
+                                    df[f"Time_{quarter}"][id][id_link]
+                                    .replace(" ", "")
+                                    .replace("/", "_")
+                                )
                                 path_save_pdf = f"{self.path_save}/{id_company}/PDF/{year_}_{quarter}_{name}.pdf"
                                 self.save_pdf_by_requests(path_save_pdf, link_pdf)
                                 msg = "OK"
@@ -373,9 +384,7 @@ class GetPDF:
         end = time.time()
         print(f"Time run {id_company}: {end - start}")
 
-    def get_all_com(self, 
-                    reverse: bool = False,
-                    save_log: bool = True):
+    def get_all_com(self, reverse: bool = False, save_log: bool = True):
         """
         Get all company in japan stock
         Parameters
@@ -419,7 +428,7 @@ class GetPDF:
         None
         """
         self.save_pdf(id_company=id_company)
-    
+
     def re_download_all_company(self):
         """
         Re download all company
@@ -431,11 +440,11 @@ class GetPDF:
         None
         """
         lst_com = pd.read_csv(self.path_all_com)
-        for i in lst_com.index: # loop through company
+        for i in lst_com.index:  # loop through company
             id_company = lst_com["Symbol"][i]
             self.save_pdf(id_company=id_company)
             check = lst_com["check"][i]
-            if check == "Done": # if company is done
+            if check == "Done":  # if company is done
                 lst_com["check"][i] = "Done"
                 self.re_download_company(id_company=id_company)
                 lst_com.to_csv(self.path_all_com, index=False)
