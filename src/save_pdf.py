@@ -6,11 +6,10 @@ import requests
 from selenium import webdriver
 from bs4 import BeautifulSoup
 from logs.log_setup import *
+from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver import Firefox
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.firefox.options import Options
-from webdriver_manager.firefox import GeckoDriverManager
-
 warnings.simplefilter("ignore", UserWarning)
 
 from pandas.errors import SettingWithCopyWarning
@@ -92,14 +91,17 @@ class GetPDF:
         """
         if self.browser_name == "Chrome":  # Chrome
             # tor_proxy = "127.0.0.1:9050"
-            chrome_options = Options()
-            chrome_options.add_argument("--ignore-certificate-errors")
-            chrome_options.add_argument("disable-infobars")
-            chrome_options.add_argument(
+            from selenium.webdriver.chrome.options import Options
+            options = Options()
+            # if self.headless:
+            #     options.add_argument('--headless')
+            options.add_argument("--ignore-certificate-errors")
+            options.add_argument("disable-infobars")
+            options.add_argument(
                 "--user-data=C:\\Users\\ADMIN\\AppData\\Local\\Google\\Chrome\\User Data\\Default"
             )
-            # chrome_options.add_argument("--proxy-server=socks5://%s" % tor_proxy)
-            self.driver = webdriver.Chrome(options=chrome_options)
+            # options.add_argument("--proxy-server=socks5://%s" % tor_proxy)
+            self.driver = webdriver.Chrome(options=options)
 
         if self.browser_name == "Firefox":  # Firefox
             option = webdriver.FirefoxOptions()
@@ -415,6 +417,8 @@ class GetPDF:
                 lst_com["check"][i] = msg
                 lst_com.sort_index(inplace=True)
                 lst_com.to_csv(self.path_all_com, index=False)
+            else:
+                self.save_pdf(id_company=id_company)
 
     def re_download_company(self, id_company: int):
         """
@@ -429,22 +433,25 @@ class GetPDF:
         """
         self.save_pdf(id_company=id_company)
 
-    def re_download_all_company(self):
-        """
-        Re download all company
-        Parameters
-        ----------
-        None
-        Returns
-        -------
-        None
-        """
-        lst_com = pd.read_csv(self.path_all_com)
-        for i in lst_com.index:  # loop through company
-            id_company = lst_com["Symbol"][i]
-            self.save_pdf(id_company=id_company)
-            check = lst_com["check"][i]
-            if check == "Done":  # if company is done
-                lst_com["check"][i] = "Done"
-                self.re_download_company(id_company=id_company)
-                lst_com.to_csv(self.path_all_com, index=False)
+    # def re_download_all_company(self, reverse: bool = False):
+    #     """
+    #     Re download all company
+    #     Parameters
+    #     ----------
+    #     None
+    #     Returns
+    #     -------
+    #     None
+    #     """
+    #     lst_com = pd.read_csv(self.path_all_com)
+    #     if reverse:
+    #         lst_com = lst_com[::-1]
+    #     for i in lst_com.index:  # loop through company
+    #         id_company = lst_com["Symbol"][i]
+    #         self.save_pdf(id_company=id_company)
+    #         check = lst_com["check"][i]
+    #         if check == "Done":  # if company is done
+    #             self.re_download_company(id_company=id_company)
+    #         else:
+    #             if not os.path.exists(f'Data/{id_company}/docs/check.csv'):
+    #                 break

@@ -12,7 +12,7 @@ warnings.simplefilter("ignore", UserWarning)
 
 class GetDividend:
     def __init__(self,
-            path_save:str = '',
+            path_save:str = 'Data',
             ):
         self.path_save = path_save
 
