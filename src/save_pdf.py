@@ -417,6 +417,8 @@ class GetPDF:
                 lst_com["check"][i] = msg
                 lst_com.sort_index(inplace=True)
                 lst_com.to_csv(self.path_all_com, index=False)
+            else:
+                self.save_pdf(id_company=id_company)
 
     def re_download_company(self, id_company: int):
         """
@@ -431,25 +433,25 @@ class GetPDF:
         """
         self.save_pdf(id_company=id_company)
 
-    def re_download_all_company(self, reverse: bool = False):
-        """
-        Re download all company
-        Parameters
-        ----------
-        None
-        Returns
-        -------
-        None
-        """
-        lst_com = pd.read_csv(self.path_all_com)
-        if reverse:
-            lst_com = lst_com[::-1]
-        for i in lst_com.index:  # loop through company
-            id_company = lst_com["Symbol"][i]
-            self.save_pdf(id_company=id_company)
-            check = lst_com["check"][i]
-            if check == "Done":  # if company is done
-                self.re_download_company(id_company=id_company)
-            else:
-                if not os.path.exists(f'Data/{id_company}/docs/check.csv'):
-                    break
+    # def re_download_all_company(self, reverse: bool = False):
+    #     """
+    #     Re download all company
+    #     Parameters
+    #     ----------
+    #     None
+    #     Returns
+    #     -------
+    #     None
+    #     """
+    #     lst_com = pd.read_csv(self.path_all_com)
+    #     if reverse:
+    #         lst_com = lst_com[::-1]
+    #     for i in lst_com.index:  # loop through company
+    #         id_company = lst_com["Symbol"][i]
+    #         self.save_pdf(id_company=id_company)
+    #         check = lst_com["check"][i]
+    #         if check == "Done":  # if company is done
+    #             self.re_download_company(id_company=id_company)
+    #         else:
+    #             if not os.path.exists(f'Data/{id_company}/docs/check.csv'):
+    #                 break

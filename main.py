@@ -6,6 +6,6 @@ bf = GetPDF(
     time_sleep=35,
     browser_name="Chrome",
     # tor_path=r"A:\Tor Browser",
-    headless=True
+    # headless=True
 )
-bf.get_all_com(save_log=False, reverse=True)
+bf.get_all_com(save_log=False, reverse=False)
