@@ -8,8 +8,13 @@ class ReadPdf():
     def __init__(
         self,
 <<<<<<< HEAD
+<<<<<<< HEAD
         path_all_com="docs/List_company_23052023 - Listing.csv",
         path_save="",
+=======
+        path_all_com="Crawl/buffett/docs/List_company_23052023 - Listing.csv",
+        path_save="Data",
+>>>>>>> 347c62602e734128b529e38c77f4dc61fc72bcec
 =======
         path_all_com="Crawl/buffett/docs/List_company_23052023 - Listing.csv",
         path_save="Data",
