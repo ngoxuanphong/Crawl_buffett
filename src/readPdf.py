@@ -7,28 +7,16 @@ from src.dividend import GetDividend
 class ReadPdf():
     def __init__(
         self,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         path_all_com="docs/List_company_23052023 - Listing.csv",
         path_save="",
-=======
-        path_all_com="Crawl/buffett/docs/List_company_23052023 - Listing.csv",
-        path_save="Data",
->>>>>>> 347c62602e734128b529e38c77f4dc61fc72bcec
-=======
-        path_all_com="Crawl/buffett/docs/List_company_23052023 - Listing.csv",
-        path_save="Data",
->>>>>>> 347c62602e734128b529e38c77f4dc61fc72bcec
-=======
-        path_all_com="Crawl/buffett/docs/List_company_23052023 - Listing.csv",
-        path_save="Data",
->>>>>>> 347c62602e734128b529e38c77f4dc61fc72bcec
         ):
         self.path_all_com = path_all_com
         self.path_save = path_save
 
-    def get_all_com(self, reverse: bool = False):
+    def get_all_com(self, 
+                    reverse: bool = False,
+                    get_volume: bool = False,
+                    get_dividend: bool = False,):
         """
         Get all company in japan stock
         Parameters
@@ -48,9 +36,9 @@ class ReadPdf():
             id_company = lst_com["Symbol"][i]
             check = lst_com["check"][i]
             if check == "Done":
-                get_volume(id_company, self.path_save, save_file=True)
-                get_table(id_company, self.path_save, save_file=True)
-                dividendClass = GetDividend(path_save=self.path_save)
-                dividendClass.get_dividend(id_company, save_file=True)
+                if get_volume:
+                    get_volume(id_company, self.path_save, save_file=True)
+                if get_dividend:
+                    dividendClass = GetDividend(path_save=self.path_save)
+                    dividendClass.get_dividend(id_company, save_file=True)
                 
-            
