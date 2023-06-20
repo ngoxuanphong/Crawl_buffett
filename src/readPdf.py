@@ -7,8 +7,8 @@ from src.dividend import GetDividend
 class ReadPdf():
     def __init__(
         self,
-        path_all_com="Crawl/buffett/docs/List_company_23052023 - Listing.csv",
-        path_save="Data",
+        path_all_com="docs/List_company_23052023 - Listing.csv",
+        path_save="",
         ):
         self.path_all_com = path_all_com
         self.path_save = path_save
