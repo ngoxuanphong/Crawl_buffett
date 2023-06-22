@@ -452,3 +452,27 @@ class GetPDF:
                 if check == "Done":  # if company is done
                     self.save_pdf(id_company=id_company)
                     self.re_download_company(id_company=id_company)
+
+    def convert_symbol_file(self):
+        df_symbol= pd.read_csv(self.path_all_com)[['Symbol', 'check']]
+        for year in range(2008, 2023):
+            for quarter in range(1, 5):
+                df_symbol[f'Q{quarter}_{year}'] = np.nan
+        return df_symbol
+
+    def check_download_symbol(self, id_company):
+        df_com = pd.read_csv(self.path_save + f'Data/{id_company}/docs/check.csv')
+        df_com = df_com[['download_Q1', 'download_Q2', 'download_Q3', 'download_Q4']]
+        list_data = df_com.to_numpy()
+        list_data = list(list_data.flatten())
+        list_data = [id_company, 'Done'] + list_data
+        return list_data
+
+    def checklist_download_pdf(self):
+        df_symbol = self.convert_symbol_file(self.path_all_com)
+        for i in df_symbol.index:
+            if df_symbol.loc[i, 'check'] == 'Done':
+                symbol = df_symbol.loc[i, 'Symbol']
+                list_data = self.check_download_symbol(symbol)
+                df_symbol.loc[i, :] = list_data
+        df_symbol.to_csv('docs/checklist_download_pdf.csv', index=False)
