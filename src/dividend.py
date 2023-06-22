@@ -36,11 +36,7 @@ class GetDividend:
         ).all():
             return df.reset_index(drop=True)
         raise Exception("Don't have dividend table'")
-<<<<<<< HEAD
         
-=======
-
->>>>>>> eca75445b90685b653cf3096261fe3ae22f1a414
     def get_dividend_table_from_pdf(self, 
                                     id_company : int = 1301,
                                     year: str = '2022', 
@@ -307,20 +303,13 @@ class GetDividend:
                      id_company: int = 1301,
                      return_df=False, 
                      save_file=True):
-<<<<<<< HEAD
         print(id_company, '--------')
-=======
->>>>>>> eca75445b90685b653cf3096261fe3ae22f1a414
         df = pd.read_csv(self.path_save + f"Data/{id_company}/docs/link.csv")
         df_dividend = pd.DataFrame(columns=["Year", "Q1", "Q2", "Q3", "Q4"])
         for quy in ["Q4"]:
             for id in df.index:
                 year = df[f"Year"][id]
-<<<<<<< HEAD
                 df_dividend_year = self.get_dividend_table_from_pdf_dat(
-=======
-                df_dividend_year = self.get_dividend_table_from_pdf(
->>>>>>> eca75445b90685b653cf3096261fe3ae22f1a414
                     id_company, year, quy
                 )
                 # print(df_dividend_year)
@@ -333,11 +322,7 @@ class GetDividend:
                 year = df_dividend["Year"][id]
                 if len(re.findall(r"\d+", df_dividend[quy][id])) > 0:
                     date = self.get_data_from_pdf(id_company, year, quy)
-<<<<<<< HEAD
                     # print(year, quy, date)
-=======
-                    print(year, quy, date)
->>>>>>> eca75445b90685b653cf3096261fe3ae22f1a414
                 else:
                     date = np.nan
                 list_date.append(date)
