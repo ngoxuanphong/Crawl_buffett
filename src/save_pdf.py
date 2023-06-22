@@ -455,7 +455,7 @@ class GetPDF:
 
     def convert_symbol_file(self):
         df_symbol= pd.read_csv(self.path_all_com)[['Symbol', 'check']]
-        for year in range(2008, 2023):
+        for year in range(2000, 2024):
             for quarter in range(1, 5):
                 df_symbol[f'Q{quarter}_{year}'] = np.nan
         return df_symbol
@@ -464,7 +464,7 @@ class GetPDF:
         df_com = pd.read_csv(self.path_save + f'/{id_company}/docs/check.csv')
         df_com = df_com[['Year', 'download_Q1', 'download_Q2', 'download_Q3', 'download_Q4']]
 
-        for year in range(2008, 2023):
+        for year in range(2000, 2024):
             if year not in df_com['Year'].values:
                 df_com.loc[len(df_com.index)] = [year, np.nan, np.nan, np.nan, np.nan]
         df_com = df_com.sort_values('Year').reset_index(drop=True)
