@@ -462,7 +462,14 @@ class GetPDF:
 
     def check_download_symbol(self, id_company):
         df_com = pd.read_csv(self.path_save + f'/{id_company}/docs/check.csv')
-        df_com = df_com[['download_Q1', 'download_Q2', 'download_Q3', 'download_Q4']]
+        df_com = df_com[['Year', 'download_Q1', 'download_Q2', 'download_Q3', 'download_Q4']]
+
+        for year in range(2008, 2023):
+            if year not in df_com['Year'].values:
+                df_com.loc[len(df_com.index)] = [year, np.nan, np.nan, np.nan, np.nan]
+        df_com = df_com.sort_values('Year').reset_index(drop=True)
+        df_com.drop(columns=['Year'], inplace=True)
+
         list_data = df_com.to_numpy()
         list_data = list(list_data.flatten())
         list_data = [id_company, 'Done'] + list_data
