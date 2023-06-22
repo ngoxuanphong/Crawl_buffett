@@ -7,17 +7,25 @@ from src.dividend import GetDividend
 class ReadPdf():
     def __init__(
         self,
+<<<<<<< HEAD
         path_all_com="docs/List_company_23052023 - Listing.csv",
+=======
+        path_all_com="Crawl/buffett/docs/List_company_23052023 - Listing.csv",
+>>>>>>> eca75445b90685b653cf3096261fe3ae22f1a414
         path_save="Data",
         ):
         self.path_all_com = path_all_com
         self.path_save = path_save
 
+<<<<<<< HEAD
     def get_all_com(self, 
                     reverse: bool = False,
                     bool_get_volume: bool = True,
                     bool_get_dividend: bool = True,
                     bool_get_table: bool = True,):
+=======
+    def get_all_com(self, reverse: bool = False):
+>>>>>>> eca75445b90685b653cf3096261fe3ae22f1a414
         """
         Get all company in japan stock
         Parameters
