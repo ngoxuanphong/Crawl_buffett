@@ -461,7 +461,7 @@ class GetPDF:
         return df_symbol
 
     def check_download_symbol(self, id_company):
-        df_com = pd.read_csv(self.path_save + f'Data/{id_company}/docs/check.csv')
+        df_com = pd.read_csv(self.path_save + f'/{id_company}/docs/check.csv')
         df_com = df_com[['download_Q1', 'download_Q2', 'download_Q3', 'download_Q4']]
         list_data = df_com.to_numpy()
         list_data = list(list_data.flatten())
@@ -469,10 +469,12 @@ class GetPDF:
         return list_data
 
     def checklist_download_pdf(self):
-        df_symbol = self.convert_symbol_file(self.path_all_com)
+        df_symbol = self.convert_symbol_file()
         for i in df_symbol.index:
             if df_symbol.loc[i, 'check'] == 'Done':
                 symbol = df_symbol.loc[i, 'Symbol']
                 list_data = self.check_download_symbol(symbol)
+                print(symbol, len(list_data))
+                print(list_data)
                 df_symbol.loc[i, :] = list_data
         df_symbol.to_csv('docs/checklist_download_pdf.csv', index=False)
