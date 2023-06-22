@@ -397,6 +397,7 @@ class GetPDF:
         -------
         None
         """
+        self.re_download_all_company()
         logging.basicConfig(filename=self.log_path, level=logging.INFO)
         lst_com = pd.read_csv(self.path_all_com)
         if "check" not in lst_com.columns:
@@ -433,25 +434,21 @@ class GetPDF:
         """
         self.save_pdf(id_company=id_company)
 
-    # def re_download_all_company(self, reverse: bool = False):
-    #     """
-    #     Re download all company
-    #     Parameters
-    #     ----------
-    #     None
-    #     Returns
-    #     -------
-    #     None
-    #     """
-    #     lst_com = pd.read_csv(self.path_all_com)
-    #     if reverse:
-    #         lst_com = lst_com[::-1]
-    #     for i in lst_com.index:  # loop through company
-    #         id_company = lst_com["Symbol"][i]
-    #         self.save_pdf(id_company=id_company)
-    #         check = lst_com["check"][i]
-    #         if check == "Done":  # if company is done
-    #             self.re_download_company(id_company=id_company)
-    #         else:
-    #             if not os.path.exists(f'Data/{id_company}/docs/check.csv'):
-    #                 break
+    def re_download_all_company(self):
+        """
+        Re download all company
+        Parameters
+        ----------
+        None
+        Returns
+        -------
+        None
+        """
+        lst_com = pd.read_csv(self.path_all_com)
+        for i in lst_com.index:  # loop through company
+            id_company = lst_com["Symbol"][i]
+            check = lst_com["check"][i]
+            if os.path.exists(f'Data/{id_company}/docs/check.csv'):
+                if check == "Done":  # if company is done
+                    self.save_pdf(id_company=id_company)
+                    self.re_download_company(id_company=id_company)
