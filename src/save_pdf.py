@@ -481,7 +481,5 @@ class GetPDF:
             if df_symbol.loc[i, 'check'] == 'Done':
                 symbol = df_symbol.loc[i, 'Symbol']
                 list_data = self.check_download_symbol(symbol)
-                print(symbol, len(list_data))
-                print(list_data)
                 df_symbol.loc[i, :] = list_data
         df_symbol.to_csv('docs/checklist_download_pdf.csv', index=False)
