@@ -481,7 +481,10 @@ class GetPDF:
             if df_symbol.loc[i, 'check'] == 'Done':
                 symbol = df_symbol.loc[i, 'Symbol']
                 list_data = self.check_download_symbol(symbol)
-                print(symbol, len(list_data))
-                print(list_data)
                 df_symbol.loc[i, :] = list_data
+        df_symbol.replace([np.nan, 'OK'], [0, 1], inplace=True)
+        df_symbol['check'] = df_symbol.iloc[:, 2:].sum(axis=1)
+        df_symbol.loc[-1] = df_symbol.sum(axis=0)
+        df_symbol['Symbol'][-1] = 'Total'
+        df_symbol.sort_index(inplace=True)
         df_symbol.to_csv('docs/checklist_download_pdf.csv', index=False)
