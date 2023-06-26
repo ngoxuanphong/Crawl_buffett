@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import time, os
-from src.get_volume import get_volume
+from volume import get_volume
 from src.get_table import get_table
 from src.dividend import GetDividend
 class ReadPdf():
