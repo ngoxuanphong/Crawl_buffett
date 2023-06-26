@@ -5,7 +5,7 @@ import warnings
 import requests
 from selenium import webdriver
 from bs4 import BeautifulSoup
-from logs.log_setup import *
+from logs.setup import *
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver import Firefox
 from selenium.webdriver.firefox.service import Service
@@ -45,10 +45,10 @@ class GetPDF:
         """
         self.tor_path = tor_path
         if browser_name == "PC":
-            self.first_tor_setup()
+            self.setFirstTor()
         self.browser_name = browser_name
         self.headless = headless
-        self.setup_driver()
+        self.setDriver()
         self.path_company = "https://www.buffett-code.com/company"
         self.path_save = path_save
         self.path_all_com = path_all_com
@@ -57,7 +57,7 @@ class GetPDF:
         )
         self.time_sleep = time_sleep
 
-    def first_tor_setup(self):
+    def setFirstTor(self):
         profile_path = os.path.expandvars(
             self.tor_path + r"\Browser\TorBrowser\Data\Browser\profile.default"
         )
@@ -78,14 +78,14 @@ class GetPDF:
         driver.get("https://check.torproject.org")
         time.sleep(1)
 
-    def reset_driver(self):
+    def resetDriver(self):
         """
         Reset driver
         """
         self.driver.quit()
-        self.setup_driver()
+        self.setDriver()
 
-    def setup_driver(self):
+    def setDriver(self):
         """
         Setup driver
         """
@@ -136,10 +136,10 @@ class GetPDF:
         # soup = BeautifulSoup(
         #     self.driver.page_source, "html.parser", from_encoding="utf-8"
         # )
-        # if self.check_error(soup):
+        # if self.checkError(soup):
         #     self.driver.quit()
         #     print('-----------------------')
-        #     return self.setup_driver()
+        #     return self.setDriver()
         return ""
 
     def get_data(self, link):
@@ -155,7 +155,7 @@ class GetPDF:
         )
         return soup
 
-    def check_error(self, soup):
+    def checkError(self, soup):
         """
         Check error
         Parameters
@@ -170,11 +170,11 @@ class GetPDF:
         time.sleep(1)
         if "403 Forbidden" in soup.text or "アクセスを一時的に制限しています。" in soup.text:
             print("Lỗi rồi reset lại đi")
-            self.reset_driver()
+            self.resetDriver()
             return True
         return False
 
-    def get_table(self, id_company: int = 5486):
+    def getTable(self, id_company: int = 5486):
         """
         Get table have link pdf in web
         Parameters
@@ -189,11 +189,11 @@ class GetPDF:
         print(f"{self.path_company}/{id_company}/library")
         soup = self.get_data(f"{self.path_company}/{id_company}/library")
         table = soup.find_all("table")
-        if self.check_error(soup):
-            return self.get_table(id_company)
+        if self.checkError(soup):
+            return self.getTable(id_company)
         return table
 
-    def get_pdf_link(self, link_):
+    def getPdfLink(self, link_):
         """
         Get download link pdf in web
         Parameters
@@ -212,8 +212,8 @@ class GetPDF:
         for i in arr:
             if i["href"].find("pdf") != -1:
                 return i["href"]
-        if self.check_error(soup):
-            return self.get_pdf_link(link_)
+        if self.checkError(soup):
+            return self.getPdfLink(link_)
         return ""
 
     def create_link_df(self, table):
@@ -251,7 +251,7 @@ class GetPDF:
         df = pd.DataFrame(json_company).T.reset_index(drop=False)
         return df.rename(columns={"index": "Year"})
 
-    def make_folder(self, id_company: int):
+    def makeFoder(self, id_company: int):
         """
         Make folder to save pdf
         parameters
@@ -269,7 +269,7 @@ class GetPDF:
         except:
             pass
 
-    def save_check_point(self, id_company: int):
+    def saveCheckPoint(self, id_company: int):
         """
         Save check point to checklist file
         Parameters
@@ -283,7 +283,7 @@ class GetPDF:
         if not os.path.exists(
             f"{self.path_save}/{id_company}/docs/link.csv"
         ):  # check if file not exist
-            table = self.get_table(id_company=id_company)
+            table = self.getTable(id_company=id_company)
             df = self.create_link_df(table)
             df.to_csv(f"{self.path_save}/{id_company}/docs/link.csv", index=False)
             df_check = df.copy()
@@ -306,7 +306,7 @@ class GetPDF:
         self.df_company = df
         return df
 
-    def save_pdf_by_requests(self, path_save_pdf, link_pdf):
+    def requestPDF(self, path_save_pdf, link_pdf):
         """
         Download pdf file from link pdf
         Parameters
@@ -324,7 +324,7 @@ class GetPDF:
         with open(path_save_pdf, "wb") as f:
             f.write(response.content)
 
-    def get_download_pdf(self, id_company: int):
+    def getDownloadPDF(self, id_company: int):
         """
         Download pdf file from link pdf
         Parameters
@@ -348,14 +348,14 @@ class GetPDF:
                             msg = "Nan"
                         else:
                             try:
-                                link_pdf = self.get_pdf_link(link_preview)
+                                link_pdf = self.getPdfLink(link_preview)
                                 name = (
                                     df[f"Time_{quarter}"][id][id_link]
                                     .replace(" ", "")
                                     .replace("/", "_")
                                 )
                                 path_save_pdf = f"{self.path_save}/{id_company}/PDF/{year_}_{quarter}_{name}.pdf"
-                                self.save_pdf_by_requests(path_save_pdf, link_pdf)
+                                self.requestPDF(path_save_pdf, link_pdf)
                                 msg = "OK"
                             except:
                                 msg = None
@@ -368,7 +368,7 @@ class GetPDF:
                         )
                         time.sleep(self.time_sleep)
 
-    def save_pdf(self, id_company: int):
+    def savePDF(self, id_company: int):
         """
         Save pdf
         Parameters
@@ -380,13 +380,13 @@ class GetPDF:
         None
         """
         start = time.time()
-        self.make_folder(id_company)
-        self.save_check_point(id_company)
-        self.get_download_pdf(id_company)
+        self.makeFoder(id_company)
+        self.saveCheckPoint(id_company)
+        self.getDownloadPDF(id_company)
         end = time.time()
         print(f"Time run {id_company}: {end - start}")
 
-    def get_all_com(self, reverse: bool = False, save_log: bool = True):
+    def getAllCom(self, reverse: bool = False, save_log: bool = True):
         """
         Get all company in japan stock
         Parameters
@@ -409,13 +409,13 @@ class GetPDF:
             check = lst_com["check"][i]
             if check != "Done":
                 try:
-                    self.save_pdf(id_company=id_company)
+                    self.savePDF(id_company=id_company)
                     msg = "Done"
-                    log_message(save_log, f"Successfully: ID {id_company}")
+                    logMessage(save_log, f"Successfully: ID {id_company}")
                 except:
                     msg = "False"
-                    log_message(save_log, f"Failed: ID {id_company}")
-                    self.driver = self.setup_driver()
+                    logMessage(save_log, f"Failed: ID {id_company}")
+                    self.driver = self.setDriver()
                 df_temp = pd.read_csv(self.path_all_com)
                 df_temp["check"][i] = msg
                 df_temp.to_csv(self.path_all_com, index=False)
@@ -424,9 +424,9 @@ class GetPDF:
 
                 # lst_com.to_csv(self.path_all_com, index=False)
             else:
-                self.save_pdf(id_company=id_company)
+                self.savePDF(id_company=id_company)
 
-    def re_download_company(self, id_company: int):
+    def reDownload(self, id_company: int):
         """
         Re download company
         Parameters
@@ -437,7 +437,7 @@ class GetPDF:
         -------
         None
         """
-        self.save_pdf(id_company=id_company)
+        self.savePDF(id_company=id_company)
 
     def re_download_all_company(self):
         """
@@ -455,17 +455,17 @@ class GetPDF:
             check = lst_com["check"][i]
             if os.path.exists(f'Data/{id_company}/docs/check.csv'):
                 if check == "Done":  # if company is done
-                    self.save_pdf(id_company=id_company)
-                    self.re_download_company(id_company=id_company)
+                    self.savePDF(id_company=id_company)
+                    self.reDownload(id_company=id_company)
 
-    def convert_symbol_file(self):
+    def convertSymbolFile(self):
         df_symbol= pd.read_csv(self.path_all_com)[['Symbol', 'check']]
         for year in range(2000, 2024):
             for quarter in range(1, 5):
                 df_symbol[f'Q{quarter}_{year}'] = np.nan
         return df_symbol
 
-    def check_download_symbol(self, id_company):
+    def checkDownload(self, id_company):
         df_com = pd.read_csv(self.path_save + f'/{id_company}/docs/check.csv')
         df_com = df_com[['Year', 'download_Q1', 'download_Q2', 'download_Q3', 'download_Q4']]
 
@@ -480,16 +480,16 @@ class GetPDF:
         list_data = [id_company, 'Done'] + list_data
         return list_data
 
-    def checklist_download_pdf(self):
-        df_symbol = self.convert_symbol_file()
+    def checklistDownloadPDF(self):
+        df_symbol = self.convertSymbolFile()
         for i in df_symbol.index:
             if df_symbol.loc[i, 'check'] == 'Done':
                 symbol = df_symbol.loc[i, 'Symbol']
-                list_data = self.check_download_symbol(symbol)
+                list_data = self.checkDownload(symbol)
                 df_symbol.loc[i, :] = list_data
         df_symbol.replace([np.nan, 'OK'], [0, 1], inplace=True)
         df_symbol['check'] = df_symbol.iloc[:, 2:].sum(axis=1)
         df_symbol.loc[-1] = df_symbol.sum(axis=0)
         df_symbol['Symbol'][-1] = 'Total'
         df_symbol.sort_index(inplace=True)
-        df_symbol.to_csv('docs/checklist_download_pdf.csv', index=False)
+        df_symbol.to_csv('docs/checklistDownloadPDF.csv', index=False)

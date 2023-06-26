@@ -2,7 +2,7 @@ import PyPDF2
 import ocrmypdf
 
 
-def ocr_pdf(input_file):
+def ocrPDF(input_file):
     output_file = input_file.replace(".pdf", "_ocr.pdf")
     ocrmypdf.ocr(
         input_file,
@@ -18,7 +18,7 @@ def ocr_pdf(input_file):
     return output_file
 
 
-def convert_pdf_to_text(pdf_path):
+def convertPDFToText(pdf_path):
     text = ""
     with open(pdf_path, "rb") as file:
         pdf_reader = PyPDF2.PdfReader(file)
