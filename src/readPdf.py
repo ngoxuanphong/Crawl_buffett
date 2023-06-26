@@ -1,9 +1,9 @@
 import pandas as pd
 import numpy as np
-import time, os
-from volume import get_volume
+from volume import GetVolume
 from src.get_table import get_table
 from src.dividend import GetDividend
+
 class ReadPdf():
     def __init__(
         self,
@@ -16,12 +16,10 @@ class ReadPdf():
     def save_dividendShares(self, id_company, done):
         try:
             df = pd.read_csv("docs/DividendShares.csv")
-            # print(df)
         except:
             df = pd.DataFrame(columns = ['Symbol', 'DividendShares'])
 
         if str(id_company) not in df['Symbol'].values:
-            # print(df['Symbol'].values)
             df.loc[(len(df))] =[str(id_company), done]
         else:
             df.loc[df['Symbol'] == str(id_company), 'DividendShares'] = done
@@ -46,18 +44,17 @@ class ReadPdf():
         None
         """
         lst_com = pd.read_csv(self.path_all_com)
-        if "check" not in lst_com.columns:
-            lst_com["check"] = np.nan
-        if "volume" not in lst_com.columns:
-            lst_com["volume"] = np.nan
-        if "dividend" not in lst_com.columns:
-            lst_com["dividend"] = np.nan
-        if "table" not in lst_com.columns:
-            lst_com["table"] = np.nan
+
+        for col_temp in ["check", "volume", "dividend", "table"]:
+            if col_temp not in lst_com.columns:
+                lst_com[col_temp] = np.nan
+        
         lst_com.to_csv(self.path_all_com, index=False)
         
-        if reverse:
+        if reverse: 
             lst_com = lst_com[::-1]
+        
+
         for i in lst_com.index:
             id_company = lst_com["Symbol"][i]
             check = lst_com["check"][i]
@@ -66,7 +63,8 @@ class ReadPdf():
                 col = []
                 if bool_get_volume and lst_com["volume"][i] != "Done":
                     try:
-                        get_volume(id_company, self.path_save, save_file=True)
+                        get_volume = GetVolume()
+                        get_volume.getVolume(id_company, save_file=True)
                         col.append("volume")
                     except:
                         error.append("volume")
@@ -103,5 +101,3 @@ class ReadPdf():
 
                 lst_com_.sort_index(inplace=True)
                 lst_com_.to_csv(self.path_all_com, index=False)
-                
-            
