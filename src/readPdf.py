@@ -13,6 +13,23 @@ class ReadPdf():
         self.path_all_com = path_all_com
         self.path_save = path_save
 
+    def save_dividendShares(self, id_company, done):
+        try:
+            df = pd.read_csv("docs/DividendShares.csv")
+            # print(df)
+        except:
+            df = pd.DataFrame(columns = ['Symbol', 'DividendShares'])
+
+        if str(id_company) not in df['Symbol'].values:
+            # print(df['Symbol'].values)
+            df.loc[(len(df))] =[str(id_company), done]
+        else:
+            df.loc[df['Symbol'] == str(id_company), 'DividendShares'] = done
+
+        df = df.drop(df.loc[df['Symbol'] == 'Total'].index)
+        df.loc[(len(df))] = ['Total', (df['DividendShares']== "Done").sum()]
+        df.to_csv('docs/DividendShares.csv', index = False)
+
     def get_all_com(self, 
                     reverse: bool = False,
                     bool_get_volume: bool = True,
@@ -45,34 +62,46 @@ class ReadPdf():
             id_company = lst_com["Symbol"][i]
             check = lst_com["check"][i]
             if check == "Done":
-                error = False
-                col = None
-                try:
-                    if bool_get_volume and lst_com["volume"][i] != "Done":
-                        col =  "volume"
+                error = []
+                col = []
+                if bool_get_volume and lst_com["volume"][i] != "Done":
+                    try:
                         get_volume(id_company, self.path_save, save_file=True)
-                    if bool_get_table and lst_com["table"][i] != "Done":
-                        col = "table"
+                        col.append("volume")
+                    except:
+                        error.append("volume")
+
+                if bool_get_table and lst_com["table"][i] != "Done":
+                    try:
                         get_table(id_company, self.path_save, save_file=True)
-                    if bool_get_dividend and lst_com["dividend"][i] != "Done":
-                        col = "dividend"
+                        col.append("table")
+                    except:
+                        error.append("table")
+
+                if bool_get_dividend and lst_com["dividend"][i] != "Done":
+                    try:
                         dividendClass = GetDividend(path_save=self.path_save)
                         dividendClass.get_dividend(id_company, save_file=True)
-                except:
-                    print("Error: ", id_company)
-                    error = True
-                    pass
+                        col.append("dividend")
+                    except:
+                        error.append("dividend")
                     
-                if col != None:
-                    lst_com_ = pd.read_csv(self.path_all_com)
-                    if reverse:
+                lst_com_ = pd.read_csv(self.path_all_com)
+                if reverse:
                         lst_com_ = lst_com_[::-1]
 
-                    if error:
-                        lst_com_[col][i] = "False"
-                    else:
-                        lst_com_[col][i] = "Done"
-                    lst_com_.sort_index(inplace=True)
-                    lst_com_.to_csv(self.path_all_com, index=False)
+                for col_ in col:
+                    lst_com_[col_][i] = "Done"
+                    if col_ == "dividend":
+                        self.save_dividendShares(id_company, "Done")
+
+                for error_ in error:
+                    print(f"Error: {id_company}- {error_}")
+                    lst_com_[error_][i] = "False"
+                    if error_ == "dividend":
+                        self.save_dividendShares(id_company, "False")
+
+                lst_com_.sort_index(inplace=True)
+                lst_com_.to_csv(self.path_all_com, index=False)
                 
             

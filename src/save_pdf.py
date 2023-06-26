@@ -397,7 +397,7 @@ class GetPDF:
         -------
         None
         """
-        self.re_download_all_company()
+        # self.re_download_all_company()
         logging.basicConfig(filename=self.log_path, level=logging.INFO)
         lst_com = pd.read_csv(self.path_all_com)
         if "check" not in lst_com.columns:
@@ -415,9 +415,14 @@ class GetPDF:
                 except:
                     msg = "False"
                     log_message(save_log, f"Failed: ID {id_company}")
-                lst_com["check"][i] = msg
-                lst_com.sort_index(inplace=True)
-                lst_com.to_csv(self.path_all_com, index=False)
+                    self.driver = self.setup_driver()
+                df_temp = pd.read_csv(self.path_all_com)
+                df_temp["check"][i] = msg
+                df_temp.to_csv(self.path_all_com, index=False)
+                # lst_com["check"][i] = msg
+                # lst_com.sort_index(inplace=True)
+
+                # lst_com.to_csv(self.path_all_com, index=False)
             else:
                 self.save_pdf(id_company=id_company)
 
