@@ -1,45 +1,45 @@
-time,vol1,vol2
-2022_Q1,39910700,40000
-2021_Q1,39910700,39910700
-2020_Q1,Không có file,Không có file
-2019_Q1,Không có file,Không có file
-2014_Q1,Không có file,Không có file
-2013_Q1,Không có file,Không có file
-2012_Q1,Không có file,Không có file
-2011_Q1,Không có file,Không có file
-2010_Q1,Không có file,Không có file
-2009_Q1,Không có file,Không có file
-2008_Q1,Không có file,Không có file
-2022_Q2,39910700,27311
-2021_Q2,39910700,39910700
-2020_Q2,39850000,39850000
-2019_Q2,Không có file,Không có file
-2014_Q2,Không có file,Không có file
-2013_Q2,Không có file,Không có file
-2012_Q2,Không có file,Không có file
-2011_Q2,Không có file,Không có file
-2010_Q2,Không có file,Không có file
-2009_Q2,Không có file,Không có file
-2008_Q2,Không có file,Không có file
-2022_Q3,39910700,27311
-2021_Q3,39910700,39910700
-2020_Q3,39850000,39850000
-2019_Q3,Không có file,Không có file
-2014_Q3,Không có file,Không có file
-2013_Q3,Không có file,Không có file
-2012_Q3,Không có file,Không có file
-2011_Q3,Không có file,Không có file
-2010_Q3,Không có file,Không có file
-2009_Q3,Không có file,Không có file
-2008_Q3,Không có file,Không có file
-2022_Q4,Bug,Bug
-2021_Q4,,
-2020_Q4,39910700,39850000
-2019_Q4,Không có file,Không có file
-2014_Q4,Không có file,Không có file
-2013_Q4,Không có file,Không có file
-2012_Q4,Không có file,Không có file
-2011_Q4,Không có file,Không có file
-2010_Q4,Không có file,Không có file
-2009_Q4,Không có file,Không có file
-2008_Q4,Không có file,Không có file
+time,date,vol1,vol2
+2022_Q1,2022_8_4,39910700,40000
+2021_Q1,2021_8_5,39910700,39910700
+2020_Q1,N/A,N/A,N/A
+2019_Q1,N/A,N/A,N/A
+2014_Q1,N/A,N/A,N/A
+2013_Q1,N/A,N/A,N/A
+2012_Q1,N/A,N/A,N/A
+2011_Q1,N/A,N/A,N/A
+2010_Q1,N/A,N/A,N/A
+2009_Q1,N/A,N/A,N/A
+2008_Q1,N/A,N/A,N/A
+2022_Q2,2022_11_10,39910700,27311
+2021_Q2,2021_11_4,39910700,39910700
+2020_Q2,2020_11_5,39850000,39850000
+2019_Q2,N/A,N/A,N/A
+2014_Q2,N/A,N/A,N/A
+2013_Q2,N/A,N/A,N/A
+2012_Q2,N/A,N/A,N/A
+2011_Q2,N/A,N/A,N/A
+2010_Q2,N/A,N/A,N/A
+2009_Q2,N/A,N/A,N/A
+2008_Q2,N/A,N/A,N/A
+2022_Q3,2023_2_9,39910700,27311
+2021_Q3,2022_2_3,39910700,39910700
+2020_Q3,2021_2_4,39850000,39850000
+2019_Q3,N/A,N/A,N/A
+2014_Q3,N/A,N/A,N/A
+2013_Q3,N/A,N/A,N/A
+2012_Q3,N/A,N/A,N/A
+2011_Q3,N/A,N/A,N/A
+2010_Q3,N/A,N/A,N/A
+2009_Q3,N/A,N/A,N/A
+2008_Q3,N/A,N/A,N/A
+2022_Q4,2023_5_11,39910700,27311
+2021_Q4,2022_5_12,39910700,40000
+2020_Q4,2021_5_12,39910700,39856589
+2019_Q4,N/A,N/A,N/A
+2014_Q4,N/A,N/A,N/A
+2013_Q4,N/A,N/A,N/A
+2012_Q4,N/A,N/A,N/A
+2011_Q4,N/A,N/A,N/A
+2010_Q4,N/A,N/A,N/A
+2009_Q4,N/A,N/A,N/A
+2008_Q4,N/A,N/A,N/A

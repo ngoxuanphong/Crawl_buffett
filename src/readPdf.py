@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from volume import GetVolume
+from src.volume import GetVolume
 from src.get_table import get_table
 from src.dividend import GetDividend
 
@@ -63,7 +63,7 @@ class ReadPdf():
                 col = []
                 if bool_get_volume and lst_com["volume"][i] != "Done":
                     try:
-                        get_volume = GetVolume()
+                        get_volume = GetVolume(path_save=self.path_save)
                         get_volume.getVolume(id_company, save_file=True)
                         col.append("volume")
                     except:
