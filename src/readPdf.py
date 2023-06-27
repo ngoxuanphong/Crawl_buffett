@@ -13,7 +13,7 @@ class ReadPdf():
         self.path_all_com = path_all_com
         self.path_save = path_save
 
-    def save_dividendShares(self, id_company, done):
+    def saveDividendShares(self, id_company, done):
         try:
             df = pd.read_csv("docs/DividendShares.csv")
         except:
@@ -28,7 +28,7 @@ class ReadPdf():
         df.loc[(len(df))] = ['Total', (df['DividendShares']== "Done").sum()]
         df.to_csv('docs/DividendShares.csv', index = False)
 
-    def get_all_com(self, 
+    def getAllCom(self, 
                     reverse: bool = False,
                     bool_get_volume: bool = True,
                     bool_get_dividend: bool = True,
@@ -91,13 +91,13 @@ class ReadPdf():
                 for col_ in col:
                     lst_com_[col_][i] = "Done"
                     if col_ == "dividend":
-                        self.save_dividendShares(id_company, "Done")
+                        self.saveDividendShares(id_company, "Done")
 
                 for error_ in error:
                     print(f"Error: {id_company}- {error_}")
                     lst_com_[error_][i] = "False"
                     if error_ == "dividend":
-                        self.save_dividendShares(id_company, "False")
+                        self.saveDividendShares(id_company, "False")
 
                 lst_com_.sort_index(inplace=True)
                 lst_com_.to_csv(self.path_all_com, index=False)

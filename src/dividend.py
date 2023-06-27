@@ -4,7 +4,7 @@ import os
 import pandas as pd
 import numpy as np
 import warnings
-from src.ocrpdf import ocr_pdf, convert_pdf_to_text
+from ocrPdf import ocrPDF, convertPDFToText
 import PyPDF2
 import warnings
 
@@ -51,7 +51,7 @@ class GetDividend:
                     pdf = pdfplumber.open(path_of_file)
                     page = pdf.pages[0]
                     text = page.extract_text()
-                    # text = convert_pdf_to_text(path_of_file)
+                    # text = convertPDFToText(path_of_file)
                     text = text.replace(" ", "")
                     df = self.get_dividend_table(tables, year)
                     if len(df.index) == 1:
@@ -60,7 +60,7 @@ class GetDividend:
                     try:
                         ocr_file = path_of_file.replace(".pdf", "_ocr.pdf")
                         if os.path.exists(ocr_file) == False:
-                            ocr_pdf(path_of_file)
+                            ocrPDF(path_of_file)
                         tables = tabula.read_pdf(
                             ocr_file, pages="all", multiple_tables=True, silent=True
                         )
@@ -157,7 +157,7 @@ class GetDividend:
                     else:
                         ocr_file = path_of_file.replace(".pdf", "_ocr.pdf")
                         if os.path.exists(ocr_file) == False:
-                            ocr_pdf(path_of_file)
+                            ocrPDF(path_of_file)
                         pdf = pdfplumber.open(ocr_file)
                         page = pdf.pages[0]
                         text = page.extract_text()
@@ -222,7 +222,7 @@ class GetDividend:
                     pdf = pdfplumber.open(path_of_file)
                     page = pdf.pages[0]
                     text = page.extract_text()
-                    # text = convert_pdf_to_text(path_of_file)
+                    # text = convertPDFToText(path_of_file)
                     text = text.replace(" ", "")
                     for tex in ["配当支払開始予定日", '配支当払開始予定日', '配文当払開始予定日']:
                         idx = text.find(tex)
@@ -239,11 +239,11 @@ class GetDividend:
                     else:
                         ocr_file = path_of_file.replace(".pdf", "_ocr.pdf")
                         if os.path.exists(ocr_file) == False:
-                            ocr_pdf(path_of_file)
+                            ocrPDF(path_of_file)
                         pdf = pdfplumber.open(ocr_file)
                         page = pdf.pages[0]
                         text = page.extract_text()
-                        # text = convert_pdf_to_text(path_of_file)
+                        # text = convertPDFToText(path_of_file)
                         text = text.replace(" ", "")
                         for tex in ["配当支払開始予定日", '配支当払開始予定日', '配文当払開始予定日']:
                             idx = text.find(tex)
@@ -259,8 +259,8 @@ class GetDividend:
                                 return time_text # xuất ra thời gian chưa qua xử lý (nếu có)
                             
                     #     if os.path.exists(ocr_file) == False:
-                    #         ocr_pdf(path_of_file)
-                    #     text_ = convert_pdf_to_text(ocr_file)
+                    #         ocrPDF(path_of_file)
+                    #     text_ = convertPDFToText(ocr_file)
                     #     print(2, text_) #----------------------------
                     #     text_ = text_.replace(" ", "")
 

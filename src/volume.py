@@ -2,21 +2,41 @@ import pdfplumber
 import pandas as pd
 import numpy as np
 import os, re
-from src.ocrpdf import ocr_pdf
+from ocrPdf import ocrPDF
 
 class GetVolume():
     def __init__(self, 
                  path_save="tests/"):
+        """
+        Parameters
+        ----------
+        path_save : str
+            Path to save data default is "tests/"
+        """
         self.path_save = path_save
 
     def openPdf(self, 
-                path: str = "tests/Data/1301/PDF/2022_Q1_決算短信(2022_8_5).pdf"): 
+                path: str = "tests/Data/1301/PDF/2022_Q1_決算短信(2022_8_5).pdf"):
+        """
+        Parameters
+        ----------
+        path : str
+            Path to pdf file default is "tests/Data/1301/PDF/2022_Q1_決算短信(2022_8_5).pdf"
+        """
         pdf = pdfplumber.open(path)
         return pdf
 
     def findText(self,
-                    pdf,
+                    pdf: pdfplumber.pdf.PDF,
                     text: str = "期末発行済株式数"):
+        """
+        Parameters
+        ----------
+        pdf : pdfplumber.pdf.PDF
+            pdf file
+        text : str
+            text to find default is "期末発行済株式数"
+        """
         for page in range(len(pdf.pages)):
             text = pdf.pages[page].extract_text()
             text = text.replace('\n', ' ').replace(' ', '').replace('.', ',')
@@ -28,6 +48,12 @@ class GetVolume():
 
     def findData(self,
                  path: str = "tests/Data/1301/PDF/2022_Q1_決算短信(2022_8_5).pdf"):
+        """
+        Parameters
+        ----------
+        path : str
+            Path to pdf file default is "tests/Data/1301/PDF/2022_Q1_決算短信(2022_8_5).pdf"
+        """
         pdf = self.openPdf(path)
         text = self.findText(pdf)
         numbers = re.findall(r"\d{1,3}(?:,\d{3})*", text)
@@ -39,6 +65,17 @@ class GetVolume():
                         id_company: int = 1301,
                         year: int = 2022,
                         quy: str = "Q1",):
+        """
+        Parameters
+        ----------
+        id_company : int
+            id of company default is 1301
+        year : int
+            year of data default is 2022
+        quy : str
+            quy of data default is "Q1"
+        """
+
         for file in os.listdir(self.path_save + f"Data/{id_company}/PDF"):
             if file.startswith(f"{year}_{quy}") and ("(訂正)" not in file) and '_ocr' not in file:
                 file_name = file
@@ -51,7 +88,7 @@ class GetVolume():
                         path_pdf_ocr = input_path.replace(".pdf", "_ocr.pdf")
                         print('Need ocr', path_pdf_ocr)
                         if not os.path.exists(path_pdf_ocr):
-                            ocr_pdf(input_path)
+                            ocrPDF(input_path)
                         lst_data_of_time = self.findData(path_pdf_ocr)
                     # except:
                     #     lst_data_of_time = ["N/A", "N/A"]
@@ -64,7 +101,16 @@ class GetVolume():
                   id_company: int = 1301,
                   return_df: bool = False,
                   save_file: bool = True,):
-
+        """
+        Parameters
+        ----------
+        id_company : int
+            id of company default is 1301
+        return_df : bool
+            return dataframe of data default is False
+        save_file : bool
+            save dataframe of data default is True
+        """
         df_volume = pd.DataFrame(columns=["time", "date", "vol1", "vol2"])
         df = pd.read_csv(self.path_save + f"Data/{id_company}/docs/link.csv")
         for quy in ["Q1", "Q2", "Q3", "Q4"]:
