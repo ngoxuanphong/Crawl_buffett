@@ -44,3 +44,8 @@ Tên Class:
 Hằng số:
     Viết hoa và gạch dưới
         vd: DISCOUNT_PERCENT
+
+doi get_table thanh class
+Them mo ta ham
+Them comment code
+Sua ten bien, ten ham, ten class

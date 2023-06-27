@@ -35,10 +35,18 @@ class ReadPdf():
                     bool_get_table: bool = True,):
         """
         Get all company in japan stock
+
         Parameters
         ----------
         reverse : bool
             reverse list company
+        bool_get_volume : bool
+            get volume
+        bool_get_dividend : bool
+            get dividend
+        bool_get_table : bool
+            get table
+        
         Returns
         -------
         None
