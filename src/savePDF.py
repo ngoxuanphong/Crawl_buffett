@@ -158,10 +158,12 @@ class GetPDF:
     def checkError(self, soup):
         """
         Check error
+
         Parameters
         ----------
         soup : BeautifulSoup
             BeautifulSoup of company
+
         Returns
         -------
         bool
@@ -177,10 +179,12 @@ class GetPDF:
     def getTable(self, id_company: int = 5486):
         """
         Get table have link pdf in web
+
         Parameters
         ----------
         id_company : int, optional
             id of company, by default 5486
+
         Returns
         -------
         table
@@ -196,10 +200,12 @@ class GetPDF:
     def getPdfLink(self, link_):
         """
         Get download link pdf in web
+
         Parameters
         ----------
         link_ : str
             link of company
+
         Returns
         -------
             link of download pdf
@@ -219,10 +225,12 @@ class GetPDF:
     def create_link_df(self, table):
         """
         Create DataFrame have link pdf
+
         Parameters
         ----------
         table : table
             table have link pdf
+
         Returns
         -------
         DataFrame of link pdf
@@ -251,13 +259,15 @@ class GetPDF:
         df = pd.DataFrame(json_company).T.reset_index(drop=False)
         return df.rename(columns={"index": "Year"})
 
-    def makeFoder(self, id_company: int):
+    def makeFolder(self, id_company: int):
         """
         Make folder to save pdf
+
         parameters
         ----------
         id_company : int
             id of company
+
         Returns
         -------
         None
@@ -272,10 +282,12 @@ class GetPDF:
     def saveCheckPoint(self, id_company: int):
         """
         Save check point to checklist file
+
         Parameters
         ----------
         id_company : int
             id of company
+
         Returns
         -------
         None
@@ -309,12 +321,14 @@ class GetPDF:
     def requestPDF(self, path_save_pdf, link_pdf):
         """
         Download pdf file from link pdf
+
         Parameters
         ----------
         path_save_pdf : str
             path to save pdf
         link_pdf : str
             link of pdf
+
         Returns
         -------
         None
@@ -327,10 +341,12 @@ class GetPDF:
     def getDownloadPDF(self, id_company: int):
         """
         Download pdf file from link pdf
+
         Parameters
         ----------
         id_company : int
             id of company
+
         Returns
         -------
         None
@@ -371,16 +387,18 @@ class GetPDF:
     def savePDF(self, id_company: int):
         """
         Save pdf
+
         Parameters
         ----------
         id_company : int
             id of company
+
         Returns
         -------
         None
         """
         start = time.time()
-        self.makeFoder(id_company)
+        self.makeFolder(id_company)
         self.saveCheckPoint(id_company)
         self.getDownloadPDF(id_company)
         end = time.time()
@@ -389,10 +407,12 @@ class GetPDF:
     def getAllCom(self, reverse: bool = False, save_log: bool = True):
         """
         Get all company in japan stock
+
         Parameters
         ----------
         reverse : bool
             reverse list company
+
         Returns
         -------
         None
@@ -415,7 +435,7 @@ class GetPDF:
                 except:
                     msg = "False"
                     logMessage(save_log, f"Failed: ID {id_company}")
-                    self.driver = self.setDriver()
+                    # self.driver = self.setDriver()
                 df_temp = pd.read_csv(self.path_all_com)
                 df_temp["check"][i] = msg
                 df_temp.to_csv(self.path_all_com, index=False)
@@ -429,10 +449,12 @@ class GetPDF:
     def reDownload(self, id_company: int):
         """
         Re download company
+
         Parameters
         ----------
         id_company : int
             id of company
+            
         Returns
         -------
         None
@@ -442,6 +464,7 @@ class GetPDF:
     def re_download_all_company(self):
         """
         Re download all company
+
         Parameters
         ----------
         None
