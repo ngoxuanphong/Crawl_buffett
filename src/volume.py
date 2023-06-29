@@ -2,7 +2,7 @@ import pdfplumber
 import pandas as pd
 import numpy as np
 import os, re
-from ocrPdf import ocrPDF
+from ocrpdf import ocrPDF
 
 class GetVolume():
     def __init__(self, 
@@ -107,9 +107,9 @@ class GetVolume():
         id_company : int
             id of company default is 1301
         return_df : bool
-            return dataframe of data default is False
+            return DataFrame of data default is False
         save_file : bool
-            save dataframe of data default is True
+            save DataFrame of data default is True
         """
         df_volume = pd.DataFrame(columns=["time", "date", "vol1", "vol2"])
         df = pd.read_csv(self.path_save + f"Data/{id_company}/docs/link.csv")
