@@ -2,7 +2,7 @@ import pdfplumber
 import pandas as pd
 import numpy as np
 import os, re
-from ocrpdf import ocrPDF
+from src.ocrpdf import ocrPDF
 
 class GetVolume():
     def __init__(self, 
@@ -39,7 +39,7 @@ class GetVolume():
         """
         for page in range(len(pdf.pages)):
             text = pdf.pages[page].extract_text()
-            text = text.replace('\n', ' ').replace(' ', '').replace('.', ',')
+            text = text.replace('\n', ' ').replace(' ', '').replace('.', ',').replace('ー', '123,456,789,999')
             text_first = '期末発行済株式数'
             id_first = text.find(text_first)
             if id_first >= 0:
@@ -57,8 +57,9 @@ class GetVolume():
         pdf = self.openPdf(path)
         text = self.findText(pdf)
         numbers = re.findall(r"\d{1,3}(?:,\d{3})*", text)
+        # print(numbers)
         numbers = [int(number.replace(",", "")) for number in numbers if int(number.replace(",", "")) > 3000]
-        # print(numbers[0], numbers[2])
+        numbers = [0 if number == 123456789999 else number for number in numbers ]
         return [numbers[0], numbers[2]]
     
     def getDataFromPdf(self,
@@ -84,14 +85,14 @@ class GetVolume():
                 try:
                     lst_data_of_time = self.findData(input_path)
                 except:
-                    # try:
+                    try:
                         path_pdf_ocr = input_path.replace(".pdf", "_ocr.pdf")
                         print('Need ocr', path_pdf_ocr)
                         if not os.path.exists(path_pdf_ocr):
                             ocrPDF(input_path)
                         lst_data_of_time = self.findData(path_pdf_ocr)
-                    # except:
-                    #     lst_data_of_time = ["N/A", "N/A"]
+                    except:
+                        lst_data_of_time = ["N/A", "N/A"]
                 print(f"{year}_{quy}: {lst_data_of_time}")
                 return [date_volume] + lst_data_of_time
         return ["N/A", "N/A", "N/A"]

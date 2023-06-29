@@ -4,7 +4,7 @@ import os
 import pandas as pd
 import numpy as np
 import warnings
-from ocrpdf import ocrPDF, convertPDFToText
+from src.ocrpdf import ocrPDF, convertPDFToText
 import PyPDF2
 import warnings
 

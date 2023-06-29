@@ -64,9 +64,9 @@ class ReadPdf():
         
 
         for i in lst_com.index:
-            id_company = lst_com["Symbol"][i]
-            check = lst_com["check"][i]
-            if check == "Done":
+                id_company = lst_com["Symbol"][i]
+            # check = lst_com["check"][i]
+            # if check == "Done":
                 error = []
                 col = []
                 if bool_get_volume and lst_com["volume"][i] != "Done":
