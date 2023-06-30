@@ -74,19 +74,11 @@ class ReadPdf():
         
 
         for i in lst_com.index:
-<<<<<<< HEAD
-            id_company = lst_com["Symbol"][i]
-            check = lst_com["check"][i]
-            if check == "Done":
-                error = [] # list error_name
-                col = [] # list column_name have finished
-=======
                 id_company = lst_com["Symbol"][i]
             # check = lst_com["check"][i]
             # if check == "Done":
                 error = []
                 col = []
->>>>>>> 19d13d01ab44af1255ac171e6e056fb2d17e0fc3
                 if bool_get_volume and lst_com["volume"][i] != "Done":
                     try:
                         get_volume = GetVolume(path_save=self.path_save)
