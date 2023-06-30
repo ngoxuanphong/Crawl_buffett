@@ -561,6 +561,7 @@ class GetPDF:
         print(f"Time run {id_company}: {end - start}")
 
         self.resetDriver()
+        self.savePDFThread()
 
 
     def getAllCom(self, reverse: bool = False, save_log: bool = True):
