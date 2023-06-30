@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from src.volume import GetVolume
-from src.get_table import get_table
+from src.get_table import GetTable
 from src.dividend import GetDividend
 
 class ReadPdf():
@@ -13,16 +13,26 @@ class ReadPdf():
         self.path_all_com = path_all_com
         self.path_save = path_save
 
-    def saveDividendShares(self, id_company, done):
+    def saveDividendShares(self, id_company, state):
+        """
+        Parameters
+        ----------
+        id_company : int
+        state : str
+        
+        Return
+        ----------
+            list dividend_shares
+        """
         try:
             df = pd.read_csv("docs/DividendShares.csv")
         except:
             df = pd.DataFrame(columns = ['Symbol', 'DividendShares'])
 
         if str(id_company) not in df['Symbol'].values:
-            df.loc[(len(df))] =[str(id_company), done]
+            df.loc[(len(df))] =[str(id_company), state]
         else:
-            df.loc[df['Symbol'] == str(id_company), 'DividendShares'] = done
+            df.loc[df['Symbol'] == str(id_company), 'DividendShares'] = state
 
         df = df.drop(df.loc[df['Symbol'] == 'Total'].index)
         df.loc[(len(df))] = ['Total', (df['DividendShares']== "Done").sum()]
@@ -64,11 +74,19 @@ class ReadPdf():
         
 
         for i in lst_com.index:
+<<<<<<< HEAD
+            id_company = lst_com["Symbol"][i]
+            check = lst_com["check"][i]
+            if check == "Done":
+                error = [] # list error_name
+                col = [] # list column_name have finished
+=======
                 id_company = lst_com["Symbol"][i]
             # check = lst_com["check"][i]
             # if check == "Done":
                 error = []
                 col = []
+>>>>>>> 19d13d01ab44af1255ac171e6e056fb2d17e0fc3
                 if bool_get_volume and lst_com["volume"][i] != "Done":
                     try:
                         get_volume = GetVolume(path_save=self.path_save)
@@ -79,7 +97,8 @@ class ReadPdf():
 
                 if bool_get_table and lst_com["table"][i] != "Done":
                     try:
-                        get_table(id_company, self.path_save, save_file=True)
+                        getTableClass = GetTable(path_save = self.path_save)
+                        getTableClass.getTable(id_company, save_file = True)
                         col.append("table")
                     except:
                         error.append("table")
@@ -87,7 +106,7 @@ class ReadPdf():
                 if bool_get_dividend and lst_com["dividend"][i] != "Done":
                     try:
                         dividendClass = GetDividend(path_save=self.path_save)
-                        dividendClass.get_dividend(id_company, save_file=True)
+                        dividendClass.getDividend(id_company, save_file=True)
                         col.append("dividend")
                     except:
                         error.append("dividend")
