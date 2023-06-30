@@ -24,9 +24,9 @@ class GetProxyDriver:
         self.df_proxy = self.getProxyTable()
         self.thread_num = thread_num
 
-    def getProxyTable(self):
+    def getProxyTable(self, 
+                      url: str = 'https://www.proxynova.com/proxy-server-list/country-vn'):
         driver = webdriver.Chrome()
-        url = 'https://www.proxynova.com/proxy-server-list/country-vn'
         driver.get(url)
 
         html = driver.page_source
@@ -56,8 +56,8 @@ class GetProxyDriver:
         chrome : selenium.webdriver.chrome.webdriver.WebDriver
             Chrome driver
         """
-
         chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument("--disable-notifications")
         chrome_options.add_argument('--proxy-server=%s' % PROXY)
         chrome = webdriver.Chrome(options=chrome_options)
         chrome.implicitly_wait(10)
@@ -70,7 +70,7 @@ class GetProxyDriver:
             print('NG')
             chrome.close()
 
-    def getListDriver(self, ): # len_proxy: number of proxy
+    def getLstDriver(self): # len_proxy: number of proxy
         """
         Get list of chrome driver
 
@@ -97,7 +97,24 @@ class GetProxyDriver:
             if len(lst_driver) == self.thread_num:
                 break
         return lst_driver
+    
+    def getListDriver(self, ): # len_proxy: number of proxy
+        """
+        Get list of chrome driver
 
+        Returns
+        -------
+        lst_driver : list
+            List of chrome driver
+        """
+        urls = ['https://www.proxynova.com/proxy-server-list/',
+                'https://www.proxynova.com/proxy-server-list/elite-proxies/',
+                'https://www.proxynova.com/proxy-server-list/country-cn',]
+        lst_driver = self.getLstDriver()
+        while len(lst_driver) < self.thread_num:
+            self.df_proxy = self.getProxyTable(url = np.random.choice(urls))
+            lst_driver += self.getLstDriver()
+        return lst_driver
 
 class GetPDF:
     def __init__(
