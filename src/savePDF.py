@@ -21,13 +21,16 @@ warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 class GetProxyDriver:
     def __init__(self, 
                  thread_num: int = 3):
-        self.df_proxy = self.getProxyTable()
         self.thread_num = thread_num
+        self.urls = ['https://www.proxynova.com/proxy-server-list/',
+                    'https://www.proxynova.com/proxy-server-list/elite-proxies/',
+                    'https://www.proxynova.com/proxy-server-list/country-cn',
+                    'https://www.proxynova.com/proxy-server-list/country-vn']
+        self.df_proxy = self.getProxyTable()
 
-    def getProxyTable(self, 
-                      url: str = 'https://www.proxynova.com/proxy-server-list/country-vn'):
+    def getProxyTable(self):
         driver = webdriver.Chrome()
-        driver.get(url)
+        driver.get(np.random.choice(self.urls))
 
         html = driver.page_source
         soup = BeautifulSoup(html, 'html.parser')
@@ -58,16 +61,17 @@ class GetProxyDriver:
         """
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument("--disable-notifications")
+        chrome_options.page_source
         chrome_options.add_argument('--proxy-server=%s' % PROXY)
         chrome = webdriver.Chrome(options=chrome_options)
-        chrome.implicitly_wait(10)
+        chrome.implicitly_wait(7)
         chrome.get('https://www.buffett-code.com/')
 
-        if 'バフェット・コード' in chrome.page_source:
-            print('OK')
+        if ('バフェット・コード' in chrome.page_source) and ("403 Forbidden" not in chrome.page_source):
+            # print('OK')
             return chrome
         else:
-            print('NG')
+            # print('NG')
             chrome.close()
 
     def getLstDriver(self): # len_proxy: number of proxy
@@ -84,11 +88,11 @@ class GetProxyDriver:
             proxy = self.df_proxy.loc[i, 'Proxy IP']
             port = int(self.df_proxy.loc[i, 'Proxy Port'])
             PROXY = f"{proxy}:{port}"
-            print(PROXY, end = ' -- ')
+            # print(PROXY, end = ' -- ')
             try:
                 chrome_driver = self.checkDriver(PROXY)
             except:
-                print('Error')
+                # print('Error')
                 continue
             if chrome_driver == None:
                 continue
@@ -107,12 +111,10 @@ class GetProxyDriver:
         lst_driver : list
             List of chrome driver
         """
-        urls = ['https://www.proxynova.com/proxy-server-list/',
-                'https://www.proxynova.com/proxy-server-list/elite-proxies/',
-                'https://www.proxynova.com/proxy-server-list/country-cn',]
+
         lst_driver = self.getLstDriver()
         while len(lst_driver) < self.thread_num:
-            self.df_proxy = self.getProxyTable(url = np.random.choice(urls))
+            self.df_proxy = self.getProxyTable()
             lst_driver += self.getLstDriver()
         return lst_driver
 
@@ -125,7 +127,6 @@ class GetPDF:
         browser_name: str = "Chrome",
         headless: bool = False,
         tor_path=r"A:\Tor Browser",
-        driver_temp = None,
     ):
         """
         Parameters
@@ -148,7 +149,7 @@ class GetPDF:
             self.setFirstTor()
         self.browser_name = browser_name
         self.headless = headless
-        self.driver_temp = driver_temp
+        self.get_proxy_driver = GetProxyDriver(thread_num=1)
         self.setDriver()
         self.path_company = "https://www.buffett-code.com/company"
         self.path_save = path_save
@@ -157,7 +158,6 @@ class GetPDF:
             "docs/", "logs/"
         )
         self.time_sleep = time_sleep
-        self.get_proxy_driver = GetProxyDriver(thread_num=1)
 
     def setFirstTor(self):
         profile_path = os.path.expandvars(
@@ -185,10 +185,7 @@ class GetPDF:
         Reset driver
         """
         self.driver.quit()
-        if self.browser_name == 'Thread':
-            self.driver = self.get_proxy_driver.getListDriver()[0]
-        else:
-            self.setDriver()
+        self.setDriver()
 
 
     def setDriver(self):
@@ -239,7 +236,7 @@ class GetPDF:
             self.driver.get("https://check.torproject.org")
 
         if self.browser_name == 'Thread':  # Use tor in windows
-            self.driver = self.driver_temp
+            self.driver = self.get_proxy_driver.getListDriver()[0]
 
 
     def getData(self, link):
