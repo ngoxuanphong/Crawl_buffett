@@ -1,0 +1,51 @@
+https://pymupdf.readthedocs.io/en/latest/module.html
+
+Quy tắc đặt tên cho dự án:
+    - Dùng tiếng anh
+    - Nguyên tắc S-I-D
+        + Short: tên ngắn gọn, dễ hiểu
+        + Intuitive: dễ hiểu, dễ nhớ
+        + Descriptive: mô tả chức năng của nó
+    - Không viết tắt
+    - Không dùng số ở đầu
+    - Tránh lặp từ
+
+Actions:
+    get: lấy dữ liệu
+    set: thiết lập dữ liệu
+    add: thêm mới
+    edit: sửa
+    delete: xóa
+    search: tìm kiếm
+    render: hiển thị
+    reset: đặt lại
+    update: cập nhật
+    featch: lấy dữ liệu
+    create: tạo mới
+    store: lưu trữ
+    destroy: hủy bỏ
+    remove: xóa
+    change: thay đổi
+    modify: sửa đổi
+    save: lưu
+    load: tải
+    initialize: khởi tạo
+
+Quy tắc đặt tên biến, hàm, phương thức, class, hằng số:
+Tên biến: 
+    underscore: sử dụng dấu gạch chân giữa các từ, tất cả các từ đều viết thường, 
+        ví dụ: $this_is_my_variable.
+Tên hàm và tên phương thức:
+    camelCase: giống như cách viết của nó, từ đầu tiên viết thường, các từ tiếp theo viết hoa chữ cái đầu, 
+        ví dụ $thisIsMyVariable.
+Tên Class:
+    PascalCase: viết hoa tất cả các chữ cái đầu
+        ví dụ $ThisIsMyVariable.
+Hằng số:
+    Viết hoa và gạch dưới
+        vd: DISCOUNT_PERCENT
+
+doi get_table thanh class
+Them mo ta ham
+Them comment code
+Sua ten bien, ten ham, ten class
