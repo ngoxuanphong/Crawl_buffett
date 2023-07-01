@@ -1,4 +1,4 @@
-import os, time, subprocess
+import os, time, subprocess, re
 import pandas as pd
 import numpy as np
 import warnings
@@ -16,6 +16,113 @@ from pandas.errors import SettingWithCopyWarning
 
 warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
+
+
+class GetProxyDriver:
+    def __init__(self, 
+                 thread_num: int = 3):
+        self.thread_num = thread_num
+        self.urls = ['https://www.proxynova.com/proxy-server-list/',
+                    'https://www.proxynova.com/proxy-server-list/elite-proxies/',
+                    'https://www.proxynova.com/proxy-server-list/country-cn',
+                    'https://www.proxynova.com/proxy-server-list/country-vn',
+                    'https://www.proxynova.com/proxy-server-list/country-th/',
+                    'https://www.proxynova.com/proxy-server-list/country-id/',
+                    'https://www.proxynova.com/proxy-server-list/country-us/',
+                    'https://www.proxynova.com/proxy-server-list/country-in',
+                    'https://www.proxynova.com/proxy-server-list/country-kh']
+        self.df_proxy = self.getProxyTable()
+
+    def getProxyTable(self):
+        driver = webdriver.Chrome()
+        driver.get(np.random.choice(self.urls))
+
+        html = driver.page_source
+        soup = BeautifulSoup(html, 'html.parser')
+        tables = soup.find('table', id='tbl_proxy_list')
+        tbody = tables.find('tbody')
+
+        pattern = r'(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})'
+        ip_address = re.findall(pattern, tbody.text)
+
+        df_proxy = pd.read_html(str(tables))[0].dropna(how = 'all')
+        df_proxy['Proxy IP'][:len(ip_address)] = ip_address
+        driver.close()
+        return df_proxy
+
+    def checkDriver(self, PROXY):
+        """
+        Check if the driver can access to the website
+        
+        Parameters
+        ----------
+        PROXY : str
+            Proxy IP and port
+            
+        Returns
+        -------
+        chrome : selenium.webdriver.chrome.webdriver.WebDriver
+            Chrome driver
+        """
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument("--disable-notifications")
+        chrome_options.add_argument('--log-level=3')
+        chrome_options.add_argument('--proxy-server=%s' % PROXY)
+        chrome = webdriver.Chrome(options=chrome_options)
+        chrome.implicitly_wait(7)
+        chrome.get('https://www.buffett-code.com/')
+
+        if ('バフェット・コード' in chrome.page_source) and ("403 Forbidden" not in chrome.page_source):
+            # print('OK')
+            return chrome
+        else:
+            # print('NG')
+            chrome.close()
+
+    def getLstDriver(self): # len_proxy: number of proxy
+        """
+        Get list of chrome driver
+
+        Returns
+        -------
+        lst_driver : list
+            List of chrome driver
+        """
+        lst_driver= []
+        for j in range(30):
+            i = np.random.choice(list(self.df_proxy.index))
+            proxy = self.df_proxy.loc[i, 'Proxy IP']
+            port = int(self.df_proxy.loc[i, 'Proxy Port'])
+            PROXY = f"{proxy}:{port}"
+            # print(PROXY, end = ' -- ')
+            try:
+                chrome_driver = self.checkDriver(PROXY)
+            except:
+                # print('Error')
+                continue
+            if chrome_driver == None:
+                continue
+            else:
+                lst_driver.append(chrome_driver)
+            if len(lst_driver) == self.thread_num:
+                break
+        return lst_driver
+    
+    def getListDriver(self, ): # len_proxy: number of proxy
+        """
+        Get list of chrome driver
+
+        Returns
+        -------
+        lst_driver : list
+            List of chrome driver
+        """
+
+        lst_driver = self.getLstDriver()
+        while len(lst_driver) < self.thread_num:
+            self.df_proxy = self.getProxyTable()
+            lst_driver += self.getLstDriver()
+        return lst_driver
 
 class GetPDF:
     def __init__(
@@ -48,6 +155,7 @@ class GetPDF:
             self.setFirstTor()
         self.browser_name = browser_name
         self.headless = headless
+        self.get_proxy_driver = GetProxyDriver(thread_num=1)
         self.setDriver()
         self.path_company = "https://www.buffett-code.com/company"
         self.path_save = path_save
@@ -73,7 +181,7 @@ class GetPDF:
         tor_exe = subprocess.Popen(
             os.path.expandvars(self.tor_path + r"\Browser\TorBrowser\Tor\tor.exe")
         )
-        # tor_exe.kill()
+
         driver = Firefox(service=service, options=options)
         driver.get("https://check.torproject.org")
         time.sleep(1)
@@ -84,6 +192,7 @@ class GetPDF:
         """
         self.driver.quit()
         self.setDriver()
+
 
     def setDriver(self):
         """
@@ -132,17 +241,11 @@ class GetPDF:
             self.driver = Firefox(service=service, options=options)
             self.driver.get("https://check.torproject.org")
 
-        # self.driver.get("https://www.buffett-code.com/")
-        # soup = BeautifulSoup(
-        #     self.driver.page_source, "html.parser", from_encoding="utf-8"
-        # )
-        # if self.checkError(soup):
-        #     self.driver.quit()
-        #     print('-----------------------')
-        #     return self.setDriver()
-        return ""
+        if self.browser_name == 'Thread':  # Use tor in windows
+            self.driver = self.get_proxy_driver.getListDriver()[0]
 
-    def get_data(self, link):
+
+    def getData(self, link):
         """
         Get data from link of company
         Input: link of company
@@ -170,9 +273,12 @@ class GetPDF:
             True if error
         """
         time.sleep(1)
-        if "403 Forbidden" in soup.text or "アクセスを一時的に制限しています。" in soup.text:
+        if (("403 Forbidden" in soup.text) or 
+            ("アクセスを一時的に制限しています。" in soup.text) or 
+            ("www.buffett-code.com took too long to respond" in soup.text) or 
+            ('An application is stopping Chrome from safely connecting to this site' in soup.text)):
             print("Lỗi rồi reset lại đi")
-            self.resetDriver()
+            self. resetDriver()
             return True
         return False
 
@@ -191,7 +297,7 @@ class GetPDF:
             table have link pdf
         """
         print(f"{self.path_company}/{id_company}/library")
-        soup = self.get_data(f"{self.path_company}/{id_company}/library")
+        soup = self.getData(f"{self.path_company}/{id_company}/library")
         table = soup.find_all("table")
         if self.checkError(soup):
             return self.getTable(id_company)
@@ -222,7 +328,7 @@ class GetPDF:
             return self.getPdfLink(link_)
         return ""
 
-    def create_link_df(self, table):
+    def createLinkDF(self, table):
         """
         Create DataFrame have link pdf
 
@@ -296,7 +402,7 @@ class GetPDF:
             f"{self.path_save}/{id_company}/docs/link.csv"
         ):  # check if file not exist
             table = self.getTable(id_company=id_company)
-            df = self.create_link_df(table)
+            df = self.createLinkDF(table)
             df.to_csv(f"{self.path_save}/{id_company}/docs/link.csv", index=False)
             df_check = df.copy()
             for quarter in ["Q1", "Q2", "Q3", "Q4"]:
@@ -407,6 +513,65 @@ class GetPDF:
         end = time.time()
         print(f"Time run {id_company}: {end - start}")
 
+    def getSymbolDoing(self, reverse=False):
+        """
+        Get symbol doing
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        list
+            list of symbol doing
+        """
+        df = pd.read_csv(self.path_all_com)
+        id = df[df["check"] == "False"].index[1]
+        if reverse:
+            id = df[df["check"] == "False"].index[-1]
+        symbol = df["Symbol"][id]
+        df.loc[id, "check"] = "Doing"
+        df.to_csv(self.path_all_com, index=False)
+        print(f"Doing: {symbol}")
+        return symbol
+    
+
+    def savePDFThread(self, reverse=False):
+        """
+        Save pdf
+
+        Parameters
+        ----------
+        id_company : int
+            id of company
+
+        Returns
+        -------
+        None
+        """
+        try:
+            id_company = self.getSymbolDoing(reverse=reverse)
+            start = time.time()
+            self.makeFolder(id_company)
+            self.saveCheckPoint(id_company)
+            self.getDownloadPDF(id_company)
+            end = time.time()
+            msg = 'True'
+            print(f"Time run {id_company}: {end - start}")
+        except:
+            msg = 'False'
+
+        # find index by value
+        df_temp = pd.read_csv(self.path_all_com)
+        id = df_temp['Symbol'].tolist().index(id_company)
+        df_temp.loc[id, 'check'] = msg
+        df_temp.to_csv(self.path_all_com, index=False)
+
+        self.resetDriver()
+        self.savePDFThread()
+
+
     def getAllCom(self, reverse: bool = False, save_log: bool = True):
         """
         Get all company in japan stock
@@ -438,14 +603,10 @@ class GetPDF:
                 except:
                     msg = "False"
                     logMessage(save_log, f"Failed: ID {id_company}")
-                    # self.driver = self.setDriver()
+
                 df_temp = pd.read_csv(self.path_all_com)
                 df_temp["check"][i] = msg
                 df_temp.to_csv(self.path_all_com, index=False)
-                # lst_com["check"][i] = msg
-                # lst_com.sort_index(inplace=True)
-
-                # lst_com.to_csv(self.path_all_com, index=False)
             else:
                 self.savePDF(id_company=id_company)
 
@@ -464,7 +625,7 @@ class GetPDF:
         """
         self.savePDF(id_company=id_company)
 
-    def re_download_all_company(self):
+    def reDownloadAllCompany(self):
         """
         Re download all company
 

@@ -1,4 +1,27 @@
-from src.volume import GetVolume
+import threading as th
+from src.savePDF import GetProxyDriver, GetPDF
+import time 
 
-gv = GetVolume(path_save='')
-gv.getVolume(id_company=1418, return_df=True, save_file=False)
+thread_num = 5
+
+
+def run():
+    bf = GetPDF(
+        path_all_com="docs/List_company_23052023 - Listing.csv",
+        path_save="Data",
+        time_sleep=20,
+        browser_name='Thread',
+        # driver_temp= driver
+    )
+    bf.savePDFThread(reverse=False)
+
+if __name__ == "__main__":  # confirms that the code is under main function
+    procs = []
+    for id_process in range(thread_num):
+        proc = th.Thread(target=run, args=())
+        time.sleep(5)
+        proc.start()
+        procs.append(proc)
+    for proc in procs:
+        proc.join()
+    print("Done")

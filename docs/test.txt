@@ -49,3 +49,5 @@ doi get_table thanh class
 Them mo ta ham
 Them comment code
 Sua ten bien, ten ham, ten class
+
+250/9h30 33 luong
