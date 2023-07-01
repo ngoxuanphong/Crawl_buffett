@@ -552,13 +552,8 @@ class GetPDF:
         """
         try:
             id_company = self.getSymbolDoing(reverse=reverse)
-            start = time.time()
-            self.makeFolder(id_company)
-            self.saveCheckPoint(id_company)
-            self.getDownloadPDF(id_company)
-            end = time.time()
-            msg = 'True'
-            print(f"Time run {id_company}: {end - start}")
+            self.savePDF(id_company = id_company)
+            self.savePDF(id_company = id_company)
         except:
             msg = 'False'
 
