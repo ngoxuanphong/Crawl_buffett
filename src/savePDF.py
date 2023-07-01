@@ -554,6 +554,7 @@ class GetPDF:
             id_company = self.getSymbolDoing(reverse=reverse)
             self.savePDF(id_company = id_company)
             self.savePDF(id_company = id_company)
+            msg = 'True'
         except:
             msg = 'False'
 
@@ -564,7 +565,7 @@ class GetPDF:
         df_temp.to_csv(self.path_all_com, index=False)
 
         self.resetDriver()
-        self.savePDFThread()
+        self.savePDFThread(reverse=reverse)
 
 
     def getAllCom(self, reverse: bool = False, save_log: bool = True):
