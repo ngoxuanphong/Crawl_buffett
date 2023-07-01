@@ -507,7 +507,7 @@ class GetPDF:
         end = time.time()
         print(f"Time run {id_company}: {end - start}")
 
-    def getSymbolDoing(self):
+    def getSymbolDoing(self, reverse=False):
         """
         Get symbol doing
 
@@ -522,6 +522,8 @@ class GetPDF:
         """
         df = pd.read_csv(self.path_all_com)
         id = df[df["check"] == "False"].index[1]
+        if reverse:
+            id = df[df["check"] == "False"].index[-1]
         symbol = df["Symbol"][id]
         df.loc[id, "check"] = "Doing"
         df.to_csv(self.path_all_com, index=False)
@@ -529,7 +531,7 @@ class GetPDF:
         return symbol
     
 
-    def savePDFThread(self):
+    def savePDFThread(self, reverse=False):
         """
         Save pdf
 
@@ -543,7 +545,7 @@ class GetPDF:
         None
         """
         try:
-            id_company = self.getSymbolDoing()
+            id_company = self.getSymbolDoing(reverse=reverse)
             start = time.time()
             self.makeFolder(id_company)
             self.saveCheckPoint(id_company)

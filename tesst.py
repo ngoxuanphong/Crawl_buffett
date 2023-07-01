@@ -2,7 +2,7 @@ import threading as th
 from src.savePDF import GetProxyDriver, GetPDF
 import time 
 
-thread_num = 6
+thread_num = 15
 
 
 def run():
@@ -13,15 +13,13 @@ def run():
         browser_name='Thread',
         # driver_temp= driver
     )
-    bf.savePDFThread()
+    bf.savePDFThread(reverse=False)
 
 if __name__ == "__main__":  # confirms that the code is under main function
-    # get_proxy_driver = GetProxyDriver(thread_num=thread_num)
-    # lst_driver = get_proxy_driver.getListDriver()
     procs = []
     for id_process in range(thread_num):
         proc = th.Thread(target=run, args=())
-        time.sleep(3)
+        time.sleep(5)
         proc.start()
         procs.append(proc)
     for proc in procs:
