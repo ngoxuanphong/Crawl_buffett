@@ -382,7 +382,10 @@ class GetPDF:
                         df_check.to_csv(
                             f"{self.path_save}/{id_company}/docs/check.csv", index=False
                         )
-                        time.sleep(self.time_sleep)
+                        if self.browser_name == 'PC':
+                            self.resetDriver()
+                        else:
+                            time.sleep(self.time_sleep)
 
     def savePDF(self, id_company: int):
         """
