@@ -27,7 +27,10 @@ class GetProxyDriver:
                     'https://www.proxynova.com/proxy-server-list/country-cn',
                     'https://www.proxynova.com/proxy-server-list/country-vn',
                     'https://www.proxynova.com/proxy-server-list/country-th/',
-                    'https://www.proxynova.com/proxy-server-list/country-id/']
+                    'https://www.proxynova.com/proxy-server-list/country-id/',
+                    'https://www.proxynova.com/proxy-server-list/country-us/',
+                    'https://www.proxynova.com/proxy-server-list/country-in',
+                    'https://www.proxynova.com/proxy-server-list/country-kh']
         self.df_proxy = self.getProxyTable()
 
     def getProxyTable(self):
