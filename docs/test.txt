@@ -49,3 +49,5 @@ doi get_table thanh class
 Them mo ta ham
 Them comment code
 Sua ten bien, ten ham, ten class
+
+id 470, 1h sang, 6 luong

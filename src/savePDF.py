@@ -25,7 +25,9 @@ class GetProxyDriver:
         self.urls = ['https://www.proxynova.com/proxy-server-list/',
                     'https://www.proxynova.com/proxy-server-list/elite-proxies/',
                     'https://www.proxynova.com/proxy-server-list/country-cn',
-                    'https://www.proxynova.com/proxy-server-list/country-vn']
+                    'https://www.proxynova.com/proxy-server-list/country-vn',
+                    'https://www.proxynova.com/proxy-server-list/country-th/',
+                    'https://www.proxynova.com/proxy-server-list/country-id/']
         self.df_proxy = self.getProxyTable()
 
     def getProxyTable(self):
@@ -41,7 +43,7 @@ class GetProxyDriver:
         ip_address = re.findall(pattern, tbody.text)
 
         df_proxy = pd.read_html(str(tables))[0].dropna(how = 'all')
-        df_proxy['Proxy IP'] = ip_address
+        df_proxy['Proxy IP'][:len(ip_address)] = ip_address
         driver.close()
         return df_proxy
 
@@ -61,7 +63,7 @@ class GetProxyDriver:
         """
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument("--disable-notifications")
-        chrome_options.page_source
+        chrome_options.add_argument('--log-level=3')
         chrome_options.add_argument('--proxy-server=%s' % PROXY)
         chrome = webdriver.Chrome(options=chrome_options)
         chrome.implicitly_wait(7)
@@ -84,7 +86,8 @@ class GetProxyDriver:
             List of chrome driver
         """
         lst_driver= []
-        for i in self.df_proxy.index:
+        for j in range(30):
+            i = np.random.choice(list(self.df_proxy.index))
             proxy = self.df_proxy.loc[i, 'Proxy IP']
             port = int(self.df_proxy.loc[i, 'Proxy Port'])
             PROXY = f"{proxy}:{port}"
@@ -269,7 +272,7 @@ class GetPDF:
         time.sleep(1)
         if (("403 Forbidden" in soup.text) or 
             ("アクセスを一時的に制限しています。" in soup.text) or 
-            ("This site can’t be reached" in soup.text) or 
+            ("www.buffett-code.com took too long to respond" in soup.text) or 
             ('An application is stopping Chrome from safely connecting to this site' in soup.text)):
             print("Lỗi rồi reset lại đi")
             self. resetDriver()
@@ -547,6 +550,7 @@ class GetPDF:
             self.getDownloadPDF(id_company)
             end = time.time()
             msg = 'True'
+            print(f"Time run {id_company}: {end - start}")
         except:
             msg = 'False'
 
@@ -555,7 +559,6 @@ class GetPDF:
         id = df_temp['Symbol'].tolist().index(id_company)
         df_temp.loc[id, 'check'] = msg
         df_temp.to_csv(self.path_all_com, index=False)
-        print(f"Time run {id_company}: {end - start}")
 
         self.resetDriver()
         self.savePDFThread()
