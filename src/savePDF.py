@@ -27,9 +27,7 @@ class GetProxyDriver:
                     'https://www.proxynova.com/proxy-server-list/country-cn',
                     'https://www.proxynova.com/proxy-server-list/country-vn',
                     'https://www.proxynova.com/proxy-server-list/country-th/',
-                    'https://www.proxynova.com/proxy-server-list/country-id/',
                     'https://www.proxynova.com/proxy-server-list/country-us/',
-                    'https://www.proxynova.com/proxy-server-list/country-in',
                     'https://www.proxynova.com/proxy-server-list/country-kh']
         self.df_proxy = self.getProxyTable()
 
@@ -488,7 +486,10 @@ class GetPDF:
                         df_check.to_csv(
                             f"{self.path_save}/{id_company}/docs/check.csv", index=False
                         )
-                        time.sleep(self.time_sleep)
+                        if self.browser_name == 'PC':
+                            self.resetDriver()
+                        else:
+                            time.sleep(self.time_sleep)
 
     def savePDF(self, id_company: int):
         """
@@ -549,13 +550,9 @@ class GetPDF:
         """
         try:
             id_company = self.getSymbolDoing(reverse=reverse)
-            start = time.time()
-            self.makeFolder(id_company)
-            self.saveCheckPoint(id_company)
-            self.getDownloadPDF(id_company)
-            end = time.time()
+            self.savePDF(id_company = id_company)
+            self.savePDF(id_company = id_company)
             msg = 'True'
-            print(f"Time run {id_company}: {end - start}")
         except:
             msg = 'False'
 
@@ -566,7 +563,7 @@ class GetPDF:
         df_temp.to_csv(self.path_all_com, index=False)
 
         self.resetDriver()
-        self.savePDFThread()
+        self.savePDFThread(reverse=reverse)
 
 
     def getAllCom(self, reverse: bool = False, save_log: bool = True):
