@@ -13,7 +13,7 @@ def run():
         browser_name='Thread',
         # driver_temp= driver
     )
-    bf.savePDFThread(reverse=False)
+    bf.savePDFThread(reverse=True)
 
 if __name__ == "__main__":  # confirms that the code is under main function
     procs = []

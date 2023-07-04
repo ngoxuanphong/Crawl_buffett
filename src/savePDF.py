@@ -23,12 +23,9 @@ class GetProxyDriver:
                  thread_num: int = 3):
         self.thread_num = thread_num
         self.urls = ['https://www.proxynova.com/proxy-server-list/',
-                    'https://www.proxynova.com/proxy-server-list/elite-proxies/',
                     'https://www.proxynova.com/proxy-server-list/country-cn',
                     'https://www.proxynova.com/proxy-server-list/country-vn',
-                    'https://www.proxynova.com/proxy-server-list/country-th/',
-                    'https://www.proxynova.com/proxy-server-list/country-us/',
-                    'https://www.proxynova.com/proxy-server-list/country-kh']
+                    'https://www.proxynova.com/proxy-server-list/country-th/',]
         self.df_proxy = self.getProxyTable()
 
     def getProxyTable(self):
@@ -527,9 +524,9 @@ class GetPDF:
         df = pd.read_csv(self.path_all_com)
         id = df[df["check"] != "Done"].index[1]
         if reverse:
-            id = df[df["check"] == "False"].index[-1]
+            id = df[df["check"] != 'Done'].index[-1]
         symbol = df["Symbol"][id]
-        df.loc[id, "check"] = "Doing"
+        df.loc[id, "check"] = "Done"
         df.to_csv(self.path_all_com, index=False)
         print(f"Doing: {symbol}")
         return symbol
@@ -562,7 +559,7 @@ class GetPDF:
         df_temp.loc[id, 'check'] = msg
         df_temp.to_csv(self.path_all_com, index=False)
 
-        self.resetDriver()
+        # self.resetDriver()
         self.savePDFThread(reverse=reverse)
 
 
