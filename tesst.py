@@ -2,7 +2,7 @@ import threading as th
 from src.savePDF import GetProxyDriver, GetPDF
 import time 
 
-thread_num = 10
+thread_num = 5
 
 
 def run():
