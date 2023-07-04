@@ -524,9 +524,9 @@ class GetPDF:
         df = pd.read_csv(self.path_all_com)
         id = df[df["check"] != "Done"].index[1]
         if reverse:
-            id = df[df["check"] == "False"].index[-1]
+            id = df[df["check"] != 'Done'].index[-1]
         symbol = df["Symbol"][id]
-        df.loc[id, "check"] = "Doing"
+        df.loc[id, "check"] = "Done"
         df.to_csv(self.path_all_com, index=False)
         print(f"Doing: {symbol}")
         return symbol
@@ -559,7 +559,7 @@ class GetPDF:
         df_temp.loc[id, 'check'] = msg
         df_temp.to_csv(self.path_all_com, index=False)
 
-        self.resetDriver()
+        # self.resetDriver()
         self.savePDFThread(reverse=reverse)
 
 
