@@ -87,6 +87,8 @@ class ConvertJapanStock():
         self.makeFolder(f'{self.PATH_F2}/{self.BALANCE}')
         self.makeFolder(f'{self.PATH_F3}/{self.INCOME}')
         self.makeFolder(f'{self.PATH_F3}/{self.BALANCE}')
+        self.makeFolder(f'{self.PATH_F3_FALSE}/{self.INCOME}')
+        self.makeFolder(f'{self.PATH_F3_FALSE}/{self.BALANCE}')
 
         self.makeFolder(f'{self.PATH_F3_FALSE}')
 
@@ -358,11 +360,15 @@ class ConvertJapanStock():
         df = pd.read_csv(f'{self.PATH_F3}{PATH_DATA}/{symbol}.csv')
         character = '-------'
         if character in df.values:
+            print(df)
             rows = df[df.apply(lambda x: x.astype(str).str.contains(character, case=False)).any(axis=1)]
             df_temp = pd.DataFrame(columns = ['Symbol', 'Type', 'English'])
             df_temp.iloc[:, 2] = rows['English']
             df_temp.iloc[:, 0] = symbol
             df_temp.iloc[:, 1] = PATH_DATA
+
+            df_f3 = pd.read_csv(f'{self.PATH_F3}{PATH_DATA}/{symbol}.csv')
+            df_f3.to_excel(f'{self.PATH_F3_FALSE}{PATH_DATA}/{symbol}.xlsx', index=False)
             return df_temp
 
     def makeFalseF3All(self):
@@ -370,11 +376,11 @@ class ConvertJapanStock():
         df = pd.DataFrame(columns = ['Symbol', 'Type', 'English'])
         for PATH_DATA in self.LIST_TYPE_DATA:
             for symbol in df_all_com['Symbol']:
-                try:
+                # try:
                     df_temp = self.makeFalseF3(PATH_DATA, symbol)
                     df = pd.concat([df, df_temp])
-                except Exception as e:
-                    print(symbol, '---', e)
+                # except Exception as e:
+                #     print(symbol, '---', e)
         df.to_csv(f'{self.PATH_F3_FALSE}F3.csv', index = False)
 
 

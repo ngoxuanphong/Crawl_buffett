@@ -2,6 +2,7 @@ from selenium import webdriver
 import time, os
 from bs4 import BeautifulSoup
 import pandas as pd
+from selenium.webdriver.common.by import By
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -37,6 +38,8 @@ class Investing():
         time.sleep(2)
   
     def getDataFrameFinancial(self):
+        self.driver.find_element(By.XPATH, '//*[@id="leftColumn"]/div[8]/div[1]/a[1]').click()
+        time.sleep(3)
         soup = BeautifulSoup(self.driver.page_source, "html.parser")
         table = soup.find('div', {'id': 'rrtable'})
         table = pd.read_html(str(table))[0]
@@ -77,6 +80,7 @@ class Investing():
                 print(symbol, 'done')
             except Exception as e:
                 print(symbol, e)
+            
 
     def getTableAllSymbol(self):
         soup = BeautifulSoup(
