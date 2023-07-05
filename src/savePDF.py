@@ -271,7 +271,12 @@ class GetPDF:
         if (("403 Forbidden" in soup.text) or 
             ("アクセスを一時的に制限しています。" in soup.text) or 
             ("www.buffett-code.com took too long to respond" in soup.text) or 
-            ('An application is stopping Chrome from safely connecting to this site' in soup.text)):
+            ('An application is stopping Chrome from safely connecting to this site' in soup.text) or 
+            ('The connection was reset.' in soup.text) or
+            ('Checking the connection' in soup.text) or 
+            ('No internet' in soup.text) or
+            ('This site can’t be reached' in soup.text)
+            ):
             print("Lỗi rồi reset lại đi")
             self. resetDriver()
             return True
