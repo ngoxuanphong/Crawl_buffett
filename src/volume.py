@@ -2,7 +2,7 @@ import pdfplumber
 import pandas as pd
 import numpy as np
 import os, re
-from src.ocrpdf import ocrPDF
+from src.ocrPdf import ocrPDF
 
 class GetVolume():
     def __init__(self, 
