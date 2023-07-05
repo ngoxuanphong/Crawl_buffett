@@ -271,7 +271,12 @@ class GetPDF:
         if (("403 Forbidden" in soup.text) or 
             ("アクセスを一時的に制限しています。" in soup.text) or 
             ("www.buffett-code.com took too long to respond" in soup.text) or 
-            ('An application is stopping Chrome from safely connecting to this site' in soup.text)):
+            ('An application is stopping Chrome from safely connecting to this site' in soup.text) or 
+            ('The connection was reset.' in soup.text) or
+            ('Checking the connection' in soup.text) or 
+            ('No internet' in soup.text) or
+            ('This site can’t be reached' in soup.text)
+            ):
             print("Lỗi rồi reset lại đi")
             self. resetDriver()
             return True
@@ -522,7 +527,7 @@ class GetPDF:
             list of symbol doing
         """
         df = pd.read_csv(self.path_all_com)
-        id = df[df["check"] != "Done"].index[1]
+        id = df[df["check"] == "True"].index[1]
         if reverse:
             id = df[df["check"] == 'True'].index[-1]
         symbol = df["Symbol"][id]
