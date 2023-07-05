@@ -23,12 +23,9 @@ class GetProxyDriver:
                  thread_num: int = 3):
         self.thread_num = thread_num
         self.urls = ['https://www.proxynova.com/proxy-server-list/',
-                    'https://www.proxynova.com/proxy-server-list/elite-proxies/',
                     'https://www.proxynova.com/proxy-server-list/country-cn',
                     'https://www.proxynova.com/proxy-server-list/country-vn',
-                    'https://www.proxynova.com/proxy-server-list/country-th/',
-                    'https://www.proxynova.com/proxy-server-list/country-us/',
-                    'https://www.proxynova.com/proxy-server-list/country-kh']
+                    'https://www.proxynova.com/proxy-server-list/country-th/',]
         self.df_proxy = self.getProxyTable()
 
     def getProxyTable(self):
@@ -274,7 +271,12 @@ class GetPDF:
         if (("403 Forbidden" in soup.text) or 
             ("アクセスを一時的に制限しています。" in soup.text) or 
             ("www.buffett-code.com took too long to respond" in soup.text) or 
-            ('An application is stopping Chrome from safely connecting to this site' in soup.text)):
+            ('An application is stopping Chrome from safely connecting to this site' in soup.text) or 
+            ('The connection was reset.' in soup.text) or
+            ('Checking the connection' in soup.text) or 
+            ('No internet' in soup.text) or
+            ('This site can’t be reached' in soup.text)
+            ):
             print("Lỗi rồi reset lại đi")
             self. resetDriver()
             return True
@@ -319,11 +321,11 @@ class GetPDF:
             self.driver.page_source, "html.parser", from_encoding="utf-8"
         )
         arr = soup.find_all("a")
+        if self.checkError(soup):
+            return self.getPdfLink(link_)
         for i in arr:
             if i["href"].find("pdf") != -1:
                 return i["href"]
-        if self.checkError(soup):
-            return self.getPdfLink(link_)
         return ""
 
     def createLinkDF(self, table):
@@ -527,7 +529,7 @@ class GetPDF:
         df = pd.read_csv(self.path_all_com)
         id = df[df["check"] != "Done"].index[1]
         if reverse:
-            id = df[df["check"] == "False"].index[-1]
+            id = df[df["check"] == 'True'].index[-1]
         symbol = df["Symbol"][id]
         df.loc[id, "check"] = "Doing"
         df.to_csv(self.path_all_com, index=False)
@@ -552,7 +554,7 @@ class GetPDF:
             id_company = self.getSymbolDoing(reverse=reverse)
             self.savePDF(id_company = id_company)
             self.savePDF(id_company = id_company)
-            msg = 'True'
+            msg = 'Done'
         except:
             msg = 'False'
 
@@ -562,7 +564,7 @@ class GetPDF:
         df_temp.loc[id, 'check'] = msg
         df_temp.to_csv(self.path_all_com, index=False)
 
-        self.resetDriver()
+        # self.resetDriver()
         self.savePDFThread(reverse=reverse)
 
 
