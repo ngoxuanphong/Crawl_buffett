@@ -321,11 +321,11 @@ class GetPDF:
             self.driver.page_source, "html.parser", from_encoding="utf-8"
         )
         arr = soup.find_all("a")
+        if self.checkError(soup):
+            return self.getPdfLink(link_)
         for i in arr:
             if i["href"].find("pdf") != -1:
                 return i["href"]
-        if self.checkError(soup):
-            return self.getPdfLink(link_)
         return ""
 
     def createLinkDF(self, table):
@@ -527,7 +527,7 @@ class GetPDF:
             list of symbol doing
         """
         df = pd.read_csv(self.path_all_com)
-        id = df[df["check"] == "True"].index[1]
+        id = df[df["check"] != "Done"].index[1]
         if reverse:
             id = df[df["check"] == 'True'].index[-1]
         symbol = df["Symbol"][id]
