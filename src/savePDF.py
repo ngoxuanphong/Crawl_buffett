@@ -529,7 +529,7 @@ class GetPDF:
         df = pd.read_csv(self.path_all_com)
         id = df[df["check"] != "Done"].index[1]
         if reverse:
-            id = df[df["check"] == 'True'].index[-1]
+            id = df[df["check"] == 'False'].index[-1]
         symbol = df["Symbol"][id]
         df.loc[id, "check"] = "Doing"
         df.to_csv(self.path_all_com, index=False)
