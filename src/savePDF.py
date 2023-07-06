@@ -22,10 +22,12 @@ class GetProxyDriver:
     def __init__(self, 
                  thread_num: int = 3):
         self.thread_num = thread_num
-        self.urls = ['https://www.proxynova.com/proxy-server-list/',
-                    'https://www.proxynova.com/proxy-server-list/country-cn',
+        self.urls = [
                     'https://www.proxynova.com/proxy-server-list/country-vn',
-                    'https://www.proxynova.com/proxy-server-list/country-th/',]
+                    # 'https://www.proxynova.com/proxy-server-list/',
+                    # 'https://www.proxynova.com/proxy-server-list/country-cn',
+                    # 'https://www.proxynova.com/proxy-server-list/country-th/',
+                    ]
         self.df_proxy = self.getProxyTable()
 
     def getProxyTable(self):
@@ -42,7 +44,7 @@ class GetProxyDriver:
 
         df_proxy = pd.read_html(str(tables))[0].dropna(how = 'all')
         df_proxy['Proxy IP'][:len(ip_address)] = ip_address
-        driver.close()
+        driver.quit()
         return df_proxy
 
     def checkDriver(self, PROXY):
@@ -84,7 +86,7 @@ class GetProxyDriver:
             List of chrome driver
         """
         lst_driver= []
-        for j in range(30):
+        for j in range(int(len(self.df_proxy)/2)):
             i = np.random.choice(list(self.df_proxy.index))
             proxy = self.df_proxy.loc[i, 'Proxy IP']
             port = int(self.df_proxy.loc[i, 'Proxy Port'])
@@ -556,7 +558,7 @@ class GetPDF:
             self.savePDF(id_company = id_company)
             msg = 'Done'
         except:
-            msg = 'False'
+            msg = 'False1'
 
         # find index by value
         df_temp = pd.read_csv(self.path_all_com)
