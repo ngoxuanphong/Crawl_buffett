@@ -24,9 +24,9 @@ class GetProxyDriver:
         self.thread_num = thread_num
         self.urls = [
                     'https://www.proxynova.com/proxy-server-list/country-vn',
-                    # 'https://www.proxynova.com/proxy-server-list/',
-                    # 'https://www.proxynova.com/proxy-server-list/country-cn',
-                    # 'https://www.proxynova.com/proxy-server-list/country-th/',
+                    'https://www.proxynova.com/proxy-server-list/',
+                    'https://www.proxynova.com/proxy-server-list/country-cn',
+                    'https://www.proxynova.com/proxy-server-list/country-th/',
                     ]
         self.df_proxy = self.getProxyTable()
 
