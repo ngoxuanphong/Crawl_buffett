@@ -24,9 +24,9 @@ class GetProxyDriver:
         self.thread_num = thread_num
         self.urls = [
                     'https://www.proxynova.com/proxy-server-list/country-vn',
-                    # 'https://www.proxynova.com/proxy-server-list/',
-                    # 'https://www.proxynova.com/proxy-server-list/country-cn',
-                    # 'https://www.proxynova.com/proxy-server-list/country-th/',
+                    'https://www.proxynova.com/proxy-server-list/',
+                    'https://www.proxynova.com/proxy-server-list/country-cn',
+                    'https://www.proxynova.com/proxy-server-list/country-th/',
                     ]
         self.df_proxy = self.getProxyTable()
 
@@ -529,7 +529,7 @@ class GetPDF:
             list of symbol doing
         """
         df = pd.read_csv(self.path_all_com)
-        id = df[df["check"] == "Done"].index[1]
+        id = df[df["check"] == "True"].index[1]
         if reverse:
             id = df[df["check"] == 'Done'].index[-1]
         symbol = df["Symbol"][id]
@@ -556,7 +556,7 @@ class GetPDF:
             id_company = self.getSymbolDoing(reverse=reverse)
             self.savePDF(id_company = id_company)
             self.savePDF(id_company = id_company)
-            msg = 'True'
+            msg = 'Done'
         except:
             msg = 'False1'
 
