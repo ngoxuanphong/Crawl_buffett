@@ -66,7 +66,7 @@ class GetProxyDriver:
         chrome_options.add_argument('--log-level=3')
         chrome_options.add_argument('--proxy-server=%s' % PROXY)
         chrome = webdriver.Chrome(options=chrome_options)
-        chrome.implicitly_wait(7)
+        chrome.implicitly_wait(10)
         chrome.get('https://www.buffett-code.com/')
 
         if ('バフェット・コード' in chrome.page_source) and ("403 Forbidden" not in chrome.page_source):
@@ -531,7 +531,7 @@ class GetPDF:
         df = pd.read_csv(self.path_all_com)
         id = df[df["check"] == "True"].index[1]
         if reverse:
-            id = df[df["check"] == 'Done'].index[-1]
+            id = df[df["check"] == 'False'].index[-1]
         symbol = df["Symbol"][id]
         df.loc[id, "check"] = "Doing"
         df.to_csv(self.path_all_com, index=False)
