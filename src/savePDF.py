@@ -531,7 +531,7 @@ class GetPDF:
         df = pd.read_csv(self.path_all_com)
         id = df[df["check"] == "True"].index[1]
         if reverse:
-            id = df[df["check"] == 'False'].index[-1]
+            id = df[df["check"] == 'False1'].index[-1]
         symbol = df["Symbol"][id]
         df.loc[id, "check"] = "Doing"
         df.to_csv(self.path_all_com, index=False)
@@ -558,7 +558,7 @@ class GetPDF:
             self.savePDF(id_company = id_company)
             msg = 'Done'
         except:
-            msg = 'False1'
+            msg = 'False'
 
         # find index by value
         df_temp = pd.read_csv(self.path_all_com)
