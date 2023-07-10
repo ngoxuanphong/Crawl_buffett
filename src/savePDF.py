@@ -529,9 +529,13 @@ class GetPDF:
             list of symbol doing
         """
         df = pd.read_csv(self.path_all_com)
-        id = df[df["check"] == "True"].index[1]
+        print(df)
+        if "check" not in df.columns:
+            df["check"] = np.nan
+        id = df[pd.isna(df["check"])].index[1]
         if reverse:
-            id = df[df["check"] == 'False1'].index[-1]
+            id = df[pd.isna(df["check"])].index[-1]
+        print('ID: ', id)
         symbol = df["Symbol"][id]
         df.loc[id, "check"] = "Doing"
         df.to_csv(self.path_all_com, index=False)
@@ -562,6 +566,8 @@ class GetPDF:
 
         # find index by value
         df_temp = pd.read_csv(self.path_all_com)
+        if "check" not in df_temp.columns:
+            df_temp["check"] = np.nan
         id = df_temp['Symbol'].tolist().index(id_company)
         df_temp.loc[id, 'check'] = msg
         df_temp.to_csv(self.path_all_com, index=False)
