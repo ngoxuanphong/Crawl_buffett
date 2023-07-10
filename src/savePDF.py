@@ -22,10 +22,12 @@ class GetProxyDriver:
     def __init__(self, 
                  thread_num: int = 3):
         self.thread_num = thread_num
-        self.urls = ['https://www.proxynova.com/proxy-server-list/',
-                    'https://www.proxynova.com/proxy-server-list/country-cn',
+        self.urls = [
                     'https://www.proxynova.com/proxy-server-list/country-vn',
-                    'https://www.proxynova.com/proxy-server-list/country-th/',]
+                    'https://www.proxynova.com/proxy-server-list/',
+                    'https://www.proxynova.com/proxy-server-list/country-cn',
+                    'https://www.proxynova.com/proxy-server-list/country-th/',
+                    ]
         self.df_proxy = self.getProxyTable()
 
     def getProxyTable(self):
@@ -42,7 +44,7 @@ class GetProxyDriver:
 
         df_proxy = pd.read_html(str(tables))[0].dropna(how = 'all')
         df_proxy['Proxy IP'][:len(ip_address)] = ip_address
-        driver.close()
+        driver.quit()
         return df_proxy
 
     def checkDriver(self, PROXY):
@@ -64,7 +66,7 @@ class GetProxyDriver:
         chrome_options.add_argument('--log-level=3')
         chrome_options.add_argument('--proxy-server=%s' % PROXY)
         chrome = webdriver.Chrome(options=chrome_options)
-        chrome.implicitly_wait(7)
+        chrome.implicitly_wait(10)
         chrome.get('https://www.buffett-code.com/')
 
         if ('バフェット・コード' in chrome.page_source) and ("403 Forbidden" not in chrome.page_source):
@@ -84,7 +86,7 @@ class GetProxyDriver:
             List of chrome driver
         """
         lst_driver= []
-        for j in range(30):
+        for j in range(int(len(self.df_proxy)/2)):
             i = np.random.choice(list(self.df_proxy.index))
             proxy = self.df_proxy.loc[i, 'Proxy IP']
             port = int(self.df_proxy.loc[i, 'Proxy Port'])
@@ -527,9 +529,9 @@ class GetPDF:
             list of symbol doing
         """
         df = pd.read_csv(self.path_all_com)
-        id = df[df["check"] != "Done"].index[1]
+        id = df[df["check"] == "True"].index[1]
         if reverse:
-            id = df[df["check"] == 'True'].index[-1]
+            id = df[df["check"] == 'False'].index[-1]
         symbol = df["Symbol"][id]
         df.loc[id, "check"] = "Doing"
         df.to_csv(self.path_all_com, index=False)
@@ -556,7 +558,7 @@ class GetPDF:
             self.savePDF(id_company = id_company)
             msg = 'Done'
         except:
-            msg = 'False'
+            msg = 'False1'
 
         # find index by value
         df_temp = pd.read_csv(self.path_all_com)

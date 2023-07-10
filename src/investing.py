@@ -8,7 +8,7 @@ warnings.filterwarnings('ignore')
 
 class Investing():
     def __init__(self, 
-                 path_save: str = 'data'):
+                 path_save: str = 'data_1'):
         self.link_investing = 'https://www.investing.com'
         self.link_list_com = 'https://www.investing.com/stock-screener/?sp=country::35|sector::a|industry::a|equityType::a|exchange::20%3EviewData.symbol;'
         self.EMAIL = 'thiensuofclass@gmail.com'

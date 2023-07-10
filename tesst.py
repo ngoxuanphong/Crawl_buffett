@@ -9,7 +9,7 @@ def run():
     bf = GetPDF(
         path_all_com="docs/List_company_23052023 - Listing.csv",
         path_save="Data",
-        time_sleep=20,
+        time_sleep=10,
         browser_name='Thread',
         # driver_temp= driver
     )
