@@ -529,13 +529,12 @@ class GetPDF:
             list of symbol doing
         """
         df = pd.read_csv(self.path_all_com)
-        print(df)
+        # print(df)
         if "check" not in df.columns:
             df["check"] = np.nan
         id = df[pd.isna(df["check"])].index[1]
         if reverse:
             id = df[pd.isna(df["check"])].index[-1]
-        print('ID: ', id)
         symbol = df["Symbol"][id]
         df.loc[id, "check"] = "Doing"
         df.to_csv(self.path_all_com, index=False)
