@@ -32,20 +32,24 @@ class GetProxyDriver:
 
     def getProxyTable(self):
         driver = webdriver.Chrome()
-        driver.get(np.random.choice(self.urls))
+        try:
+            driver.get(np.random.choice(self.urls))
 
-        html = driver.page_source
-        soup = BeautifulSoup(html, 'html.parser')
-        tables = soup.find('table', id='tbl_proxy_list')
-        tbody = tables.find('tbody')
+            html = driver.page_source
+            soup = BeautifulSoup(html, 'html.parser')
+            tables = soup.find('table', id='tbl_proxy_list')
+            tbody = tables.find('tbody')
 
-        pattern = r'(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})'
-        ip_address = re.findall(pattern, tbody.text)
+            pattern = r'(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})'
+            ip_address = re.findall(pattern, tbody.text)
 
-        df_proxy = pd.read_html(str(tables))[0].dropna(how = 'all')
-        df_proxy['Proxy IP'][:len(ip_address)] = ip_address
-        driver.quit()
-        return df_proxy
+            df_proxy = pd.read_html(str(tables))[0].dropna(how = 'all')
+            df_proxy['Proxy IP'][:len(ip_address)] = ip_address
+            driver.quit()
+            return df_proxy
+        except:
+            driver.quit()
+            return self.getProxyTable()
 
     def checkDriver(self, PROXY):
         """
@@ -683,3 +687,45 @@ class GetPDF:
         df_symbol['Symbol'][-1] = 'Total'
         df_symbol.sort_index(inplace=True)
         df_symbol.to_csv('docs/checklistDownloadPDF.csv', index=False)
+
+    def get_link(self, symbol, year, quarter):
+        df_check = pd.read_csv(fr'Data\{symbol}\docs\check.csv')
+        links = eval(df_check[f'Link_{quarter}'][df_check['Year'] == year].iloc[0])
+        times = eval(df_check[f'Time_{quarter}'][df_check['Year'] == year].iloc[0])
+        for i, time in enumerate(times):
+            if "(訂正)" not in time:
+                return links[i], time
+            
+    def thread_file(self, reverse=False):
+
+        df_miss = pd.read_csv(f'docs\miss_{reverse}.csv')
+        id = df_miss[df_miss['check'] != 'OK'].index[0]
+        symbol = df_miss['Symbol'][id]
+        year = df_miss['Year'][id]
+        quarter = df_miss['Quarter'][id]
+        df_miss['check'][id] = 'Doing'
+        df_miss.to_csv(f'docs\miss_{reverse}.csv', index=False)
+        link, time = self.get_link(symbol, year, quarter)
+
+        try:
+            time = time.replace(" ", "").replace("/", "_")
+            path_save_pdf = f"{self.path_save}/{symbol}/PDF/{year}_{quarter}_{time}.pdf"
+            link_pdf = self.getPdfLink(link)
+            self.requestPDF(path_save_pdf, link_pdf)
+            msg = "OK"
+        except:
+            msg = np.nan
+        print(
+                f"{self.path_save}/{symbol} - {year} - {quarter} - {msg} - {link}"
+            )
+        
+        df_check = pd.read_csv(fr'Data\{symbol}\docs\check.csv')
+        df_check[f'download_{quarter}'][df_check['Year'] == year] = msg
+        df_check.to_csv(f"{self.path_save}\{symbol}\docs\check.csv", index=False)
+
+        df_miss = pd.read_csv(f'docs\miss_{reverse}.csv')
+        df_miss['check'][id] = msg
+        df_miss.to_csv(f'docs\miss_{reverse}.csv', index=False)
+        time.sleep(self.time_sleep)
+
+        return self.thread_file(reverse=reverse)
