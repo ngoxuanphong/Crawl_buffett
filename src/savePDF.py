@@ -705,11 +705,11 @@ class GetPDF:
         quarter = df_miss['Quarter'][id]
         df_miss['check'][id] = 'Doing'
         df_miss.to_csv(f'docs\miss_{reverse}.csv', index=False)
-        link, time = self.get_link(symbol, year, quarter)
+        link, name = self.get_link(symbol, year, quarter)
 
         try:
-            time = time.replace(" ", "").replace("/", "_")
-            path_save_pdf = f"{self.path_save}/{symbol}/PDF/{year}_{quarter}_{time}.pdf"
+            name = name.replace(" ", "").replace("/", "_")
+            path_save_pdf = f"{self.path_save}/{symbol}/PDF/{year}_{quarter}_{name}.pdf"
             link_pdf = self.getPdfLink(link)
             self.requestPDF(path_save_pdf, link_pdf)
             msg = "OK"

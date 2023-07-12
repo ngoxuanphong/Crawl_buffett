@@ -3,7 +3,7 @@ from multiprocessing import Process
 from src.savePDF import GetProxyDriver, GetPDF
 import time 
 
-thread_num = 3
+thread_num = 15
 
 
 def run():
