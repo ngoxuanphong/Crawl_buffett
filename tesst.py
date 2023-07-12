@@ -1,8 +1,9 @@
-import threading as th
+# import threading as th
+from multiprocessing import Process
 from src.savePDF import GetProxyDriver, GetPDF
 import time 
 
-thread_num = 10
+thread_num = 3
 
 
 def run():
@@ -13,12 +14,14 @@ def run():
         browser_name='Thread',
         # driver_temp= driver
     )
-    bf.savePDFThread(reverse=False)
+    # bf.savePDFThread(reverse=True)
+    bf.thread_file(reverse=True)
 
 if __name__ == "__main__":  # confirms that the code is under main function
     procs = []
     for id_process in range(thread_num):
-        proc = th.Thread(target=run, args=())
+        # proc = th.Thread(target=run, args=())
+        proc = Process(target=run, args=())
         time.sleep(5)
         proc.start()
         procs.append(proc)
