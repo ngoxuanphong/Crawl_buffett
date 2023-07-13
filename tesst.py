@@ -15,7 +15,7 @@ def run():
         # driver_temp= driver
     )
     # bf.savePDFThread(reverse=True)
-    bf.thread_file(reverse=True)
+    bf.thread_file(reverse=False)
 
 if __name__ == "__main__":  # confirms that the code is under main function
     procs = []
