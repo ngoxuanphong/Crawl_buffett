@@ -654,6 +654,7 @@ class GetPDF:
                     self.reDownload(id_company=id_company)
 
     def convertSymbolFile(self):
+
         df_symbol= pd.read_csv(self.path_all_com)[['Symbol', 'check']]
         for year in range(2000, 2024):
             for quarter in range(1, 5):
@@ -661,6 +662,7 @@ class GetPDF:
         return df_symbol
 
     def checkDownload(self, id_company):
+
         df_com = pd.read_csv(self.path_save + f'/{id_company}/docs/check.csv')
         df_com = df_com[['Year', 'download_Q1', 'download_Q2', 'download_Q3', 'download_Q4']]
 
@@ -689,6 +691,34 @@ class GetPDF:
         df_symbol.sort_index(inplace=True)
         df_symbol.to_csv('docs/checklistDownloadPDF.csv', index=False)
 
+    def check_miss_file(self, symbol):
+        df = pd.read_csv(fr'Data\{symbol}\docs\check.csv')
+        QUARTER = ['Q1', 'Q2', 'Q3', 'Q4']
+        df_temp = df[['download_Q1', 'download_Q2', 'download_Q3', 'download_Q4']]
+        rows, cols = np.where(df_temp.isna())
+        lst_time, lst_quarter = [],  []
+        for row, col in zip(rows, cols):
+            if df[f'Link_{QUARTER[col]}'][row] != '[]':
+                lst_time.append(df['Year'][row])
+                lst_quarter.append(QUARTER[col])
+
+        df_new = pd.DataFrame({
+                    'Symbol': symbol,
+                        'Year':lst_time,
+                    'Quarter': lst_quarter,
+                    })
+        return df_new
+
+    def check_miss_all(self, reverse = True):
+        df_all = pd.read_csv('A:\Phong\Crawl_buffett\docs\List_company_23052023 - Listing.csv')
+        df_miss = pd.DataFrame(columns=['Symbol', 'Year', 'Quarter'])
+        for symbol in df_all['Symbol']:
+            if os.path.exists(fr'Data\{symbol}\docs\check.csv'):
+                df_temp = self.check_miss_file(symbol)
+                df_miss = pd.concat([df_miss, df_temp])
+        df_miss['check'] = np.nan
+        df_miss.to_csv(f'docs\miss_{reverse}.csv', index=False)
+
     def get_link(self, symbol, year, quarter):
         df_check = pd.read_csv(fr'Data\{int(symbol)}\docs\check.csv')
         links = eval(df_check[f'Link_{quarter}'][df_check['Year'] == year].iloc[0])
@@ -697,9 +727,17 @@ class GetPDF:
             if "(訂正)" not in time:
                 return links[i], time
             
+    def read_miss_file(self, reverse=False):
+        try:
+            df_miss = pd.read_csv(f'docs\miss_{reverse}.csv')
+        except:
+            self.check_miss_all(reverse=reverse)
+            df_miss = pd.read_csv(f'docs\miss_{reverse}.csv')
+        return df_miss
+    
     def thread_file(self, reverse=False):
 
-        df_miss = pd.read_csv(f'docs\miss_{reverse}.csv')
+        df_miss = self.read_miss_file(reverse=False)
         id = df_miss[df_miss['check'].isna()].index[0]
         symbol = int(df_miss['Symbol'][id])
         year = int(df_miss['Year'][id])
@@ -725,7 +763,7 @@ class GetPDF:
         df_check[f'download_{quarter}'][df_check['Year'] == year] = msg
         df_check.to_csv(f"{self.path_save}\{symbol}\docs\check.csv", index=False)
 
-        df_miss = pd.read_csv(f'docs\miss_{reverse}.csv')
+        df_miss = self.read_miss_file(reverse=False)
         df_miss['check'][id] = msg
         df_miss.to_csv(f'docs\miss_{reverse}.csv', index=False)
         time.sleep(self.time_sleep)
