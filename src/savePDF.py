@@ -689,7 +689,7 @@ class GetPDF:
         df_symbol.to_csv('docs/checklistDownloadPDF.csv', index=False)
 
     def get_link(self, symbol, year, quarter):
-        df_check = pd.read_csv(fr'Data\{symbol}\docs\check.csv')
+        df_check = pd.read_csv(fr'Data\{int(symbol)}\docs\check.csv')
         links = eval(df_check[f'Link_{quarter}'][df_check['Year'] == year].iloc[0])
         times = eval(df_check[f'Time_{quarter}'][df_check['Year'] == year].iloc[0])
         for i, time in enumerate(times):
@@ -700,8 +700,8 @@ class GetPDF:
 
         df_miss = pd.read_csv(f'docs\miss_{reverse}.csv')
         id = df_miss[df_miss['check'] != 'OK'].index[0]
-        symbol = df_miss['Symbol'][id]
-        year = df_miss['Year'][id]
+        symbol = int(df_miss['Symbol'][id])
+        year = int(df_miss['Year'][id])
         quarter = df_miss['Quarter'][id]
         df_miss['check'][id] = 'Doing'
         df_miss.to_csv(f'docs\miss_{reverse}.csv', index=False)
