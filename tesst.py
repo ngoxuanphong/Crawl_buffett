@@ -3,7 +3,7 @@ from multiprocessing import Process
 from src.savePDF import GetProxyDriver, GetPDF
 import time 
 
-thread_num = 4
+thread_num = 5
 
 
 def run():
@@ -15,7 +15,7 @@ def run():
         # driver_temp= driver
     )
     # bf.savePDFThread(reverse=True)
-    bf.thread_file(reverse=False)
+    bf.thread_file(reverse=True)
 
 if __name__ == "__main__":  # confirms that the code is under main function
     procs = []
