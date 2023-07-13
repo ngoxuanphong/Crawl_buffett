@@ -737,7 +737,7 @@ class GetPDF:
     
     def thread_file(self, reverse=False):
 
-        df_miss = self.read_miss_file(reverse=False)
+        df_miss = self.read_miss_file(reverse)
         id = df_miss[df_miss['check'].isna()].index[0]
         symbol = int(df_miss['Symbol'][id])
         year = int(df_miss['Year'][id])
@@ -763,7 +763,7 @@ class GetPDF:
         df_check[f'download_{quarter}'][df_check['Year'] == year] = msg
         df_check.to_csv(f"{self.path_save}\{symbol}\docs\check.csv", index=False)
 
-        df_miss = self.read_miss_file(reverse=False)
+        df_miss = self.read_miss_file(reverse)
         df_miss['check'][id] = msg
         df_miss.to_csv(f'docs\miss_{reverse}.csv', index=False)
         time.sleep(self.time_sleep)
