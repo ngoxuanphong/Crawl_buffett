@@ -2,8 +2,9 @@ import PyPDF2
 import ocrmypdf
 
 
-def ocrPDF(input_file):
-    output_file = input_file.replace(".pdf", "_ocr.pdf")
+def ocrPDF(input_file, output_file = None):
+    if output_file == None:
+        output_file = input_file.replace(".pdf", "_ocr.pdf")
     ocrmypdf.ocr(
         input_file,
         output_file,

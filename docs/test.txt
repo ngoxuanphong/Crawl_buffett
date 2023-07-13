@@ -45,9 +45,13 @@ Hằng số:
     Viết hoa và gạch dưới
         vd: DISCOUNT_PERCENT
 
-doi get_table thanh class
-Them mo ta ham
-Them comment code
-Sua ten bien, ten ham, ten class
+Hướng dẫn cài đặt ocr cho file pdf:
+ - Nếu dùng windows: 
+ cài docs\tesseract-ocr-w64-setup-5.3.1.20230401.exe
+ - Nhớ cài thêm tiếng nhật, 
+ - không chọn thì chọn file docs\jpn.traineddata đưa vào folder language của tesseract
+ - Thêm PATH tesseract vào local PATH của máy
+ - cài docs\gs10012w64.exe
+ - Chạy thử: tests\test_ocr.ipynb
 
-250/9h30 33 luong
+ 
