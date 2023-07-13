@@ -34,7 +34,7 @@ class GetProxyDriver:
         driver = webdriver.Chrome()
         try:
             driver.get(np.random.choice(self.urls))
-
+            time.sleep(2)
             html = driver.page_source
             soup = BeautifulSoup(html, 'html.parser')
             tables = soup.find('table', id='tbl_proxy_list')
@@ -45,6 +45,7 @@ class GetProxyDriver:
 
             df_proxy = pd.read_html(str(tables))[0].dropna(how = 'all')
             df_proxy['Proxy IP'][:len(ip_address)] = ip_address
+            time.sleep(1)
             driver.quit()
             return df_proxy
         except:
@@ -700,8 +701,8 @@ class GetPDF:
 
         df_miss = pd.read_csv(f'docs\miss_{reverse}.csv')
         id = df_miss[df_miss['check'].isna()].index[0]
-        symbol = df_miss['Symbol'][id]
-        year = df_miss['Year'][id]
+        symbol = int(df_miss['Symbol'][id])
+        year = int(df_miss['Year'][id])
         quarter = df_miss['Quarter'][id]
         df_miss['check'][id] = 'Doing'
         df_miss.to_csv(f'docs\miss_{reverse}.csv', index=False)
