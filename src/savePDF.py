@@ -699,12 +699,13 @@ class GetPDF:
     def thread_file(self, reverse=False):
 
         df_miss = pd.read_csv(f'docs\miss_{reverse}.csv')
-        id = df_miss[df_miss['check'] != 'OK'].index[0]
+        id = df_miss[df_miss['check'].isna()].index[0]
         symbol = df_miss['Symbol'][id]
         year = df_miss['Year'][id]
         quarter = df_miss['Quarter'][id]
         df_miss['check'][id] = 'Doing'
         df_miss.to_csv(f'docs\miss_{reverse}.csv', index=False)
+        print(symbol, year, quarter)
         link, name = self.get_link(symbol, year, quarter)
 
         try:
