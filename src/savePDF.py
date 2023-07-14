@@ -698,7 +698,7 @@ class GetPDF:
         rows, cols = np.where(df_temp.isna())
         lst_time, lst_quarter = [],  []
         for row, col in zip(rows, cols):
-            if df[f'Link_{QUARTER[col]}'][row] != '[]':
+            if df[f'Link_{QUARTER[col]}'][row] != '[]' and pd.isna(df[f'Link_{QUARTER[col]}'][row]) == False:
                 lst_time.append(df['Year'][row])
                 lst_quarter.append(QUARTER[col])
 
