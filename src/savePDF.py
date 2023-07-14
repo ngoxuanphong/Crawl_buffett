@@ -513,12 +513,10 @@ class GetPDF:
         -------
         None
         """
-        start = time.time()
         self.makeFolder(id_company)
         self.saveCheckPoint(id_company)
-        self.getDownloadPDF(id_company)
-        end = time.time()
-        print(f"Time run {id_company}: {end - start}")
+        # self.getDownloadPDF(id_company)
+
 
     def getSymbolDoing(self, reverse=False):
         """
@@ -691,7 +689,7 @@ class GetPDF:
         df_symbol.sort_index(inplace=True)
         df_symbol.to_csv('docs/checklistDownloadPDF.csv', index=False)
 
-    def check_miss_file(self, symbol):
+    def checkMissFile(self, symbol):
         df = pd.read_csv(fr'Data\{symbol}\docs\check.csv')
         QUARTER = ['Q1', 'Q2', 'Q3', 'Q4']
         df_temp = df[['download_Q1', 'download_Q2', 'download_Q3', 'download_Q4']]
@@ -709,17 +707,17 @@ class GetPDF:
                     })
         return df_new
 
-    def check_miss_all(self, reverse = True):
+    def checkMissAll(self, reverse = True):
         df_all = pd.read_csv('A:\Phong\Crawl_buffett\docs\List_company_23052023 - Listing.csv')
         df_miss = pd.DataFrame(columns=['Symbol', 'Year', 'Quarter'])
         for symbol in df_all['Symbol']:
             if os.path.exists(fr'Data\{symbol}\docs\check.csv'):
-                df_temp = self.check_miss_file(symbol)
+                df_temp = self.checkMissFile(symbol)
                 df_miss = pd.concat([df_miss, df_temp])
         df_miss['check'] = np.nan
         df_miss.to_csv(f'docs\miss_{reverse}.csv', index=False)
 
-    def get_link(self, symbol, year, quarter):
+    def getLinkFromCheckFile(self, symbol, year, quarter):
         df_check = pd.read_csv(fr'Data\{int(symbol)}\docs\check.csv')
         links = eval(df_check[f'Link_{quarter}'][df_check['Year'] == year].iloc[0])
         times = eval(df_check[f'Time_{quarter}'][df_check['Year'] == year].iloc[0])
@@ -727,17 +725,17 @@ class GetPDF:
             if "(訂正)" not in time:
                 return links[i], time
             
-    def read_miss_file(self, reverse=False):
+    def readMissFile(self, reverse=False):
         try:
             df_miss = pd.read_csv(f'docs\miss_{reverse}.csv')
         except:
-            self.check_miss_all(reverse=reverse)
+            self.checkMissAll(reverse=reverse)
             df_miss = pd.read_csv(f'docs\miss_{reverse}.csv')
         return df_miss
     
-    def thread_file(self, reverse=False):
+    def multiThreadFile(self, reverse=False):
 
-        df_miss = self.read_miss_file(reverse)
+        df_miss = self.readMissFile(reverse)
         id = df_miss[df_miss['check'].isna()].index[0]
         symbol = int(df_miss['Symbol'][id])
         year = int(df_miss['Year'][id])
@@ -745,7 +743,7 @@ class GetPDF:
         df_miss['check'][id] = 'Doing'
         df_miss.to_csv(f'docs\miss_{reverse}.csv', index=False)
         print(symbol, year, quarter)
-        link, name = self.get_link(symbol, year, quarter)
+        link, name = self.getLinkFromCheckFile(symbol, year, quarter)
 
         try:
             name = name.replace(" ", "").replace("/", "_")
@@ -763,9 +761,33 @@ class GetPDF:
         df_check[f'download_{quarter}'][df_check['Year'] == year] = msg
         df_check.to_csv(f"{self.path_save}\{symbol}\docs\check.csv", index=False)
 
-        df_miss = self.read_miss_file(reverse)
+        df_miss = self.readMissFile(reverse)
         df_miss['check'][id] = msg
         df_miss.to_csv(f'docs\miss_{reverse}.csv', index=False)
         time.sleep(self.time_sleep)
 
-        return self.thread_file(reverse=reverse)
+        return self.multiThreadFile(reverse=reverse)
+
+    def multiThreadMakeCheckFile(self):
+        
+        df_all = pd.read_csv(self.path_all_com)
+        id = df_all[df_all['check'].isna()].index[0]
+        symbol = int(df_all['Symbol'][id])
+        df_all['check'][id] = 'Doing'
+        df_all.to_csv(self.path_all_com, index=False)
+        print(symbol)
+        
+        try:
+            self.savePDF(id_company=symbol)
+            if self.driver.current_url != 'https://www.buffett-code.com/':
+                msg = 'False'
+            else:
+                msg = 'Done'
+        except:
+            msg = np.nan
+
+        df_all = pd.read_csv(self.path_all_com)
+        df_all['check'][id] = msg
+        df_all.to_csv(self.path_all_com, index=False)
+        time.sleep(self.time_sleep)
+        return self.multiThreadMakeCheckFile()
