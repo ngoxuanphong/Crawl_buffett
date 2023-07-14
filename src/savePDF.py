@@ -769,23 +769,23 @@ class GetPDF:
         return self.multiThreadFile(reverse=reverse)
 
     def multiThreadMakeCheckFile(self):
-        
+
         df_all = pd.read_csv(self.path_all_com)
         id = df_all[df_all['check'].isna()].index[0]
         symbol = int(df_all['Symbol'][id])
         df_all['check'][id] = 'Doing'
         df_all.to_csv(self.path_all_com, index=False)
-        print(symbol)
         
         try:
             self.savePDF(id_company=symbol)
-            if self.driver.current_url != 'https://www.buffett-code.com/':
+            msg = 'Done'
+        except:
+            if self.driver.current_url == 'https://www.buffett-code.com/':
                 msg = 'False'
             else:
-                msg = 'Done'
-        except:
-            msg = np.nan
+                msg = np.nan
 
+        print(symbol, msg)
         df_all = pd.read_csv(self.path_all_com)
         df_all['check'][id] = msg
         df_all.to_csv(self.path_all_com, index=False)
