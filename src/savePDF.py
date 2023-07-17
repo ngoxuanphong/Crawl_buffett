@@ -722,8 +722,9 @@ class GetPDF:
         links = eval(df_check[f'Link_{quarter}'][df_check['Year'] == year].iloc[0])
         times = eval(df_check[f'Time_{quarter}'][df_check['Year'] == year].iloc[0])
         for i, time in enumerate(times):
-            if "(訂正)" not in time:
+            if "(訂正)" not in time and pd.isna(links[i]) == False:
                 return links[i], time
+        return None, None
             
     def readMissFile(self, reverse=False):
         try:
@@ -743,19 +744,21 @@ class GetPDF:
         df_miss['check'][id] = 'Doing'
         df_miss.to_csv(f'docs\miss_{reverse}.csv', index=False)
         print(symbol, year, quarter)
-        link, name = self.getLinkFromCheckFile(symbol, year, quarter)
 
+        link, name = self.getLinkFromCheckFile(symbol, year, quarter)
         try:
             name = name.replace(" ", "").replace("/", "_")
             path_save_pdf = f"{self.path_save}/{symbol}/PDF/{year}_{quarter}_{name}.pdf"
             link_pdf = self.getPdfLink(link)
             self.requestPDF(path_save_pdf, link_pdf)
             msg = "OK"
+            print(
+                    f"{self.path_save}/{symbol} - {year} - {quarter} - {msg} - {link}"
+                )
         except:
             msg = np.nan
-        print(
-                f"{self.path_save}/{symbol} - {year} - {quarter} - {msg} - {link}"
-            )
+        if link == None:
+            msg = False
         
         df_check = pd.read_csv(fr'Data\{symbol}\docs\check.csv')
         df_check[f'download_{quarter}'][df_check['Year'] == year] = msg
