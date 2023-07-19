@@ -1,6 +1,6 @@
 from src.readPdf import ReadPdf
 
-read_pdf = ReadPdf(path_all_com="docs/List_company_23052023 - Listing.csv",
+read_pdf = ReadPdf(path_all_com="docs\may_cty.csv",
                    path_save='')
 read_pdf.getAllCom(reverse=True, 
                      bool_get_volume=False, 
