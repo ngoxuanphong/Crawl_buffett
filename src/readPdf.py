@@ -61,29 +61,27 @@ class ReadPdf():
         -------
         None
         """
-        lst_com = pd.read_csv(self.path_all_com)
+        self.reverse = reverse
 
+        lst_com = pd.read_csv(self.path_all_com)
+        
         for col_temp in ["check", "volume", "dividend", "table"]:
             if col_temp not in lst_com.columns:
                 lst_com[col_temp] = np.nan
         
-        lst_com.to_csv(self.path_all_com, index=False)
-        
-        if reverse: 
+        if self.reverse: 
             lst_com = lst_com[::-1]
-        
 
         for i in lst_com.index:
             id_company = lst_com["Symbol"][i]
             check = lst_com["check"][i]
             if check == "Done":
                 error = []
-                col = []
                 if bool_get_volume and lst_com["volume"][i] != "Done":
                     try:
                         get_volume = GetVolume(path_save=self.path_save)
                         get_volume.getVolume(id_company, save_file=True)
-                        col.append("volume")
+                        self.saveData(self, 'Done', id, 'volume')
                     except:
                         error.append("volume")
 
@@ -91,7 +89,7 @@ class ReadPdf():
                     try:
                         getTableClass = GetTable(path_save = self.path_save)
                         getTableClass.getTable(id_company, save_file = True)
-                        col.append("table")
+                        self.saveData(self, 'Done', id, 'table')
                     except:
                         error.append("table")
 
@@ -99,24 +97,26 @@ class ReadPdf():
                     try:
                         dividendClass = GetDividend(path_save=self.path_save)
                         dividendClass.getDividend(id_company, save_file=True)
-                        col.append("dividend")
+                        self.saveData(self, 'Done', id, 'dividend')
                     except:
                         error.append("dividend")
                     
+
+                # for col_ in col:
+                #     if col_ == "dividend":
+                #         self.saveDividendShares(id_company, "Done")
+
+                # for error_ in error:
+                #     print(f"Error: {id_company}- {error_}")
+                #     lst_com_[error_][i] = "False"
+                #     if error_ == "dividend":
+                #         self.saveDividendShares(id_company, "False")
+            
+    def saveData(self, msg, id, col):
                 lst_com_ = pd.read_csv(self.path_all_com)
-                if reverse:
+                if self.reverse:
                         lst_com_ = lst_com_[::-1]
 
-                for col_ in col:
-                    lst_com_[col_][i] = "Done"
-                    if col_ == "dividend":
-                        self.saveDividendShares(id_company, "Done")
-
-                for error_ in error:
-                    print(f"Error: {id_company}- {error_}")
-                    lst_com_[error_][i] = "False"
-                    if error_ == "dividend":
-                        self.saveDividendShares(id_company, "False")
-
+                lst_com_[col][id] = msg
                 lst_com_.sort_index(inplace=True)
                 lst_com_.to_csv(self.path_all_com, index=False)
