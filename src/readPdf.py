@@ -81,7 +81,7 @@ class ReadPdf():
                     try:
                         get_volume = GetVolume(path_save=self.path_save)
                         get_volume.getVolume(id_company, save_file=True)
-                        self.saveData(self, 'Done', id, 'volume')
+                        self.saveData('Done', i, 'volume')
                     except:
                         error.append("volume")
 
@@ -89,17 +89,17 @@ class ReadPdf():
                     try:
                         getTableClass = GetTable(path_save = self.path_save)
                         getTableClass.getTable(id_company, save_file = True)
-                        self.saveData(self, 'Done', id, 'table')
+                        self.saveData('Done', i, 'table')
                     except:
                         error.append("table")
 
                 if bool_get_dividend and lst_com["dividend"][i] != "Done":
-                    try:
+                    # try:
                         dividendClass = GetDividend(path_save=self.path_save)
                         dividendClass.getDividend(id_company, save_file=True)
-                        self.saveData(self, 'Done', id, 'dividend')
-                    except:
-                        error.append("dividend")
+                        self.saveData('Done', i, 'dividend')
+                    # except:
+                    #     error.append("dividend")
                     
 
                 # for col_ in col:
