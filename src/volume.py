@@ -39,7 +39,7 @@ class GetVolume():
         """
         for page in range(len(pdf.pages)):
             text = pdf.pages[page].extract_text()
-            text = text.replace('\n', ' ').replace(' ', '').replace('.', ',').replace('ー', '123,456,789,999')
+            text = text.replace('\n', ' ').replace(' ', '').replace('.', ',').replace('ー', '123,456,789,999').replace('－', '123,456,789,999').replace('―', '123,456,789,999')
             text_first = '期末発行済株式数'
             id_first = text.find(text_first)
             if id_first >= 0:
