@@ -94,12 +94,12 @@ class ReadPdf():
                         error.append("table")
 
                 if bool_get_dividend and lst_com["dividend"][i] != "Done":
-                    # try:
+                    try:
                         dividendClass = GetDividend(path_save=self.path_save)
                         dividendClass.getDividend(id_company, save_file=True)
                         self.saveData('Done', i, 'dividend')
-                    # except:
-                    #     error.append("dividend")
+                    except:
+                        error.append("dividend")
                     
 
                 # for col_ in col:
