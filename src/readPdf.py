@@ -64,7 +64,7 @@ class ReadPdf():
         self.reverse = reverse
 
         lst_com = pd.read_csv(self.path_all_com)
-        
+
         for col_temp in ["check", "volume", "dividend", "table"]:
             if col_temp not in lst_com.columns:
                 lst_com[col_temp] = np.nan
