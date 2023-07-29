@@ -64,7 +64,7 @@ class ReadPdf():
         self.reverse = reverse
 
         lst_com = pd.read_csv(self.path_all_com)
-        
+
         for col_temp in ["check", "volume", "dividend", "table"]:
             if col_temp not in lst_com.columns:
                 lst_com[col_temp] = np.nan
@@ -81,7 +81,7 @@ class ReadPdf():
                     try:
                         get_volume = GetVolume(path_save=self.path_save)
                         get_volume.getVolume(id_company, save_file=True)
-                        self.saveData(self, 'Done', id, 'volume')
+                        self.saveData('Done', i, 'volume')
                     except:
                         error.append("volume")
 
@@ -89,7 +89,7 @@ class ReadPdf():
                     try:
                         getTableClass = GetTable(path_save = self.path_save)
                         getTableClass.getTable(id_company, save_file = True)
-                        self.saveData(self, 'Done', id, 'table')
+                        self.saveData('Done', i, 'table')
                     except:
                         error.append("table")
 
@@ -97,7 +97,7 @@ class ReadPdf():
                     try:
                         dividendClass = GetDividend(path_save=self.path_save)
                         dividendClass.getDividend(id_company, save_file=True)
-                        self.saveData(self, 'Done', id, 'dividend')
+                        self.saveData('Done', i, 'dividend')
                     except:
                         error.append("dividend")
                     
