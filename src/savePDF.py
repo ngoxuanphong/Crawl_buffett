@@ -799,9 +799,9 @@ class GetPDF:
 
 class GetPpfIrbank():
     def __init__(self, 
-                 path_all_com="Crawl/buffett/docs/List_company_23052023 - Listing.csv",
+                 path_all_com="docs/List_company_23052023 - Listing.csv",
                  path_save = 'Data'):
-        self.df_key = pd.read_csv('/content/drive/MyDrive/6_2023/use_codes.csv')
+        self.df_key = pd.read_csv('docs/use_codes.csv')
         self.pattern = r'\d{1,2}/\d{1,2}'
         self.LINK = 'https://f.irbank.net/pdf'
         self.PATH_SAVE = path_save
@@ -809,7 +809,7 @@ class GetPpfIrbank():
 
     def getTable(self, symbol):
         df_key = self.df_key
-        key = df_key[df_key['Symbol'] == symbol].iloc[0, 1]
+        key = df_key[df_key['Symbol'] == int(symbol)].iloc[0, 1]
         rs = requests.get(f"https://irbank.net/{key}/tdnet")
         rsp = BeautifulSoup(rs.content, 'html.parser')
         table = rsp.find("table")
