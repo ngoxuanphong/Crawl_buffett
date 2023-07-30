@@ -794,3 +794,80 @@ class GetPDF:
         df_all.to_csv(self.path_all_com, index=False)
         time.sleep(self.time_sleep)
         return self.multiThreadMakeCheckFile()
+    
+
+
+class GetPpfIrbank():
+    def __init__(self, 
+                 path_all_com="Crawl/buffett/docs/List_company_23052023 - Listing.csv",
+                 path_save = 'Data'):
+        self.df_key = pd.read_csv('/content/drive/MyDrive/6_2023/use_codes.csv')
+        self.pattern = r'\d{1,2}/\d{1,2}'
+        self.LINK = 'https://f.irbank.net/pdf'
+        self.PATH_SAVE = path_save
+        self.path_all_com = path_all_com
+
+    def getTable(self, symbol):
+        df_key = self.df_key
+        key = df_key[df_key['Symbol'] == symbol].iloc[0, 1]
+        rs = requests.get(f"https://irbank.net/{key}/tdnet")
+        rsp = BeautifulSoup(rs.content, 'html.parser')
+        table = rsp.find("table")
+        df = pd.read_html(str(table),extract_links='all')[0]
+        return df
+
+    def requestPDF(self, path_save_pdf, link_pdf):
+        response = requests.get(link_pdf)
+        with open(path_save_pdf, "wb") as f:
+            f.write(response.content)
+
+    def makeFolder(self, symbol):
+        path_pdf = f'{self.PATH_SAVE}/{symbol}/PDF'
+        path_docs = f'{self.PATH_SAVE}/{symbol}/docs'
+        os.makedirs(path_pdf, exist_ok=True)
+        os.makedirs(path_docs, exist_ok=True)
+        return path_pdf, path_docs
+
+    def savePDF(self, symbol):
+        df = self.getTable(symbol)
+        df_check = df.copy()
+        path_pdf, path_docs = self.makeFolder(symbol)
+        df.to_csv(f'{path_docs}/link.csv', index = False)
+        for id in df.index:
+            year = int(df.iloc[id, 0][0].split('/')[0])
+            for q in range(1, 5):
+                try:
+                    date = re.findall(self.pattern, df.iloc[id, q][0])[0]
+                    date =  datetime.strptime(date, '%m/%d')
+                    date_save = f'({year}_' + datetime.strftime(date, '%m_%d') + ')'
+                    date = date.strftime('%d%m')
+                    code = df.iloc[id, q][1].split('/')[-1]
+                    if q < 3:
+                        link = f"{self.LINK}/{year-1}{date}/{code}.pdf"
+                    else:
+                        link = f"{self.LINK}/{year}{date}/{code}.pdf"
+                    print(date_save, link)
+                    self.requestPDF(f'{self.PATH_SAVE}/{symbol}/PDF/{year}_Q{q}_{date_save}.pdf', link)
+                    msg = 'ok'
+                except:
+                    msg = 'bug'
+                df_check.iloc[id, q] = msg
+        df = pd.concat([df, df_check], axis = 1)
+        df.to_csv(f'{path_docs}/link.csv', index = False)
+
+    def getAllCom(self):
+        lst_com = pd.read_csv(self.path_all_com)
+        lst_done = []
+        for id in lst_com.index:
+            symbol = lst_com['Symbol'][id]
+            if lst_com['check'][id] != 'Done':
+                try:
+                    self.savePDF(symbol)
+                    lst_com['check'][id] = 'Done'
+                    print(symbol, 'Done')
+                    lst_done.append(symbol)
+                except Exception as e:
+                    print(symbol, e)
+        lst_com.to_csv(self.path_all_com, index = False)
+        pd.DataFrame(lst_done).to_csv('docs/miss_irbank.csv', index = False)
+
