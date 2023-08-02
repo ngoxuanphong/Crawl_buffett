@@ -47,7 +47,8 @@ class GetVolume():
                 return text
 
     def findData(self,
-                 path: str = "tests/Data/1301/PDF/2022_Q1_決算短信(2022_8_5).pdf"):
+                 path: str = "tests/Data/1301/PDF/2022_Q1_決算短信(2022_8_5).pdf",
+                 year = 2022):
         """
         Parameters
         ----------
@@ -58,7 +59,7 @@ class GetVolume():
         text = self.findText(pdf)
         numbers = re.findall(r"\d{1,3}(?:,\d{3})*", text)
         # print(numbers)
-        numbers = [int(number.replace(",", "")) for number in numbers if int(number.replace(",", "")) > 3000]
+        numbers = [int(number.replace(",", "")) for number in numbers if (int(number.replace(",", "")) != year and int(number.replace(",", "")) > 300)]
         numbers = [0 if number == 123456789999 else number for number in numbers ]
         return [numbers[0], numbers[2]]
     
@@ -83,14 +84,14 @@ class GetVolume():
                 input_path = self.path_save + f"Data/{id_company}/PDF/{file_name}"
                 date_volume = file_name[file_name.find("(") + 1 : file_name.find(")")]
                 try:
-                    lst_data_of_time = self.findData(input_path)
+                    lst_data_of_time = self.findData(input_path, year)
                 except:
                     try:
                         path_pdf_ocr = input_path.replace(".pdf", "_ocr.pdf")
                         print('Need ocr', path_pdf_ocr)
                         if not os.path.exists(path_pdf_ocr):
                             ocrPDF(input_path)
-                        lst_data_of_time = self.findData(path_pdf_ocr)
+                        lst_data_of_time = self.findData(path_pdf_ocr, year)
                     except:
                         lst_data_of_time = ["N/A", "N/A"]
                 print(f"{year}_{quy}: {lst_data_of_time}")
