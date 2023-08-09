@@ -39,7 +39,7 @@ class GetVolume():
         """
         for page in range(len(pdf.pages)):
             text = pdf.pages[page].extract_text()
-            text = text.replace('\n', ' ').replace(' ', '').replace('.', ',').replace('ー', '123,456,789,999').replace('－', '123,456,789,999').replace('―', '123,456,789,999')
+            text = text.replace('\n', ' ').replace('|', '').replace(' ', '').replace('.', ',').replace('ー', '123,456,789,999').replace('－', '123,456,789,999').replace('―', '123,456,789,999').replace('-', '123,456,789,999').replace('−', '123,456,789,999').replace('—', '123,456,789,999')
             text_first = '期末発行済株式数'
             id_first = text.find(text_first)
             if id_first >= 0:
@@ -57,11 +57,19 @@ class GetVolume():
         """
         pdf = self.openPdf(path)
         text = self.findText(pdf)
-        numbers = re.findall(r"\d{1,3}(?:,\d{3})*", text)
-        # print(numbers)
-        numbers = [int(number.replace(",", "")) for number in numbers if (int(number.replace(",", "")) != year and int(number.replace(",", "")) > 300)]
-        numbers = [0 if number == 123456789999 else number for number in numbers ]
-        return [numbers[0], numbers[2]]
+        numbers = re.findall(r"[QＱ](\d{1,3}(?:,\d{3})*)", text)
+        print(text)
+        if len(numbers) == 0:
+            print('1---', numbers)
+            numbers = re.findall(r"[期](\d{1,3}(?:,\d{3})*)", text)
+            numbers = [int(number.replace(",", "")) for number in numbers]
+            numbers = [0 if number == 123456789999 else number for number in numbers ]
+            return [numbers[0], numbers[2]]
+        else:
+            print('2---', numbers)
+            numbers = [int(number.replace(",", "")) for number in numbers]
+            numbers = [0 if number == 123456789999 else number for number in numbers ]
+            return [numbers[0], numbers[1]]
     
     def getDataFromPdf(self,
                         id_company: int = 1301,
