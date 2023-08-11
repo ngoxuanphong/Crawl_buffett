@@ -102,7 +102,7 @@ class GetVolume():
                         lst_data_of_time = self.findData(path_pdf_ocr, year)
                     except:
                         lst_data_of_time = ["N/A", "N/A"]
-                print(f"{year}_{quy}: {lst_data_of_time}")
+                print(f"{id_company}_{year}_{quy}: {lst_data_of_time}")
                 return [date_volume] + lst_data_of_time
         return ["N/A", "N/A", "N/A"]
     
@@ -125,7 +125,10 @@ class GetVolume():
         df = pd.read_csv(self.path_save + f"Data/{id_company}/docs/link.csv")
         for quy in ["Q1", "Q2", "Q3", "Q4"]:
             for id in df.index:
-                year = df[f"Year"][id]
+                if 'year' in df.columns:
+                    year = df[f"Year"][id]
+                else:
+                    year = df.iloc[id, 0][2:6]
                 df_volume.loc[(len(df_volume))] = [f"{year}_{quy}"] + self.getDataFromPdf(
                     id_company, year, quy)
         if save_file:

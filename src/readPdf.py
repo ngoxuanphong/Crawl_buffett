@@ -82,7 +82,8 @@ class ReadPdf():
                         get_volume = GetVolume(path_save=self.path_save)
                         get_volume.getVolume(id_company, save_file=True)
                         self.saveData('Done', i, 'volume')
-                    except:
+                    except Exception as e:
+                        print(f"Error: {id_company}- volume", e)
                         error.append("volume")
 
                 if bool_get_table and lst_com["table"][i] != "Done":

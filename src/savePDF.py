@@ -840,7 +840,7 @@ class GetPpfIrbank():
                     date = re.findall(self.pattern, df.iloc[id, q][0])[0]
                     date =  datetime.strptime(date, '%m/%d')
                     date_save = f'({year}_' + datetime.strftime(date, '%m_%d') + ')'
-                    date = date.strftime('%d%m')
+                    date = date.strftime('%m%d')
                     code = df.iloc[id, q][1].split('/')[-1]
                     if q < 3:
                         link = f"{self.LINK}/{year-1}{date}/{code}.pdf"
