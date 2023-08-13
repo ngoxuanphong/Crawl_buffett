@@ -1,8 +1,39 @@
 import PyPDF2
 import ocrmypdf
 
+import threading
+import time, os
 
-def ocrPDF(input_file, output_file = None):
+# Hàm kiểm tra thời gian và ngắt hàm nếu cần
+def timeout_function(func, timeout):
+    result = None
+    exception = None
+
+    def target():
+        nonlocal result, exception
+        try:
+            result = func()
+        except Exception as e:
+            exception = e
+
+    thread = threading.Thread(target=target)
+    thread.start()
+    thread.join(timeout)
+
+    if thread.is_alive():
+        # Nếu thread vẫn còn sống sau thời gian quy định, ngắt nó
+        raise TimeoutError("Hàm đã chạy quá thời gian quy định")
+    elif exception:
+        # Nếu có exception trong quá trình chạy hàm, ném lại exception
+        raise exception
+    else:
+        return result
+    
+
+def ocrPDF_(input_file, output_file = None):
+    if os.path.getsize(input_file) > 600000:
+        print("File too large, skip OCR", os.path.getsize(input_file))
+        return output_file
     if output_file == None:
         output_file = input_file.replace(".pdf", "_ocr.pdf")
     ocrmypdf.ocr(
@@ -17,6 +48,9 @@ def ocrPDF(input_file, output_file = None):
         max_image_mpixels=500,
     )
     return output_file
+
+def ocrPDF(input_file, output_file = None):
+    timeout_function(ocrPDF_(input_file, output_file), 20)
 
 
 def convertPDFToText(pdf_path):

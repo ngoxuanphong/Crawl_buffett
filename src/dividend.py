@@ -389,7 +389,10 @@ class GetDividend:
         df_dividend = pd.DataFrame(columns=["Year", "Q1", "Q2", "Q3", "Q4"])
         for quy in ["Q4"]:
             for id in df.index:
-                year = df[f"Year"][id]
+                if 'year' in df.columns:
+                    year = df[f"Year"][id]
+                else:
+                    year = df.iloc[id, 0][2:6]
                 df_dividend_year = self.getDividendTableFromPdf(
                     id_company, year, quy
                 )

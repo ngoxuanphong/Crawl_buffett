@@ -91,7 +91,8 @@ class ReadPdf():
                         getTableClass = GetTable(path_save = self.path_save)
                         getTableClass.getTable(id_company, save_file = True)
                         self.saveData('Done', i, 'table')
-                    except:
+                    except Exception as e:
+                        print(f"Error: {id_company}- table", e)
                         error.append("table")
 
                 if bool_get_dividend and lst_com["dividend"][i] != "Done":
@@ -99,7 +100,8 @@ class ReadPdf():
                         dividendClass = GetDividend(path_save=self.path_save)
                         dividendClass.getDividend(id_company, save_file=True)
                         self.saveData('Done', i, 'dividend')
-                    except:
+                    except Exception as e:
+                        print(f"Error: {id_company}- dividend", e)
                         error.append("dividend")
                     
 

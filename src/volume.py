@@ -100,7 +100,8 @@ class GetVolume():
                         if not os.path.exists(path_pdf_ocr):
                             ocrPDF(input_path)
                         lst_data_of_time = self.findData(path_pdf_ocr, year)
-                    except:
+                    except Exception as e:
+                        print(f"{id_company}_{year}_{quy}: {e}")
                         lst_data_of_time = ["N/A", "N/A"]
                 print(f"{id_company}_{year}_{quy}: {lst_data_of_time}")
                 return [date_volume] + lst_data_of_time

@@ -400,7 +400,10 @@ class GetTable:
         print(f'Get table of {id_company}')
         for quy in ['Q1', 'Q2', 'Q3', 'Q4']:
             for id in df_time.index:
-                year = df_time[f'Year'][id]
+                if 'year' in df_time.columns:
+                    year = df_time[f"Year"][id]
+                else:
+                    year = df_time.iloc[id, 0][2:6]
                 check_file = False
 
                 for file in os.listdir(path_save + f'Data/{id_company}/PDF'):
