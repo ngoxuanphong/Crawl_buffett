@@ -29,3 +29,11 @@ if __name__ == "__main__":  # confirms that the code is under main function
     for proc in procs:
         proc.join()
     print("Done")
+
+
+from src.savePDF import GetPpfIrbank
+
+if __name__ == "__main__":
+    irbank = GetPpfIrbank()
+    irbank.getAllCom()
+    # irbank.savePDF(1606)
