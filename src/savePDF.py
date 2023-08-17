@@ -795,8 +795,6 @@ class GetPDF:
         time.sleep(self.time_sleep)
         return self.multiThreadMakeCheckFile()
     
-
-
 class GetPpfIrbank():
     def __init__(self, 
                  path_all_com="docs/List_company_23052023 - Listing.csv",
@@ -818,6 +816,8 @@ class GetPpfIrbank():
 
     def requestPDF(self, path_save_pdf, link_pdf):
         response = requests.get(link_pdf)
+        if '404 NOT FOUND' in response.text:
+            raise Exception('404 NOT FOUND')
         with open(path_save_pdf, "wb") as f:
             f.write(response.content)
 
@@ -842,12 +842,13 @@ class GetPpfIrbank():
                     date_save = f'({year}_' + datetime.strftime(date, '%m_%d') + ')'
                     date = date.strftime('%m%d')
                     code = df.iloc[id, q][1].split('/')[-1]
-                    if q < 3:
+                    try:
                         link = f"{self.LINK}/{year-1}{date}/{code}.pdf"
-                    else:
+                        self.requestPDF(f'{self.PATH_SAVE}/{symbol}/PDF/{year-1}_Q{q}_{date_save}.pdf', link)
+                    except:
                         link = f"{self.LINK}/{year}{date}/{code}.pdf"
+                        self.requestPDF(f'{self.PATH_SAVE}/{symbol}/PDF/{year}_Q{q}_{date_save}.pdf', link)
                     print(date_save, link)
-                    self.requestPDF(f'{self.PATH_SAVE}/{symbol}/PDF/{year}_Q{q}_{date_save}.pdf', link)
                     msg = 'ok'
                 except:
                     msg = 'bug'

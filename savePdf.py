@@ -1,6 +1,7 @@
 # import threading as th
 from multiprocessing import Process
-from src.savePDF import GetProxyDriver, GetPDF
+from src.savePDF import GetPpfIrbank
+from src.savePDF import GetPDF
 import time 
 
 thread_num = 20
@@ -16,7 +17,7 @@ def run():
     )
     # bf.savePDFThread(reverse=True)
     bf.multiThreadMakeCheckFile()
-    # bf.multiThreadFile(reverse=False)
+    bf.multiThreadFile(reverse=False)
 
 if __name__ == "__main__":  # confirms that the code is under main function
     procs = []
@@ -28,4 +29,7 @@ if __name__ == "__main__":  # confirms that the code is under main function
         procs.append(proc)
     for proc in procs:
         proc.join()
-    print("Done")
+
+    irbank = GetPpfIrbank(path_all_com="docs/List_company_23052023 - Listing.csv",
+                          path_save="Data",)
+    irbank.getAllCom()
