@@ -1,8 +1,6 @@
 import pandas as pd
 import numpy as np
-from src.volume import GetVolume
-from src.get_table import GetTable
-from src.dividend import GetDividend
+from src.ocrPdf import GetVolume, GetTable, GetDividend
 import os
 import shutil
 
@@ -292,8 +290,3 @@ class ReadPdf():
                         self.getFinancial(symbol)
                     except Exception as e:
                         print(symbol, e)
-
-
-
-
-

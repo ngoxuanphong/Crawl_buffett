@@ -795,8 +795,6 @@ class GetPDF:
         time.sleep(self.time_sleep)
         return self.multiThreadMakeCheckFile()
     
-
-
 class GetPpfIrbank():
     def __init__(self, 
                  path_all_com="docs/List_company_23052023 - Listing.csv",
