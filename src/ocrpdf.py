@@ -4,7 +4,6 @@ import pdfplumber
 import pandas as pd
 import numpy as np
 import os, re
-from src.ocrPdf import ocrPDF
 import tabula
 import warnings
 warnings.simplefilter("ignore", UserWarning) 

@@ -187,8 +187,8 @@ class ReadPdf():
 
     def getVolume(self, symbol):
         df = pd.read_csv(fr'Data\{symbol}\docs\volume.csv')
-        if not os.path.exists(fr'Data\{symbol}\docs\check.csv'):
-            df['date'] = df[['time', 'date']].apply(lambda x: self.delDate(x['time'], x['date']), axis=1)
+        # if not os.path.exists(fr'Data\{symbol}\docs\check.csv'):
+        #     df['date'] = df[['time', 'date']].apply(lambda x: self.delDate(x['time'], x['date']), axis=1)
         df['volume'] = df['vol1'] - df['vol2']
         df = df[['date', 'volume']]
         df.dropna(how = 'all', inplace=True)

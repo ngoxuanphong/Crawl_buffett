@@ -814,12 +814,20 @@ class GetPpfIrbank():
         df = pd.read_html(str(table),extract_links='all')[0]
         return df
 
-    def requestPDF(self, path_save_pdf, link_pdf):
-        response = requests.get(link_pdf)
-        if '404 NOT FOUND' in response.text:
-            raise Exception('404 NOT FOUND')
-        with open(path_save_pdf, "wb") as f:
-            f.write(response.content)
+    def requestPDF(self, symbol, year, q, date, code):
+        date =  datetime.strptime(date, '%m/%d')
+        for i in range(-1, 2):
+            YEAR = year + i
+            date_save = f'({YEAR}_' + datetime.strftime(date, '%m_%d') + ')'
+            path_save_pdf = f'{self.PATH_SAVE}/{symbol}/PDF/{year}_Q{q}_{date_save}.pdf'
+            link_pdf = f"{self.LINK}/{YEAR}{date.strftime('%m%d')}/{code}.pdf"
+            response = requests.get(link_pdf)
+            if '404 NOT FOUND' not in response.text:
+                with open(path_save_pdf, "wb") as f:
+                    f.write(response.content)
+                return link_pdf
+        print(symbol, YEAR, q, link_pdf, 'not found')
+        return link_pdf
 
     def makeFolder(self, symbol):
         path_pdf = f'{self.PATH_SAVE}/{symbol}/PDF'
@@ -838,19 +846,12 @@ class GetPpfIrbank():
             for q in range(1, 5):
                 try:
                     date = re.findall(self.pattern, df.iloc[id, q][0])[0]
-                    date =  datetime.strptime(date, '%m/%d')
-                    date_save = f'({year}_' + datetime.strftime(date, '%m_%d') + ')'
-                    date = date.strftime('%m%d')
                     code = df.iloc[id, q][1].split('/')[-1]
-                    try:
-                        link = f"{self.LINK}/{year-1}{date}/{code}.pdf"
-                        self.requestPDF(f'{self.PATH_SAVE}/{symbol}/PDF/{year-1}_Q{q}_{date_save}.pdf', link)
-                    except:
-                        link = f"{self.LINK}/{year}{date}/{code}.pdf"
-                        self.requestPDF(f'{self.PATH_SAVE}/{symbol}/PDF/{year}_Q{q}_{date_save}.pdf', link)
-                    print(date_save, link)
+                    link = self.requestPDF(symbol, year, q, date, code)
+                    print(symbol, year, q, link)
                     msg = 'ok'
-                except:
+                except Exception as e:
+                    print(symbol, year, q, e)
                     msg = 'bug'
                 df_check.iloc[id, q] = msg
         df = pd.concat([df, df_check], axis = 1)

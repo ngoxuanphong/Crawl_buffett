@@ -6,9 +6,9 @@ read_pdf = ReadPdf(path_all_com="docs\may_cty.csv",
 
 read_pdf.getAllCom(reverse=True, 
                      bool_get_volume=True, 
-                     bool_get_dividend=False, 
-                     bool_get_table=False)
+                     bool_get_dividend=True, 
+                     bool_get_table=True)
 
 read_pdf.moveToDrive(move_volume=True,
-                     move_dividend=False,
-                     move_table=False)
+                     move_dividend=True,
+                     move_table=True)
