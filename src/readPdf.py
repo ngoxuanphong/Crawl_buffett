@@ -1,3 +1,4 @@
+from datetime import timedelta
 import pandas as pd
 import numpy as np
 from src.ocrPdf import GetVolume, GetTable, GetDividend
@@ -175,19 +176,22 @@ class ReadPdf():
         df['Time'] = df['Time'].dt.strftime('%d/%m/%Y')
         return df
 
-    def getVolume(self, symbol):
-        """
-        Save volume to drive
+    def delDate(self, time, date):
+        if pd.isna(date):
+            return date
+        if 'Q1' in time or 'Q2' in time:
+            date = pd.to_datetime(date, format='%Y_%m_%d', errors='coerce')
+            date = date - timedelta(days=365)
+            date = date.strftime('%Y_%m_%d')
+        return date
 
-        Parameters
-        ----------
-        symbol : str
-            symbol of company
-        """
+    def getVolume(self, symbol):
         df = pd.read_csv(fr'Data\{symbol}\docs\volume.csv')
+        if not os.path.exists(fr'Data\{symbol}\docs\check.csv'):
+            df['date'] = df[['time', 'date']].apply(lambda x: self.delDate(x['time'], x['date']), axis=1)
         df['volume'] = df['vol1'] - df['vol2']
         df = df[['date', 'volume']]
-        df.dropna(inplace=True)
+        df.dropna(how = 'all', inplace=True)
         df.rename(columns={'date': 'Time', 'volume': 'Volume'}, inplace=True)
         df = self.sortDate(df, type_ = 'volume')
         df.to_csv(fr'{self.PATH_volume}{symbol}.csv', index = False)

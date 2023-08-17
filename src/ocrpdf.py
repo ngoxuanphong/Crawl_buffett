@@ -83,7 +83,7 @@ class GetVolume():
         pdf = self.openPdf(path)
         text = self.findText(pdf)
         numbers = re.findall(r"[QＱ](\d{1,3}(?:,\d{3})*)", text)
-        print(text)
+        # print(text)
         if len(numbers) == 0:
             print('1---', numbers)
             numbers = re.findall(r"[期](\d{1,3}(?:,\d{3})*)", text)
