@@ -32,5 +32,5 @@ if __name__ == "__main__":  # confirms that the code is under main function
 
     irbank = GetPpfIrbank(path_all_com="docs/List_company_23052023 - Listing.csv",
                           path_save="Data",)
-    irbank.getAllCom()
-    # irbank.savePDF(symbol=1333)
+    # irbank.getAllCom()
+    irbank.savePDF(symbol=7305)
