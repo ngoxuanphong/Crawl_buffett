@@ -32,11 +32,11 @@ class ReadPdf():
         os.makedirs(self.PATH_volume, exist_ok=True)
         os.makedirs(self.PATH_dividend, exist_ok=True)
 
-    def saveDividendShares(self, id_company, state):
+    def saveDividendShares(self, symbol, state):
         """
         Parameters
         ----------
-        id_company : int
+        symbol : int
         state : str
         
         Return
@@ -48,10 +48,10 @@ class ReadPdf():
         except:
             df = pd.DataFrame(columns = ['Symbol', 'DividendShares'])
 
-        if str(id_company) not in df['Symbol'].values:
-            df.loc[(len(df))] =[str(id_company), state]
+        if str(symbol) not in df['Symbol'].values:
+            df.loc[(len(df))] =[str(symbol), state]
         else:
-            df.loc[df['Symbol'] == str(id_company), 'DividendShares'] = state
+            df.loc[df['Symbol'] == str(symbol), 'DividendShares'] = state
 
         df = df.drop(df.loc[df['Symbol'] == 'Total'].index)
         df.loc[(len(df))] = ['Total', (df['DividendShares']== "Done").sum()]
@@ -61,7 +61,8 @@ class ReadPdf():
                     reverse: bool = False,
                     bool_get_volume: bool = True,
                     bool_get_dividend: bool = True,
-                    bool_get_table: bool = True,):
+                    bool_get_table: bool = True,
+                    list_symbol: list = []):
         """
         Get all company in japan stock
 
@@ -80,6 +81,28 @@ class ReadPdf():
         -------
         None
         """
+        if list_symbol != []:
+            for symbol in list_symbol:
+                try:
+                    if bool_get_volume:
+                        get_volume = GetVolume(path_save=self.path_save)
+                        get_volume.getVolume(symbol, save_file=True)
+                except Exception as e:
+                    print(f"Error: {symbol}", e)
+                try:
+                    if bool_get_table:
+                        getTableClass = GetTable(path_save = self.path_save)
+                        getTableClass.getTable(symbol, save_file = True)
+                except Exception as e:
+                    print(f"Error: {symbol}", e)
+                try:
+                    if bool_get_dividend:
+                        dividendClass = GetDividend(path_save=self.path_save)
+                        dividendClass.getDividend(symbol, save_file=True)
+                except Exception as e:
+                    print(f"Error: {symbol}", e)
+            return
+
         self.reverse = reverse
 
         lst_com = pd.read_csv(self.path_all_com)
@@ -92,36 +115,32 @@ class ReadPdf():
             lst_com = lst_com[::-1]
 
         for i in lst_com.index:
-            id_company = lst_com["Symbol"][i]
+            symbol = lst_com["Symbol"][i]
             check = lst_com["check"][i]
             if check == "Done":
-                error = []
                 if bool_get_volume and lst_com["volume"][i] != "Done":
                     try:
                         get_volume = GetVolume(path_save=self.path_save)
-                        get_volume.getVolume(id_company, save_file=True)
+                        get_volume.getVolume(symbol, save_file=True)
                         self.saveData('Done', i, 'volume')
                     except Exception as e:
-                        print(f"Error: {id_company}- volume", e)
-                        error.append("volume")
+                        print(f"Error: {symbol}- volume", e)
 
                 if bool_get_table and lst_com["table"][i] != "Done":
                     try:
                         getTableClass = GetTable(path_save = self.path_save)
-                        getTableClass.getTable(id_company, save_file = True)
+                        getTableClass.getTable(symbol, save_file = True)
                         self.saveData('Done', i, 'table')
                     except Exception as e:
-                        print(f"Error: {id_company}- table", e)
-                        error.append("table")
+                        print(f"Error: {symbol}- table", e)
 
                 if bool_get_dividend and lst_com["dividend"][i] != "Done":
                     try:
                         dividendClass = GetDividend(path_save=self.path_save)
-                        dividendClass.getDividend(id_company, save_file=True)
+                        dividendClass.getDividend(symbol, save_file=True)
                         self.saveData('Done', i, 'dividend')
                     except Exception as e:
-                        print(f"Error: {id_company}- dividend", e)
-                        error.append("dividend")
+                        print(f"Error: {symbol}- dividend", e)
                     
                     
 
@@ -185,7 +204,7 @@ class ReadPdf():
             date = date.strftime('%Y_%m_%d')
         return date
 
-    def getVolume(self, symbol):
+    def moveVolume(self, symbol):
         df = pd.read_csv(fr'Data\{symbol}\docs\volume.csv')
         # if not os.path.exists(fr'Data\{symbol}\docs\check.csv'):
         #     df['date'] = df[['time', 'date']].apply(lambda x: self.delDate(x['time'], x['date']), axis=1)
@@ -197,7 +216,7 @@ class ReadPdf():
         df.to_csv(fr'{self.PATH_volume}{symbol}.csv', index = False)
         return df
 
-    def getDividend(self, symbol):
+    def moveDividend(self, symbol):
         """
         Save dividend to drive
 
@@ -227,7 +246,7 @@ class ReadPdf():
         return df_done
 
 
-    def getFinancial(self, symbol):
+    def moveFinancial(self, symbol):
         """
         Save financial to drive
 
@@ -252,7 +271,8 @@ class ReadPdf():
     def moveToDrive(self
                     , move_volume = False
                     , move_dividend = False
-                    , move_financial = False):
+                    , move_financial = False
+                    , list_symbol = []):
         """
         Move data to drive
 
@@ -269,7 +289,27 @@ class ReadPdf():
         -------
         None
         """
+        if list_symbol != []:
+            for symbol in list_symbol:
+                if move_volume:
+                    try:
+                        self.moveVolume(symbol)
+                    except Exception as e:
+                        print(symbol, e)
 
+                if move_financial:
+                    try:
+                        self.moveFinancial(symbol)
+                    except Exception as e:
+                        print(symbol, e)
+
+                if move_dividend:
+                    try:
+                        self.moveDividend(symbol)
+                    except Exception as e:
+                        print(symbol, e)
+            return
+        
         df = pd.read_csv(self.path_all_com)
 
         for id in df.index:
@@ -277,20 +317,18 @@ class ReadPdf():
             if df['check'][id] == 'Done':
                 if os.path.exists(fr'Data\{symbol}\docs\volume.csv') and move_volume:
                     try:
-                        self.getVolume(symbol)
+                        self.moveVolume(symbol)
                     except Exception as e:
                         print(symbol, e)
-                        break
 
                 if os.path.exists(fr'Data\{symbol}\docs\dividend.csv') and move_dividend:
                     try:
-                        self.getDividend(symbol)
+                        self.moveDividend(symbol)
                     except Exception as e:
                         print(symbol, e)
-                        break
                 
                 if move_financial:
                     try:
-                        self.getFinancial(symbol)
+                        self.moveFinancial(symbol)
                     except Exception as e:
                         print(symbol, e)

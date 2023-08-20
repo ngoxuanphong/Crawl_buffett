@@ -1,4 +1,3 @@
-import PyPDF2
 import ocrmypdf
 import pdfplumber
 import pandas as pd
@@ -9,9 +8,9 @@ import warnings
 warnings.simplefilter("ignore", UserWarning) 
 
 def ocrPDF(input_file, output_file = None):
-    if os.path.getsize(input_file) > 600000:
-        print("File too large, skip OCR", os.path.getsize(input_file))
-        return output_file
+    # if os.path.getsize(input_file) > 600000:
+    #     print("File too large, skip OCR", os.path.getsize(input_file))
+    #     return output_file
     if output_file == None:
         output_file = input_file.replace(".pdf", "_ocr.pdf")
     ocrmypdf.ocr(
