@@ -1,24 +1,30 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.edge.options import Options
 import time, os
 import pandas as pd
 import numpy as np
 
-class morningstar():
+class Morningstar():
 
     def __init__(self, 
-                 path_download = '/Users/mac/Downloads',
+                 path_download = 'A:\Phong\Crawl_buffett\Financial',
                  email = 'quynhtranga1k2000@gmail.com',
                  password = 'Trang0987145288'): 
         
         self.EMAIL = email
         self.PASSWORD = password
-        self.PATH = path_download
+        self.PATH = path_download.replace('Financial','Download')
+        self.PATH_SAVE = path_download
+        os.makedirs(path_download, exist_ok=True)
+        os.makedirs(self.PATH, exist_ok=True)
         self.setDriver()
         self.login()
 
     def setDriver(self):
-        self.driver = webdriver.Chrome()
+        options = Options()
+        options.add_experimental_option("prefs", {"download.default_directory": self.PATH})
+        self.driver = webdriver.Edge(options=options)
         self.driver.maximize_window()
 
     def login(self):
@@ -43,8 +49,8 @@ class morningstar():
 
         # download income statement
         self.driver.find_element(By.XPATH, '//*[@id="__layout"]/div/div/div[2]/div[3]/div/main/div/div/div[1]/section/sal-components/div/sal-components-stocks-financials/div/div/div/div/div/div/div[2]/div[1]/div[2]/div/div/div/div/div/div/div/div[2]/div[2]/div[2]/button').click()
-        time.sleep(10)
-        os.rename(f'{self.PATH}/Income Statement_Annual_As Originally Reported.xls', f'{self.PATH}/{symbol}_income.csv')
+        # time.sleep(10)
+        # os.rename(f'{self.PATH}/Income Statement_Annual_As Originally Reported.xls', f'{self.PATH}/{symbol}_income.csv')
 
         # balance sheet
         self.driver.find_element(By.XPATH, '//*[@id="balanceSheet"]').click()
@@ -52,10 +58,10 @@ class morningstar():
 
         # download balance sheet
         self.driver.find_element(By.XPATH, '//*[@id="__layout"]/div/div/div[2]/div[3]/div/main/div/div/div[1]/section/sal-components/div/sal-components-stocks-financials/div/div/div/div/div/div/div[2]/div[1]/div[2]/div/div/div/div/div/div/div/div[2]/div[2]/div[2]/button').click()
-        time.sleep(10)
-        os.rename(f'{self.PATH}/Balance Sheet_Annual_As Originally Reported.xls', f'{self.PATH}/{symbol}_balance.csv')
+        # time.sleep(10)
+        # os.rename(f'{self.PATH}/Balance Sheet_Annual_As Originally Reported.xls', f'{self.PATH}/{symbol}_balance.csv')
 
-    def run(self, path_symbol):
+    def run(self, path_symbol = 'docs\ListCom_Germany.xlsx'):
 
         df = pd.read_excel(path_symbol)
         if 'check' not in df.columns: # create column if not exist
@@ -67,9 +73,6 @@ class morningstar():
             if check == 'Done':
                 continue
             try:
-                if os.path.exists(f'{self.PATH}/{symbol}_balance.csv') and os.path.exists(f'{self.PATH}/{symbol}_income.csv'):
-                    df['check'][id] = 'Done'
-                    continue
                 self.getFinancialSymbols(symbol)
                 df['check'][id] = 'Done'
                 print(symbol, 'done')
@@ -77,8 +80,15 @@ class morningstar():
                 df['check'][id] = e
                 print(symbol, e)
 
-        df.to_excel(path_symbol, index=False)
+            self.moveToFolder()
+            df.to_excel(path_symbol, index=False)
 
-
-# ms = morningstar(path_download = '/Users/mac/Downloads')
-# ms.run('docs/ListCom_Germany.xlsx')
+    def moveToFolder(self,):
+        lt_ = os.listdir(f'{self.PATH}')
+        for i in lt_:
+            print(i)
+            xls = pd.ExcelFile(f'{self.PATH}\{i}')
+            sheetX = xls.parse(0)
+            str1 = list(sheetX.columns)[0]
+            re = str1[0:str1.find('-')]
+            sheetX.to_csv(f'{self.PATH_SAVE}\{re}.csv', index = False)
