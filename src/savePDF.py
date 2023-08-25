@@ -842,16 +842,16 @@ class GetPpfIrbank():
         path_pdf, path_docs = self.makeFolder(symbol)
         df.to_csv(f'{path_docs}/link.csv', index = False)
         for id in df.index:
-            year = int(df.iloc[id, 0][0].split('/')[0])
             for q in range(1, 5):
                 try:
+                    year = int(df.iloc[id, 0][0].split('/')[0])
                     date = re.findall(self.pattern, df.iloc[id, q][0])[0]
                     code = df.iloc[id, q][1].split('/')[-1]
                     link = self.requestPDF(symbol, year, q, date, code)
                     print(symbol, year, q, link)
                     msg = 'ok'
                 except Exception as e:
-                    print(symbol, year, q, e)
+                    print(symbol, q, e)
                     msg = 'bug'
                 df_check.iloc[id, q] = msg
         df = pd.concat([df, df_check], axis = 1)
