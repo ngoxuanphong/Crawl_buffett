@@ -8,6 +8,8 @@
 .pytest_cache
 /Data/
 /Done/
+/Download
+/Financial
 .vscode/
 /data_1/
 # !/Data/1301/**
