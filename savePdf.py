@@ -20,15 +20,15 @@ def run():
     bf.multiThreadFile(reverse=False)
 
 if __name__ == "__main__":  # confirms that the code is under main function
-    # procs = []
-    # for id_process in range(thread_num):
-    #     # proc = th.Thread(target=run, args=())
-    #     proc = Process(target=run, args=())
-    #     time.sleep(5)
-    #     proc.start()
-    #     procs.append(proc)
-    # for proc in procs:
-    #     proc.join()
+    procs = []
+    for id_process in range(thread_num):
+        # proc = th.Thread(target=run, args=())
+        proc = Process(target=run, args=())
+        time.sleep(5)
+        proc.start()
+        procs.append(proc)
+    for proc in procs:
+        proc.join()
 
     irbank = GetPpfIrbank(path_all_com="docs/List_company_23052023 - Listing.csv",
                           path_save="Data",)
