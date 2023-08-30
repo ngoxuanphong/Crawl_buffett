@@ -83,13 +83,13 @@ class GetVolume():
         numbers = re.findall(r"[QＱ](\d{1,3}(?:,\d{3})*)", text)
         # print(text)
         if len(numbers) == 0:
-            print('1---', numbers)
+            # print('1---', numbers)
             numbers = re.findall(r"[期](\d{1,3}(?:,\d{3})*)", text)
             numbers = [int(number.replace(",", "")) for number in numbers]
             numbers = [0 if number == 123456789999 else number for number in numbers ]
             return [numbers[0], numbers[2]]
         else:
-            print('2---', numbers)
+            # print('2---', numbers)
             numbers = [int(number.replace(",", "")) for number in numbers]
             numbers = [0 if number == 123456789999 else number for number in numbers ]
             return [numbers[0], numbers[1]]
@@ -124,7 +124,7 @@ class GetVolume():
                             ocrPDF(input_path)
                         lst_data_of_time = self.findData(path_pdf_ocr, year)
                     except Exception as e:
-                        print(f"{id_company}_{year}_{quy}: {e}")
+                        # print(f"{id_company}_{year}_{quy}: {e}")
                         lst_data_of_time = ["N/A", "N/A"]
                 print(f"{id_company}_{year}_{quy}: {lst_data_of_time}")
                 return [date_volume] + lst_data_of_time

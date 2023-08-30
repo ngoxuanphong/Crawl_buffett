@@ -7,6 +7,22 @@ import shutil
 
 
 class ReadPdf():
+    """
+    Read pdf file and move to driver
+    
+    Parameters
+    ----------
+    path_all_com : str
+        path to list company
+        default: "docs/List_company_23052023 - Listing.csv"
+    path_save : str
+        path to save data
+        default: "Data"
+    PATH_DRIVER : str
+        path to driver
+        default: "I:/My Drive/6_2023/DoneJapan"
+
+        """
     def __init__(
         self,
         path_all_com="docs/List_company_23052023 - Listing.csv",
@@ -196,6 +212,21 @@ class ReadPdf():
         return df
 
     def delDate(self, time, date):
+        """
+        Trừ đi 1 năm, Hàm này bỏ, không dùng đến
+
+        Parameters
+        ----------
+        time : str
+            time
+        date : str
+            date
+        Returns
+        -------
+        date : str
+            date
+        """
+
         if pd.isna(date):
             return date
         if 'Q1' in time or 'Q2' in time:
