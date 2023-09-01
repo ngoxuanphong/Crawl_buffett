@@ -119,14 +119,21 @@ def vote(driver):
     time.sleep(0.5)
     for i in range(3):
         try:
-            driver.find_element(By.XPATH, '//*[@id="app-vote"]/div[9]/p/img').click()
-            time.sleep(0.5)
             soup = BeautifulSoup(driver.page_source, 'html.parser')
             if 'Đại học Ngoại thương' in soup.text:
-                print('Đã vote', end=' ')
-                driver.find_element(By.XPATH, '//*[@id="app-vote"]/div[2]/div/span[2]/p').click()
-                time.sleep(1)
+                
+                x1 = soup.find_all('div', {'class': 'app-rank__item-body app-new__item-body'})
+                for i in range(len(x1)):
+                    if 'Đại học Ngoại thương' in x1[i].text:
+                        print('Đã vote', end=' ')
+                        driver.find_element(By.XPATH, f'//*[@id="app-vote"]/div[2]/div/span[{i+1}]/p').click()
+                        time.sleep(2)
+                        break
                 break
+            else:
+                time.sleep(0.5)
+                driver.find_element(By.XPATH, '//*[@id="app-vote"]/div[9]/p/img').click()
+            time.sleep(0.5)
         except Exception as e:
             # print(e)
             pass
@@ -152,17 +159,16 @@ def run(MAY):
 
         driver.close()
 
-run(1)
-# from multiprocessing import Process
-# thread_num = 5
+from multiprocessing import Process
+thread_num = 15
 
-# if __name__ == "__main__":  # confirms that the code is under main function
-#     procs = []
-#     for id_process in range(thread_num):
-#         # proc = th.Thread(target=run, args=())
-#         proc = Process(target=run, args=(id_process,))
-#         time.sleep(5)
-#         proc.start()
-#         procs.append(proc)
-#     for proc in procs:
-#         proc.join()
+if __name__ == "__main__":  # confirms that the code is under main function
+    procs = []
+    for id_process in range(thread_num):
+        # proc = th.Thread(target=run, args=())
+        proc = Process(target=run, args=(id_process,))
+        time.sleep(5)
+        proc.start()
+        procs.append(proc)
+    for proc in procs:
+        proc.join()
